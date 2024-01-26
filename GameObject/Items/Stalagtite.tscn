@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://1alyur14x4ue"]
 
-[ext_resource type="Texture2D" uid="uid://b226kev5iwmv5" path="res://Assets/Bullet.png" id="1_7l7ox"]
+[ext_resource type="Texture2D" uid="uid://cr77e7qx150k8" path="res://Assets/Hazards/stalagtite.png" id="1_esj6e"]
 [ext_resource type="Script" path="res://GameObject/Items/ProjectileShooting.gd" id="2_4kyyn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxhoo"]
 radius = 17.0
-height = 42.0
+height = 44.0096
 
 [node name="ProjectileTemplate" type="Area2D"]
 rotation = -1.57588
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.148648, 0.297304)
-rotation = 1.56839
-scale = Vector2(0.0698438, 0.0924708)
-texture = ExtResource("1_7l7ox")
+position = Vector2(1.91863, 16.01)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_esj6e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yxhoo")
