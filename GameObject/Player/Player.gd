@@ -24,7 +24,7 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 		
 		# Face the direction you're walking towards
-		scale.x = scale.y * direction * -1
+		scale.x = scale.y * direction
 
 	else:
 		velocity.x *= DEACCEL_FACTOR
