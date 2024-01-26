@@ -16,7 +16,7 @@ size = Vector2(209, 279.5)
 
 [node name="Node2D" type="CharacterBody2D"]
 position = Vector2(97, 72)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_1jdeh")
 
 [node name="Node2D" type="Node2D" parent="."]
