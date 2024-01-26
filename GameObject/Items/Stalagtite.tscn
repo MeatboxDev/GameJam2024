@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpbxus5dsxp0y"]
+[gd_scene load_steps=4 format=3 uid="uid://1alyur14x4ue"]
 
-[ext_resource type="Script" path="res://GameObject/Items/ProjectileShooting.gd" id="1_jrwti"]
-[ext_resource type="Texture2D" uid="uid://63i5s3ctme0c" path="res://Assets/boykisser.png" id="1_xv7c4"]
+[ext_resource type="Texture2D" uid="uid://b226kev5iwmv5" path="res://Assets/Bullet.png" id="1_7l7ox"]
+[ext_resource type="Script" path="res://GameObject/Items/ProjectileShooting.gd" id="2_4kyyn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxhoo"]
 radius = 17.0
@@ -10,13 +10,15 @@ height = 42.0
 [node name="ProjectileTemplate" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_xv7c4")
+position = Vector2(-0.148648, 0.297304)
+rotation = 1.56839
+scale = Vector2(0.0698438, 0.0924708)
+texture = ExtResource("1_7l7ox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yxhoo")
 
 [node name="ProjectileShooting" type="Node" parent="."]
-script = ExtResource("1_jrwti")
+script = ExtResource("2_4kyyn")
 
 [connection signal="body_entered" from="." to="ProjectileShooting" method="_on_projectile_template_body_entered"]
