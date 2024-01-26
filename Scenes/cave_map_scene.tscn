@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://cftwul16yqdgk"]
+
+[ext_resource type="Texture2D" uid="uid://63i5s3ctme0c" path="res://Assets/boykisser.png" id="1_cxgyo"]
+[ext_resource type="Script" path="res://GameObject/Player/PlayerController.gd" id="2_ra4c3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_06v6u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gsj1"]
+size = Vector2(512.398, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_maiqt"]
+size = Vector2(170, 220)
+
+[node name="CaveMap" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(552, 678)
+scale = Vector2(2.50977, 1)
+texture = SubResource("NoiseTexture2D_06v6u")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" groups=["Terrain"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_7gsj1")
+
+[node name="Boykisser" type="Sprite2D" parent="."]
+position = Vector2(392.9, 338.55)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_cxgyo")
+
+[node name="Area2D" type="Area2D" parent="Boykisser"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boykisser/Area2D"]
+position = Vector2(0.499878, 2.25)
+shape = SubResource("RectangleShape2D_maiqt")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Gravity" type="Node" parent="Boykisser"]
+script = ExtResource("2_ra4c3")
+
+[connection signal="area_entered" from="Boykisser/Area2D" to="Boykisser/Gravity" method="_on_area_2d_area_entered"]
