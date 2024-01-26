@@ -12,15 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://t2x5u4nmwrpl" path="res://Assets/PlayerRig/Eyes.png" id="10_7hi01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4bvk"]
-size = Vector2(209, 279.5)
+size = Vector2(209, 289.75)
 
 [node name="Node2D" type="CharacterBody2D"]
-position = Vector2(97, 72)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_1jdeh")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-324, -212)
+position = Vector2(-320, -256.667)
 
 [node name="RightLeg" type="Polygon2D" parent="Node2D"]
 position = Vector2(329, 288)
@@ -102,7 +101,7 @@ uv = PackedVector2Array(104.047, 71.9149, 122.344, 89.5745, 142.77, 96.5957, 175
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/LeftArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/RightArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/RightEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/LeftEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/LeftEye", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/RightEye", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/LeftLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LeftLeg/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/RightLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/RightLeg/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
-position = Vector2(-324, -212)
+position = Vector2(-320, -250)
 
 [node name="Hip" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(318, 288)
@@ -171,5 +170,5 @@ length = 43.649
 bone_angle = -181.622
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.25)
+position = Vector2(0, -48.4583)
 shape = SubResource("RectangleShape2D_p4bvk")
