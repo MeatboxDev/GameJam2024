@@ -1,9 +1,7 @@
 extends Node
 
-@export var acceleration:Vector2 = Vector2(0, 0)
-@export var initial_speed:Vector2 = Vector2(0, 0)
-@export var gravity:float = 1
-
+var gravity:float = 1
+var life_time:int = 0
 var speed:Vector2 = Vector2(0, 0)
 
 var parent:Area2D
@@ -16,8 +14,9 @@ func _ready():
 func _physics_process(delta):
 	speed.y += gravity
 	parent.position += speed
-	parent.rotation = lerp_angle(parent.rotation, speed.angle(), 0.1)
-	pass
+	parent.rotation = speed.angle() - PI/2
+	if (life_time < 0): parent.queue_free()
+	life_time -= 1
 
 func _on_projectile_template_body_entered(body):
 	# Cuando choque contra otro body la variable body sera ese body

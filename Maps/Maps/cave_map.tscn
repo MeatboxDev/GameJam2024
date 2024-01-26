@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc8a8rmtpbdfv"]
+[gd_scene load_steps=4 format=3 uid="uid://bfn508iybd1lm"]
 
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
-[ext_resource type="PackedScene" uid="uid://bnqhkpc023fec" path="res://GameObject/Player/Player.tscn" id="2_i5mmj"]
+[ext_resource type="PackedScene" path="res://GameObject/Player/Player.tscn" id="2_i5mmj"]
+[ext_resource type="Script" path="res://GameObject/Items/SpawnProjectile.gd" id="4_rrj40"]
 
 [node name="CaveMap" type="Node2D"]
 
@@ -21,3 +22,13 @@ polygon = PackedVector2Array(-154.8, 238, -157.8, 162.5, -166.9, 221, -177.2, 22
 
 [node name="Player" parent="." instance=ExtResource("2_i5mmj")]
 position = Vector2(1020, 198)
+
+[node name="StalagtiteSpawner" type="Node2D" parent="."]
+position = Vector2(950, 579)
+
+[node name="Node" type="Node" parent="StalagtiteSpawner"]
+script = ExtResource("4_rrj40")
+projectile_path = "res://GameObject/Items/Stalagtite.tscn"
+max_projectiles = 2
+frequency = 300
+horizontal_variation = 250.0

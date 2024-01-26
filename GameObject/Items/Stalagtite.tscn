@@ -8,6 +8,7 @@ radius = 17.0
 height = 42.0
 
 [node name="ProjectileTemplate" type="Area2D"]
+rotation = -1.57588
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-0.148648, 0.297304)
