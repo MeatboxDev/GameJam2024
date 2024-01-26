@@ -11,14 +11,9 @@ config_version=5
 [application]
 
 config/name="GAMEJAM2024"
-run/main_scene="res://Maps/Maps/test_map.tscn"
+run/main_scene="res://Scenes/cave_map_scene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1280
 
 [input]
 
