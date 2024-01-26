@@ -1,58 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://o4ll4xlqg5ws"]
+[gd_scene load_steps=3 format=3 uid="uid://o4ll4xlqg5ws"]
 
 [ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_3vm81"]
+[ext_resource type="Texture2D" uid="uid://dc018thjt6kye" path="res://Assets/MainMenu/MainMenu.png" id="2_eu5g5"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3vm81")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 0
-offset_right = 1921.0
-offset_bottom = 1079.0
+[node name="MainMenu" type="Sprite2D" parent="."]
+position = Vector2(961, 539)
+texture = ExtResource("2_eu5g5")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 200
-
-[node name="Title_Label" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer2"]
-custom_minimum_size = Vector2(1000, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 100
-text = "Epic Monigote Showdown"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 350
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 350
-theme_override_constants/margin_bottom = 400
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
-
-[node name="Play_Button" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Play_Button" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+offset_left = 800.0
+offset_top = 737.0
+offset_right = 1100.0
+offset_bottom = 817.0
 theme_override_font_sizes/font_size = 40
 text = "Play"
 
-[node name="Quit_Button" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="Quit_Button" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+offset_left = 798.0
+offset_top = 887.0
+offset_right = 1098.0
+offset_bottom = 967.0
 theme_override_font_sizes/font_size = 40
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Quit_Button" to="." method="_on_quit_button_pressed"]
