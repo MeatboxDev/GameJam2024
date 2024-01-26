@@ -15,15 +15,12 @@ run/main_scene="res://Scenes/cave_map_scene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
-<<<<<<< HEAD
-=======
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1280
 window/size/mode=3
 
->>>>>>> 98d3a26 (Added support for controller)
 [input]
 
 move_left={
