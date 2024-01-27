@@ -22,12 +22,13 @@ func _ready():
 func _process(delta):
 	if (timer == 0):
 		if (get_child_count() < max_projectiles):
-			var projectile = load(projectile_path).instantiate()
-			projectile.position.x = get_parent().position.x + randf_range(-horizontal_variation, horizontal_variation)
-			projectile.position.y = get_parent().position.y
-			projectile.find_child("ProjectileShooting").speed = initial_speed
-			projectile.find_child("ProjectileShooting").life_time = life_time
-			add_child(projectile)
+			pass
+			#var projectile = load(projectile_path).instantiate()
+			#projectile.position.x = get_parent().position.x + randf_range(-horizontal_variation, horizontal_variation)
+			#projectile.position.y = get_parent().position.y
+			#projectile.find_child("ProjectileShooting").speed = initial_speed
+			#projectile.find_child("ProjectileShooting").life_time = life_time
+			#add_child(projectile)
 		timer = frequency + randf_range(-frequency_variation, frequency_variation)
 	timer -= 1
 	pass

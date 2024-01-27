@@ -1,35 +1,44 @@
 extends CharacterBody2D
 
-var jumping = false
+var jumps = 0
+var jump_pressed = false
 
-@export var SPEED = 300.0
-@export var JUMP_VELOCITY = -600.0
-@export var JUMP_ACCELERATION = 100.0
+@export var player_index = 0
+
+@export var SPEED = 500.0
+@export var JUMP_VELOCITY = -2.0
 @export var DEACCEL_FACTOR = 0.9
+@export var GRAVITY = 3 * 1000
+
+# Joycon keys
+const JOYCON_LEFT = 14
+const JOYCON_RIGHT = 15
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += GRAVITY * delta
+	else:
+		# Reset double jump
+		jumps = 0
+		jump_pressed = false
 	
-	# Handle jump.
-	if Input.is_action_pressed("jump") and is_on_floor():
-		jumping = true
-	elif Input.is_action_just_released("jump"):
-		jumping = false
-		
-	if jumping:
-		if velocity.y >= JUMP_VELOCITY:
-			velocity.y -= JUMP_ACCELERATION
-		else:
-			jumping = false
+	# Handle jumping and double jumping
+	#if Input.is_action_just_pressed("jump"):
+	if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A) and not jump_pressed:
+		print(player_index)
+		jump_pressed = true
+		jumps += 1
+		if jumps <= 2:
+			velocity.y = JUMP_VELOCITY * SPEED
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
+	#var direction = Input.get_axis("move_left", "move_right")
+	var direction = round(Input.get_joy_axis(player_index, JOY_AXIS_LEFT_X))
 	if direction:
 		velocity.x = direction * SPEED
 		

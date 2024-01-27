@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bc8a8rmtpbdfv"]
 
+[ext_resource type="Script" path="res://Maps/Maps/cave_map.gd" id="1_aa84g"]
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
-[ext_resource type="PackedScene" uid="uid://effaojulurqt" path="res://GameObject/Player/Player.tscn" id="2_i5mmj"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/SpawnProjectile.gd" id="4_rrj40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
@@ -21,6 +21,7 @@ size = Vector2(253, 26)
 size = Vector2(263.5, 38)
 
 [node name="CaveMap" type="Node2D"]
+script = ExtResource("1_aa84g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -75,6 +76,3 @@ shape = SubResource("RectangleShape2D_ckcmr")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Foreground"]
 position = Vector2(553.25, 558)
 shape = SubResource("RectangleShape2D_h0aj5")
-
-[node name="Node2D" parent="." instance=ExtResource("2_i5mmj")]
-position = Vector2(452, 65)

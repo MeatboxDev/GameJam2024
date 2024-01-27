@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://effaojulurqt"]
+[gd_scene load_steps=11 format=3 uid="uid://effaojulurqt"]
 
 [ext_resource type="Script" path="res://GameObject/Player/Player.gd" id="1_1jdeh"]
 [ext_resource type="Texture2D" uid="uid://denr8tb56cr70" path="res://Assets/PlayerRig/RightFoot.png" id="2_fkv6p"]
@@ -10,19 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c0jqdjfnawqfc" path="res://Assets/PlayerRig/Head.png" id="8_4ydma"]
 [ext_resource type="Texture2D" uid="uid://baqsnhj50nxv5" path="res://Assets/PlayerRig/LeftHand.png" id="9_afyqm"]
 [ext_resource type="Texture2D" uid="uid://t2x5u4nmwrpl" path="res://Assets/PlayerRig/Eyes.png" id="10_7hi01"]
-[ext_resource type="Script" path="res://GameObject/Player/HoldScript.gd" id="11_w2ga1"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
-size = Vector2(655, 133.333)
 
 [node name="Node2D" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_1jdeh")
-
-[node name="Hold" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hold"]
-shape = SubResource("RectangleShape2D_cb0tq")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-320, -256.667)
@@ -214,6 +205,3 @@ polygon = PackedVector2Array(35.9768, 1.54739, 7.73694, 21.0832, 2.51451, 31.528
 [node name="LeftEye4" type="CollisionPolygon2D" parent="."]
 position = Vector2(-84, -157.667)
 polygon = PackedVector2Array(104.047, 71.9149, 122.344, 89.5745, 142.77, 96.5957, 175.323, 94.2553, 191.919, 81.2766, 200.004, 57.6596, 196.6, 26.8085, 190.217, 11.7021, 169.366, 1.06383, 147.238, 0.638298, 124.047, 5.31915, 112.557, 17.4468, 104.472, 35.1064, 101.281, 50)
-
-[node name="HoldingScript" type="Node" parent="."]
-script = ExtResource("11_w2ga1")
