@@ -7,8 +7,11 @@ func _ready():
 	const boykisser_scene = preload("res://GameObject/Player/Boykisser.tscn")
 	
 	# Controllers
-	print(Input.get_connected_joypads())
-	#var connected_controllers = Input.get_connected_joypads()
+	var connected_controllers = Input.get_connected_joypads()
+	
+	print("%d connected controllers" % connected_controllers.size())
+	for i in connected_controllers:
+		print("#%d: %s" % [i, Input.get_joy_name(i)])
 	
 	# Player 1
 	var player1 = player_scene.instantiate()

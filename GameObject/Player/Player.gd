@@ -19,6 +19,20 @@ const JOYCON_RIGHT = 15
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+
+func _input(event):
+	if event is InputEventJoypadButton and event.is_pressed():
+		if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A) and event.button_index == JOY_BUTTON_A and not joy_button_pressed:
+			# Player pressed X
+			joy_button_pressed = true
+			jumps += 1
+	
+	elif event is InputEventJoypadButton and event.is_released():
+		if not Input.is_joy_button_pressed(player_index, JOY_BUTTON_A) and event.button_index == JOY_BUTTON_A:
+			# Player released X
+			joy_button_pressed = false
+			
+
 func _physics_process(delta):	
 	# Add the gravity.
 	if not is_on_floor():
@@ -30,14 +44,9 @@ func _physics_process(delta):
 	# Handle jumping and double jumping
 	#if Input.is_action_just_pressed("jump"):
 	if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A):
-		if !joy_button_pressed:
-			joy_button_pressed = true
-			 
-			jumps += 1
-			if jumps <= 2:
-				velocity.y = JUMP_VELOCITY * SPEED
-		else:
+		if jumps <= 2 and joy_button_pressed:
 			joy_button_pressed = false
+			velocity.y = JUMP_VELOCITY * SPEED
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
