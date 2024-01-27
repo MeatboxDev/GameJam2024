@@ -11,9 +11,7 @@ func _ready():
 	add_child(MapAnimations)
 	MapAnimations.camera = $MapCamera
 	
-	await MapAnimations.FadeIn(0.5)
-	await MapAnimations.wait(2.0)
-	#await MapAnimations.PanoramicAnimation()
+	await MapAnimations.PanoramicAnimation()
 	
 	# Add all unique controllers we can detect
 	var connected_controllers = []

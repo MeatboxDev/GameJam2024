@@ -12,22 +12,38 @@ func PanoramicAnimation():
 	
 	var zoom = 1.5
 	
+	await FadeIn(1.5)
+	await FadeOut(0.5)
+	
 	# Initial camera setting
 	set_zoom(zoom)
 	
-	FadeIn(1.0)	
-	await wait(2)
+	FadeIn(1.0)
 	
 	# Pan down-up
-	for i in range(150, 0, -1):
+	for i in range(150, 50, -1):
 		set_offset(normal_offset.x, i)
 		await wait(0.01)
 		
-	# Pan left-right
-	for i in range(0, 150):
-		set_offset(i, normal_offset.y)
+	FadeOut(0.3)
+		
+	for i in range(50, 0, -1):
+		set_offset(normal_offset.x, i)
 		await wait(0.01)
 
+	FadeIn(0.8)
+		
+	# Pan left-right
+	for i in range(-300, 0, 3):
+		set_offset(i, normal_offset.y)
+		await wait(0.01)
+		
+	FadeOut(1.0)
+	
+	for i in range(0, 300, 3):
+		set_offset(i, normal_offset.y)
+		await wait(0.01)
+		
 	
 	# Restore normal values
 	camera.zoom = normal_zoom
