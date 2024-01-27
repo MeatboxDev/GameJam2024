@@ -20,7 +20,7 @@
 [ext_resource type="Animation" uid="uid://domasun2op0d2" path="res://Assets/PlayerRig/Jump.res" id="18_xyqx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
-size = Vector2(655, 133.333)
+size = Vector2(655, 363.333)
 
 [sub_resource type="Animation" id="Animation_6l6re"]
 resource_name = "Fall"
@@ -296,6 +296,7 @@ script = ExtResource("1_1jdeh")
 [node name="Hold" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hold"]
+position = Vector2(0, -88.3333)
 shape = SubResource("RectangleShape2D_cb0tq")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -400,7 +401,6 @@ rest = Transform2D(0.0331552, -0.99945, 0.99945, 0.0331552, 318, 288)
 [node name="Rib" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(57.6743, 1.29312)
 rotation = 0.018206
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 56.9023, -3.88874)
 
 [node name="LeftArm" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
@@ -432,7 +432,6 @@ rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
 [node name="RightEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
 position = Vector2(69.3707, 62.4809)
 rotation = 0.0100433
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 75.1813, 64.5428)
 auto_calculate_length_and_angle = false
 length = 71.297
