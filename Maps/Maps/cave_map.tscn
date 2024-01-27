@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bc8a8rmtpbdfv"]
+[gd_scene load_steps=15 format=3 uid="uid://bc8a8rmtpbdfv"]
 
 [ext_resource type="Script" path="res://Maps/Maps/cave_map.gd" id="1_aa84g"]
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c5b5sdp5f0o5g" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.tscn" id="6_jv44b"]
 [ext_resource type="PackedScene" uid="uid://cdn0ql4jyjnnu" path="res://GameObject/Items/Weapons/Bomb/Bomb.tscn" id="7_tin5t"]
 [ext_resource type="PackedScene" uid="uid://lc3vg5lpucfu" path="res://GameObject/Items/Weapons/Gun/GunLauncher.tscn" id="8_7je2y"]
+[ext_resource type="PackedScene" uid="uid://dyhoid36xebc0" path="res://GameObject/Items/Weapons/Banana/Banana.tscn" id="9_nndsd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -92,3 +93,6 @@ position = Vector2(469, 499)
 
 [node name="Gun" parent="." instance=ExtResource("8_7je2y")]
 position = Vector2(895, 916)
+
+[node name="Banana" parent="." instance=ExtResource("9_nndsd")]
+position = Vector2(1156, 925)
