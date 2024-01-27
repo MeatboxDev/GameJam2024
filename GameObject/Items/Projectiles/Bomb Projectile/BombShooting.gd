@@ -15,7 +15,6 @@ func _ready():
 func _physics_process(_delta):
 	speed.y += gravity
 	parent.position += speed
-	speed.x += 1 * sign(speed.x)
 	parent.rotation = speed.angle()
 	if (life_time < 0): parent.queue_free()
 	life_time -= 1

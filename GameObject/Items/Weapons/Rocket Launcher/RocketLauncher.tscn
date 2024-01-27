@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5ntcm8ce5301"]
+[gd_scene load_steps=4 format=3 uid="uid://c5b5sdp5f0o5g"]
 
 [ext_resource type="Texture2D" uid="uid://b4urst4mabhpg" path="res://Assets/Items/RocketLauncher.png" id="1_uic6c"]
 [ext_resource type="Script" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.gd" id="2_27ehu"]

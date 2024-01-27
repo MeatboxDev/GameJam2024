@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dutffgc7komd0"]
+
+[ext_resource type="Texture2D" uid="uid://cnefni0lr0dcu" path="res://Assets/Items/Bomb.png" id="1_s527k"]
+[ext_resource type="Script" path="res://GameObject/Items/Projectiles/Bomb Projectile/BombShooting.gd" id="2_c0eev"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6e402"]
+radius = 44.0
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.640183
+texture = ExtResource("1_s527k")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-12, 16)
+rotation = 1.57021
+shape = SubResource("CircleShape2D_6e402")
+
+[node name="Script" type="Node" parent="."]
+script = ExtResource("2_c0eev")
+
+[connection signal="body_entered" from="." to="Script" method="_on_area_2d_body_entered"]

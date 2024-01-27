@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bc8a8rmtpbdfv"]
+[gd_scene load_steps=13 format=3 uid="uid://bc8a8rmtpbdfv"]
 
 [ext_resource type="Script" path="res://Maps/Maps/cave_map.gd" id="1_aa84g"]
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/SpawnProjectile.gd" id="4_rrj40"]
-[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.tscn" id="5_3ch5t"]
+[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/Bone/Bone.tscn" id="5_3ch5t"]
+[ext_resource type="PackedScene" uid="uid://c5b5sdp5f0o5g" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.tscn" id="6_jv44b"]
+[ext_resource type="PackedScene" uid="uid://cdn0ql4jyjnnu" path="res://GameObject/Items/Weapons/Bomb/Bomb.tscn" id="7_tin5t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -78,5 +80,11 @@ max_projectiles = 2
 frequency = 300
 horizontal_variation = 250.0
 
-[node name="RocketLauncher" parent="." instance=ExtResource("5_3ch5t")]
-position = Vector2(269, 678)
+[node name="RocketLauncher" parent="." instance=ExtResource("6_jv44b")]
+position = Vector2(703, 988)
+
+[node name="Bone" parent="." instance=ExtResource("5_3ch5t")]
+position = Vector2(276, 687)
+
+[node name="Bomb" parent="." instance=ExtResource("7_tin5t")]
+position = Vector2(469, 499)
