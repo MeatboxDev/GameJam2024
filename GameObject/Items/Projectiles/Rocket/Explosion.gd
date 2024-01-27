@@ -1,13 +1,13 @@
 extends Sprite2D
 
-var timer = 60/6
+var timer:float = 60/6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	frame = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if timer < 0 and frame != 16:
 		frame += 1
 		timer = 60/6

@@ -20,7 +20,7 @@
 [ext_resource type="Animation" uid="uid://domasun2op0d2" path="res://Assets/PlayerRig/Jump.res" id="18_xyqx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
-size = Vector2(655, 133.333)
+size = Vector2(655, 363.333)
 
 [sub_resource type="Animation" id="Animation_6l6re"]
 resource_name = "Fall"
@@ -260,6 +260,7 @@ script = ExtResource("1_1jdeh")
 [node name="Hold" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hold"]
+position = Vector2(0, -88.3333)
 shape = SubResource("RectangleShape2D_cb0tq")
 
 [node name="Node2D" type="Node2D" parent="."]

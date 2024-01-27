@@ -12,7 +12,7 @@ func _ready():
 	parent = get_parent()
 	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	speed.y += gravity
 	parent.position += speed
 	parent.rotation = speed.angle()

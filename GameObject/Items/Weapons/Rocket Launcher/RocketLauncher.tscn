@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5ntcm8ce5301"]
 
 [ext_resource type="Texture2D" uid="uid://b4urst4mabhpg" path="res://Assets/Items/RocketLauncher.png" id="1_uic6c"]
-[ext_resource type="Script" path="res://GameObject/Items/Weapons/RocketLauncher.gd" id="2_27ehu"]
+[ext_resource type="Script" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.gd" id="2_27ehu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dh155"]
 radius = 40.0109
 height = 397.982
 
 [node name="RocketLauncher" type="Node2D"]
+z_index = 1
 scale = Vector2(0.25, 0.25)
 
 [node name="Area2D" type="Area2D" parent="." groups=["Holdable"]]
