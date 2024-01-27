@@ -78,8 +78,5 @@ max_projectiles = 2
 frequency = 300
 horizontal_variation = 250.0
 
-[node name="Node2D" parent="." instance=ExtResource("2_i5mmj")]
-position = Vector2(452, 65)
-
 [node name="WeaponTemplate" parent="." instance=ExtResource("5_4fpqa")]
 position = Vector2(906, 314)
