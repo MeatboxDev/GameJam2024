@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://o4ll4xlqg5ws"]
+[gd_scene load_steps=7 format=3 uid="uid://o4ll4xlqg5ws"]
 
 [ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_3vm81"]
 [ext_resource type="Texture2D" uid="uid://sumq8hfw8t48" path="res://Assets/MainMenu/mainmenu2.png" id="2_nkv5f"]
-[ext_resource type="Texture2D" uid="uid://cmybttipswfem" path="res://Assets/MainMenu/UIButton.png" id="3_grjdm"]
+[ext_resource type="Texture2D" uid="uid://cejvla4myntmc" path="res://Assets/MainMenu/MenuButtonPlay.png" id="3_2dhxn"]
+[ext_resource type="Texture2D" uid="uid://maywrq5ptnxe" path="res://Assets/MainMenu/MenuButtonOptions.png" id="4_2of0j"]
 [ext_resource type="Texture2D" uid="uid://dnnbd41ylmvix" path="res://Assets/MainMenu/Title.png" id="4_ac15q"]
+[ext_resource type="Texture2D" uid="uid://b15xji724hoh2" path="res://Assets/MainMenu/MenuButtonQuit.png" id="5_dfht8"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -17,30 +19,37 @@ script = ExtResource("1_3vm81")
 
 [node name="Mainmenu2" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-scale = Vector2(1, 1)
 texture = ExtResource("2_nkv5f")
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 541.0
-offset_top = 539.0
-offset_right = 1048.0
-offset_bottom = 692.0
+offset_left = 50.0
+offset_top = 565.0
+offset_right = 557.0
+offset_bottom = 718.0
 scale = Vector2(0.9, 0.9)
-texture_normal = ExtResource("3_grjdm")
+texture_normal = ExtResource("3_2dhxn")
 
 [node name="OptionsButton2" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 48.0
+offset_top = 731.0
+offset_right = 555.0
+offset_bottom = 884.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("4_2of0j")
 
 [node name="QuitButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 47.0
+offset_top = 888.0
+offset_right = 554.0
+offset_bottom = 1041.0
+scale = Vector2(0.9, 0.9)
+texture_normal = ExtResource("5_dfht8")
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(577, 250)
+position = Vector2(606, 264)
 texture = ExtResource("4_ac15q")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
