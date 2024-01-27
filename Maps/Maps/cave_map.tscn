@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bc8a8rmtpbdfv"]
+[gd_scene load_steps=17 format=3 uid="uid://bc8a8rmtpbdfv"]
 
 [ext_resource type="Script" path="res://Maps/Maps/cave_map.gd" id="1_aa84g"]
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://lc3vg5lpucfu" path="res://GameObject/Items/Weapons/Gun/GunLauncher.tscn" id="8_7je2y"]
 [ext_resource type="PackedScene" uid="uid://dyhoid36xebc0" path="res://GameObject/Items/Weapons/Banana/Banana.tscn" id="9_nndsd"]
 [ext_resource type="PackedScene" uid="uid://crh48slivrldt" path="res://GameObject/Items/Weapons/MissingGun/MissingGun.tscn" id="10_jj1ov"]
+[ext_resource type="PackedScene" uid="uid://d15ffi0o3pe7x" path="res://GameObject/Items/Weapons/Shovel/Shovel.tscn" id="11_4k3hh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -100,3 +101,6 @@ position = Vector2(1156, 925)
 
 [node name="MissingGun" parent="." instance=ExtResource("10_jj1ov")]
 position = Vector2(1319, 918)
+
+[node name="Shovel" parent="." instance=ExtResource("11_4k3hh")]
+position = Vector2(962, 402)
