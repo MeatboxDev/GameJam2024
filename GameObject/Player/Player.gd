@@ -10,6 +10,8 @@ var joy_button_pressed = false
 @export var DEACCEL_FACTOR = 0.9
 @export var GRAVITY = 3 * 1000
 
+var direction
+
 # Joycon keys
 const JOYCON_LEFT = 14
 const JOYCON_RIGHT = 15
@@ -40,7 +42,7 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	#var direction = Input.get_axis("move_left", "move_right")
-	var direction = round(Input.get_joy_axis(player_index, JOY_AXIS_LEFT_X))
+	direction = round(Input.get_joy_axis(player_index, JOY_AXIS_LEFT_X))
 	if direction:
 		velocity.x = direction * SPEED
 		

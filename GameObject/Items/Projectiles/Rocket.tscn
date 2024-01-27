@@ -11,9 +11,10 @@ height = 153.999
 radius = 40.0125
 
 [node name="Area2D" type="Area2D"]
+scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 0.640183
+rotation = 0.610865
 texture = ExtResource("1_eh43u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
