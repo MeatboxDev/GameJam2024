@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj84jjdie5whb"]
+[gd_scene load_steps=5 format=3 uid="uid://djgc36gegmqv7"]
 
 [ext_resource type="Texture2D" uid="uid://b6vxq72oia75y" path="res://Assets/Items/Rocket.png" id="1_eh43u"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/ProjectileShooting.gd" id="2_f12fm"]
