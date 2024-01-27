@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://effaojulurqt"]
+[gd_scene load_steps=23 format=3 uid="uid://effaojulurqt"]
 
 [ext_resource type="Script" path="res://GameObject/Player/Player.gd" id="1_1jdeh"]
 [ext_resource type="Texture2D" uid="uid://denr8tb56cr70" path="res://Assets/PlayerRig/RightFoot.png" id="2_fkv6p"]
@@ -21,6 +21,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
 size = Vector2(655, 363.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8a2g"]
+size = Vector2(86.6667, 276.667)
 
 [sub_resource type="Animation" id="Animation_6l6re"]
 resource_name = "Fall"
@@ -430,55 +433,9 @@ auto_calculate_length_and_angle = false
 length = 43.649
 bone_angle = -181.622
 
-[node name="RightLeg2" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(9.00002, 31.333)
-polygon = PackedVector2Array(40.2556, 10.7029, 40.5751, 47.9233, 36.4217, 60.7029, 28.9137, 67.2524, 15.655, 68.3706, 4.15335, 58.9457, 2.55591, 34.345, 0.159744, 18.0511, 4.47284, 4.95208, 15.8147, 0.638978, 32.4281, 0.479233)
-
-[node name="LeftLeg2" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(-53, 30.333)
-polygon = PackedVector2Array(43.131, 15.016, 38.4984, 38.0192, 36.262, 58.147, 29.393, 66.9329, 13.8978, 70.607, 2.55591, 59.1054, 0.319489, 34.345, 0.638978, 8.6262, 8.30671, 1.11821, 23.4824, 0.958466, 36.262, 6.54952)
-
-[node name="RightHand2" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(13, -35.667)
-polygon = PackedVector2Array(25.8786, 1.59744, 65.1757, 32.4281, 72.0447, 42.1725, 67.7316, 52.7157, 62.3003, 56.0703, 32.5879, 51.278, 4.15335, 39.6166, 0.638978, 30.1917, 0.638978, 11.6613, 11.1821, 1.11821)
-
-[node name="Body2" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(-54, -73.667)
-polygon = PackedVector2Array(52.4355, 129.226, 93.4097, 123.782, 102.865, 110.029, 104.871, 92.8367, 91.404, 13.1805, 80.8023, 4.29799, 53.0086, 1.14613, 17.4785, 0.859599, 3.15186, 14.0401, 2.29226, 34.957, 0.859599, 58.1662, 0.859599, 81.9484, 0.573066, 115.473, 16.0458, 128.08, 41.2607, 129.799)
-
-[node name="RightEar2" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(43, -278.667)
-polygon = PackedVector2Array(42.1569, 107.451, 34.1176, 17.0588, 24.7059, 2.15686, 17.0588, 0, 9.01961, 1.76471, 1.37255, 62.3529, 0.196078, 79.2157, 1.37255, 94.3137, 11.7647, 106.667, 25.4902, 113.333, 38.8235, 112.353)
-
-[node name="LeftEar2" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(-107, -279.667)
-polygon = PackedVector2Array(36.5815, 4.15335, 28.9137, 0.159744, 17.4121, 3.35463, 7.50799, 40.5751, 1.4377, 83.0671, 0.958466, 108.946, 14.377, 120.288, 34.6645, 116.294, 49.8403, 95.0479, 43.9297, 39.2971)
-
-[node name="Head2" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(-109, -196.667)
-polygon = PackedVector2Array(25.788, 161.032, 174.212, 159.026, 199.14, 139.255, 193.123, 20.6304, 165.903, 1.14613, 44.1261, 1.7192, 39.8281, 1.43266, 3.15186, 15.4728, 1.43266, 48.4241, 1.43266, 135.53)
-
-[node name="LeftHand2" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(-94, -30.667)
-polygon = PackedVector2Array(10.0639, 55.9105, 57.508, 43.9297, 66.9329, 30.6709, 64.377, 7.50799, 51.1182, 0.479233, 39.7764, 0.159744, 1.91693, 36.901, 0.479233, 43.4505, 3.83387, 50.1597)
-
-[node name="LeftEye3" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(-91, -159.667)
-polygon = PackedVector2Array(35.9768, 1.54739, 7.73694, 21.0832, 2.51451, 31.528, 0.967118, 48.9362, 2.32108, 68.0851, 7.93037, 83.7524, 22.0503, 96.7118, 39.0716, 104.449, 61.5087, 103.482, 80.2708, 96.325, 94.1973, 81.0445, 100.58, 64.9903, 98.8395, 41.3927, 90.5222, 21.0832, 77.3694, 8.51064, 58.4139, 2.12766)
-
-[node name="LeftEye4" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(-84, -157.667)
-polygon = PackedVector2Array(104.047, 71.9149, 122.344, 89.5745, 142.77, 96.5957, 175.323, 94.2553, 191.919, 81.2766, 200.004, 57.6596, 196.6, 26.8085, 190.217, 11.7021, 169.366, 1.06383, 147.238, 0.638298, 124.047, 5.31915, 112.557, 17.4468, 104.472, 35.1064, 101.281, 50)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -55)
+shape = SubResource("RectangleShape2D_d8a2g")
 
 [node name="HoldingScript" type="Node" parent="."]
 script = ExtResource("11_w2ga1")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdn0ql4jyjnnu"]
+
+[ext_resource type="Texture2D" uid="uid://cnefni0lr0dcu" path="res://Assets/Items/Bomb.png" id="1_ixjm8"]
+[ext_resource type="Script" path="res://GameObject/Items/Weapons/Bomb/BombLauncher.gd" id="2_521ku"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45atx"]
+radius = 64.0
+
+[node name="Bomb" type="Node2D"]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Holdable"]]
+position = Vector2(0, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(1, 8)
+rotation = 0.8364
+texture = ExtResource("1_ixjm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, 16)
+rotation = 1.56804
+shape = SubResource("CircleShape2D_45atx")
+
+[node name="Activate" type="Node" parent="."]
+script = ExtResource("2_521ku")

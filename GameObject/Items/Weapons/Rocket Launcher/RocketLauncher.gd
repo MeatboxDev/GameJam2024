@@ -30,7 +30,8 @@ func Activate(direction):
 	
 	# Specify rocket properties
 	rocket_instance.position = get_parent().position
-	rocket_instance.find_child("Script").speed = Vector2(direction * 10, -25)
+	rocket_instance.find_child("Script").speed = Vector2(direction * 10, 0)
+	rocket_instance.find_child("Script").gravity = 0
 	rocket_instance.find_child("Script").life_time = 900
 	
 	# Specify this weapon as used and remove weapon from owner

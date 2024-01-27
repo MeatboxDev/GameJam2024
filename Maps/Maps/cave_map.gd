@@ -35,3 +35,8 @@ func _ready():
 		player.player_index = i
 		player.position = Vector2(500, 0)
 		add_child(player)
+
+
+func _process(delta):
+	if $CaveMusic.playing==false:
+		$CaveMusic.play()

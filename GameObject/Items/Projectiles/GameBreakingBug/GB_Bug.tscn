@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgsd7bihplvce"]
+
+[ext_resource type="Texture2D" uid="uid://beu6n01ip1bcw" path="res://Assets/Items/GB_Bug.png" id="1_dkp1d"]
+[ext_resource type="Script" path="res://GameObject/Items/Projectiles/GameBreakingBug/GB_BugShooting.gd" id="2_mvrrj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_83b66"]
+radius = 36.0
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999997, 1.19209e-07)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dkp1d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.54747e-13, -2)
+rotation = 1.57021
+shape = SubResource("CircleShape2D_83b66")
+
+[node name="Script" type="Node" parent="."]
+script = ExtResource("2_mvrrj")
+
+[connection signal="body_entered" from="." to="Script" method="_on_area_2d_body_entered"]

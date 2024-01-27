@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bc8a8rmtpbdfv"]
+[gd_scene load_steps=12 format=3 uid="uid://bc8a8rmtpbdfv"]
 
 [ext_resource type="Script" path="res://Maps/Maps/cave_map.gd" id="1_aa84g"]
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/SpawnProjectile.gd" id="4_rrj40"]
-[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.tscn" id="5_3ch5t"]
+[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/Bone/Bone.tscn" id="5_3ch5t"]
+[ext_resource type="AudioStream" uid="uid://hrplqfivd30q" path="res://Assets/Sounds/Music/mine_demo.wav" id="6_daw2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -59,14 +60,17 @@ shape = SubResource("CircleShape2D_r8g0w")
 position = Vector2(1559, 684)
 rotation = -0.031355
 shape = SubResource("RectangleShape2D_tjpge")
+one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(281.5, 734)
 shape = SubResource("RectangleShape2D_ckcmr")
+one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(553.25, 558)
 shape = SubResource("RectangleShape2D_h0aj5")
+one_way_collision = true
 
 [node name="StalagtiteSpawner" type="Node2D" parent="."]
 position = Vector2(951, 579)
@@ -80,3 +84,7 @@ horizontal_variation = 250.0
 
 [node name="RocketLauncher" parent="." instance=ExtResource("5_3ch5t")]
 position = Vector2(269, 678)
+
+[node name="CaveMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_daw2s")
+volume_db = -22.487

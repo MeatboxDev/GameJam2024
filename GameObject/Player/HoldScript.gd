@@ -20,8 +20,14 @@ func hold() -> Node2D:
 
 func _process(_delta):
 	if (weapon != null):
-		weapon.position = player.position
-		weapon.scale.x = player.scale.y
+		match weapon.name:
+			"Shovel":
+				weapon.position.x = player.position.x
+				weapon.position.y = player.position.y + 50
+			_:
+				weapon.position = player.position
+			
+		weapon.scale.x = abs(weapon.scale.x) * sign(player.scale.y)
 		if Input.is_action_just_pressed("debug_action"):
 			weapon.find_child("Activate").Activate(sign(player.scale.y))
 	else:

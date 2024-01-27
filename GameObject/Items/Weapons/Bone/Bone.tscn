@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5ntcm8ce5301"]
+
+[ext_resource type="Texture2D" uid="uid://cxyq5wmavdb5u" path="res://Assets/Items/Bone.png" id="1_xg87c"]
+[ext_resource type="Script" path="res://GameObject/Items/Weapons/Bone/BoneLauncher.gd" id="2_r6y61"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dh155"]
+radius = 40.0109
+height = 176.043
+
+[node name="Bone" type="Node2D"]
+z_index = 1
+rotation = 0.00296778
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Holdable"]]
+position = Vector2(0, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+rotation = 2.55763
+texture = ExtResource("1_xg87c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.56804
+shape = SubResource("CapsuleShape2D_dh155")
+
+[node name="Activate" type="Node" parent="."]
+script = ExtResource("2_r6y61")

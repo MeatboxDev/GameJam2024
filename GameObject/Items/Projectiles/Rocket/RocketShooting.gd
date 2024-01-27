@@ -1,6 +1,6 @@
 extends Node
 
-const explosion = preload("res://GameObject/Items/Projectiles/Rocket/Explotion.tscn")
+const explosion = preload("res://GameObject/Items/Hazards/Explotion/Explotion.tscn")
 
 var parent:Area2D
 var gravity:float = 1
@@ -15,6 +15,7 @@ func _ready():
 func _physics_process(_delta):
 	speed.y += gravity
 	parent.position += speed
+	speed.x += 1 * sign(speed.x)
 	parent.rotation = speed.angle()
 	if (life_time < 0): parent.queue_free()
 	life_time -= 1
