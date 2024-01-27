@@ -2,7 +2,7 @@ extends Node
 
 var gravity:float = 1
 var life_time:int = 0
-var speed:Vector2 = Vector2(0, 0)
+@export var speed:Vector2 = Vector2(0, 0)
 
 var parent:Area2D
 

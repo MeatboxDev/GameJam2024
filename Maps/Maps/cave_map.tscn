@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bc8a8rmtpbdfv"]
+[gd_scene load_steps=11 format=3 uid="uid://bc8a8rmtpbdfv"]
 
 [ext_resource type="Script" path="res://Maps/Maps/cave_map.gd" id="1_aa84g"]
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/SpawnProjectile.gd" id="4_rrj40"]
+[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/RocketLauncher.tscn" id="5_4fpqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -26,20 +27,10 @@ script = ExtResource("1_aa84g")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(961, 522)
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("1_mcrmx")
-
-[node name="StalagtiteSpawner" type="Node2D" parent="."]
-position = Vector2(951, 579)
-
-[node name="Node" type="Node" parent="StalagtiteSpawner"]
-script = ExtResource("4_rrj40")
-projectile_path = "res://GameObject/Items/Stalagtite.tscn"
-max_projectiles = 2
-frequency = 300
-horizontal_variation = 250.0
 
 [node name="Foreground" type="StaticBody2D" parent="."]
 position = Vector2(-2, 1)
@@ -76,3 +67,19 @@ shape = SubResource("RectangleShape2D_ckcmr")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Foreground"]
 position = Vector2(553.25, 558)
 shape = SubResource("RectangleShape2D_h0aj5")
+
+[node name="StalagtiteSpawner" type="Node2D" parent="."]
+position = Vector2(951, 579)
+
+[node name="Node" type="Node" parent="StalagtiteSpawner"]
+script = ExtResource("4_rrj40")
+projectile_path = "res://GameObject/Items/Projectiles/Stalagtite.tscn"
+max_projectiles = 2
+frequency = 300
+horizontal_variation = 250.0
+
+[node name="Node2D" parent="." instance=ExtResource("2_i5mmj")]
+position = Vector2(452, 65)
+
+[node name="WeaponTemplate" parent="." instance=ExtResource("5_4fpqa")]
+position = Vector2(906, 314)
