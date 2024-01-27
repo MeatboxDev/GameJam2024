@@ -19,7 +19,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if (timer == 0):
 		if (get_child_count() < max_projectiles):
 			pass
@@ -29,6 +29,6 @@ func _process(delta):
 			#projectile.find_child("ProjectileShooting").speed = initial_speed
 			#projectile.find_child("ProjectileShooting").life_time = life_time
 			#add_child(projectile)
-		timer = frequency + randf_range(-frequency_variation, frequency_variation)
+		timer = frequency + randi_range(-frequency_variation, frequency_variation)
 	timer -= 1
 	pass

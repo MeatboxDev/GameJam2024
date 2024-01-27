@@ -13,16 +13,19 @@ func _ready():
 func hold() -> Node2D:
 	if (weapon != null): return weapon
 	for i in hold_area.get_overlapping_areas():
-		if (i.is_in_group("Holdable")):
-			return i.get_parent()
+		if i.is_in_group("Holdable"):
+			if i.get_parent().find_child("Activate").used == false:
+				return i.get_parent()
 	return null
 
-func _process(delta):
+func _process(_delta):
 	if (weapon != null):
 		weapon.position = player.position
+		weapon.scale.x = player.scale.y
 		if Input.is_action_just_pressed("debug_action"):
 			weapon.find_child("Activate").Activate(sign(player.scale.y))
 	else:
 		if Input.is_action_just_pressed("debug_action"):
 			weapon = hold()
+			if weapon != null: weapon.find_child("Activate").player_owner = get_parent()
 	pass
