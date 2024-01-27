@@ -12,17 +12,22 @@ func _ready():
 	print("%d connected controllers" % connected_controllers.size())
 	for i in connected_controllers:
 		print("#%d: %s" % [i, Input.get_joy_name(i)])
-	
+		
+		# Add a player per controller
+		# Probably will remove later
+		#var player = player_scene.instantiate()
+		#player.player_index = i
+		#add_child(player)
+		
 	# Player 1
 	var player1 = player_scene.instantiate()
 	player1.player_index = 0
 	add_child(player1)
-	
-	# Player 2
-	#var player2 = boykisser_scene.instantiate()
-	#player2.player_index = 2
-	#add_child(player2)
 
+	# Player 2
+	var player2 = boykisser_scene.instantiate()
+	player2.player_index = 2
+	add_child(player2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

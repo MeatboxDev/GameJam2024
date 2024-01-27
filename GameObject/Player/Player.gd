@@ -44,7 +44,8 @@ func _physics_process(delta):
 	# Handle jumping and double jumping
 	#if Input.is_action_just_pressed("jump"):
 	if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A):
-		if jumps <= 2 and joy_button_pressed:
+		if jumps < 2 and joy_button_pressed:
+			print("Player %d jumped" % player_index)
 			joy_button_pressed = false
 			velocity.y = JUMP_VELOCITY * SPEED
 
