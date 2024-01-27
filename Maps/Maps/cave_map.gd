@@ -16,9 +16,9 @@ func _ready():
 	add_child(player1)
 	
 	# Player 2
-	var player2 = boykisser_scene.instantiate()
-	player2.player_index = 2
-	add_child(player2)
+	#var player2 = boykisser_scene.instantiate()
+	#player2.player_index = 2
+	#add_child(player2)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

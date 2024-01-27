@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var jumps = 0
-var jump_pressed = false
+var joy_button_pressed = false
 
 @export var player_index = 0
 
@@ -24,16 +24,18 @@ func _physics_process(delta):
 	else:
 		# Reset double jump
 		jumps = 0
-		jump_pressed = false
 	
 	# Handle jumping and double jumping
 	#if Input.is_action_just_pressed("jump"):
-	if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A) and not jump_pressed:
-		print(player_index)
-		jump_pressed = true
-		jumps += 1
-		if jumps <= 2:
-			velocity.y = JUMP_VELOCITY * SPEED
+	if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A):
+		if !joy_button_pressed:
+			joy_button_pressed = true
+			 
+			jumps += 1
+			if jumps <= 2:
+				velocity.y = JUMP_VELOCITY * SPEED
+		else:
+			joy_button_pressed = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
