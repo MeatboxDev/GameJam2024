@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj84jjdie5whb"]
+
+[ext_resource type="Texture2D" uid="uid://b6vxq72oia75y" path="res://Assets/Items/Rocket.png" id="1_eh43u"]
+[ext_resource type="Script" path="res://GameObject/Items/Projectiles/ProjectileShooting.gd" id="2_f12fm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hf1dr"]
+radius = 10.9982
+height = 153.999
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6e402"]
+radius = 40.0125
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(0.25, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.610865
+texture = ExtResource("1_eh43u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-34, 1)
+rotation = 1.57021
+shape = SubResource("CapsuleShape2D_hf1dr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(58, 0)
+rotation = 1.57021
+shape = SubResource("CircleShape2D_6e402")
+
+[node name="Script" type="Node" parent="."]
+script = ExtResource("2_f12fm")
