@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://effaojulurqt"]
+[gd_scene load_steps=21 format=3 uid="uid://cpyen4o7ooaq2"]
 
 [ext_resource type="Script" path="res://GameObject/Player/Player.gd" id="1_1jdeh"]
 [ext_resource type="Texture2D" uid="uid://denr8tb56cr70" path="res://Assets/PlayerRig/RightFoot.png" id="2_fkv6p"]
@@ -10,10 +10,36 @@
 [ext_resource type="Texture2D" uid="uid://c0jqdjfnawqfc" path="res://Assets/PlayerRig/Head.png" id="8_4ydma"]
 [ext_resource type="Texture2D" uid="uid://baqsnhj50nxv5" path="res://Assets/PlayerRig/LeftHand.png" id="9_afyqm"]
 [ext_resource type="Texture2D" uid="uid://t2x5u4nmwrpl" path="res://Assets/PlayerRig/Eyes.png" id="10_7hi01"]
+[ext_resource type="Texture2D" uid="uid://xp7yal0pn6f7" path="res://Assets/PlayerRig/Tie.png" id="11_57ald"]
+[ext_resource type="Script" path="res://GameObject/Player/HoldScript.gd" id="11_w2ga1"]
+[ext_resource type="Animation" uid="uid://bicgotpp0cqli" path="res://Assets/PlayerRig/RESET.res" id="13_6iaqm"]
+[ext_resource type="Animation" uid="uid://p17q57va3w24" path="res://Assets/PlayerRig/Dance.res" id="14_eyq3q"]
+[ext_resource type="Animation" uid="uid://b1qm7q8cc3l8c" path="res://Assets/PlayerRig/StaticDown.res" id="15_yflr3"]
+[ext_resource type="Animation" uid="uid://bahsytyq272hd" path="res://Assets/PlayerRig/StaticUp.res" id="16_72gra"]
+[ext_resource type="Animation" uid="uid://by5wi4w1h2doo" path="res://Assets/PlayerRig/Run.res" id="17_4j52h"]
+[ext_resource type="Animation" uid="uid://domasun2op0d2" path="res://Assets/PlayerRig/Jump.res" id="18_xyqx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
+size = Vector2(655, 133.333)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nse76"]
+_data = {
+"Dance": ExtResource("14_eyq3q"),
+"Jump": ExtResource("18_xyqx8"),
+"RESET": ExtResource("13_6iaqm"),
+"Run": ExtResource("17_4j52h"),
+"StaticDown": ExtResource("15_yflr3"),
+"StaticUp": ExtResource("16_72gra")
+}
 
 [node name="Node2D" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_1jdeh")
+
+[node name="Hold" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hold"]
+shape = SubResource("RectangleShape2D_cb0tq")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-320, -256.667)
@@ -97,47 +123,65 @@ polygon = PackedVector2Array(104.047, 71.9149, 122.344, 89.5745, 142.77, 96.5957
 uv = PackedVector2Array(104.047, 71.9149, 122.344, 89.5745, 142.77, 96.5957, 175.323, 94.2553, 191.919, 81.2766, 200.004, 57.6596, 196.6, 26.8085, 190.217, 11.7021, 169.366, 1.06383, 147.238, 0.638298, 124.047, 5.31915, 112.557, 17.4468, 104.472, 35.1064, 101.281, 50)
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/LeftArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/RightArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/RightEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/LeftEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/LeftEye", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/RightEye", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/LeftLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LeftLeg/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/RightLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/RightLeg/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
+[node name="Polygon2D" type="Polygon2D" parent="Node2D"]
+position = Vector2(306.667, 206.667)
+texture = ExtResource("11_57ald")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(30.6321, 25.9319, 42.3015, 68.2334, 32.9011, 87.6823, 24.7974, 97.893, 1.78282, 76.175, 0.324149, 72.2852, 7.29335, 26.9044, 1.13455, 20.2593, 2.43112, 3.07942, 8.42788, 0.648298, 31.6045, 0.972447, 37.1151, 10.5348, 36.4668, 21.5559)
+uv = PackedVector2Array(30.6321, 25.9319, 42.3015, 68.2334, 32.9011, 87.6823, 24.7974, 97.893, 1.78282, 76.175, 0.324149, 72.2852, 7.29335, 26.9044, 1.13452, 20.2593, 2.43112, 3.07942, 8.42788, 0.648298, 31.6045, 0.972447, 37.1151, 10.5348, 36.4668, 21.5559)
+bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "Hip/Rib/LeftArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/RightArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/RightEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/LeftEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/LeftEye", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/RightEye", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LeftLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/RightLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
 position = Vector2(-320, -250)
 
 [node name="Hip" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(318, 288)
-rotation = -1.53764
+rotation = -1.4558
 rest = Transform2D(0.0331552, -0.99945, 0.99945, 0.0331552, 318, 288)
 
 [node name="Rib" type="Bone2D" parent="Skeleton2D/Hip"]
-position = Vector2(56.9023, -3.88874)
+position = Vector2(57.6743, 1.29312)
+rotation = 0.018206
 rest = Transform2D(1, 0, 0, 1, 56.9023, -3.88874)
 
 [node name="LeftArm" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
-position = Vector2(-10.2218, -36.6812)
-rotation = -2.0944
+position = Vector2(-7.66737, -38.5591)
+rotation = -2.41634
 rest = Transform2D(-0.5, -0.866025, 0.866025, -0.5, -10.2218, -36.6812)
 auto_calculate_length_and_angle = false
 length = 43.709
 bone_angle = -6.486
 
 [node name="RightArm" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
-position = Vector2(-9.66771, 40.3427)
-rotation = 2.15374
+position = Vector2(-1.67431, 31.2635)
+rotation = 2.35619
 rest = Transform2D(-0.550481, 0.834848, -0.834848, -0.550481, -9.66771, 40.3427)
 auto_calculate_length_and_angle = false
 length = 34.432
 bone_angle = 0.0
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
-position = Vector2(90.9168, -4.01657)
+position = Vector2(93.8401, -10.7359)
+rotation = -0.0871488
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, 90.9168, -4.01657)
 
+[node name="RightEye" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
+position = Vector2(-19.0371, 89.6805)
+rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
+
 [node name="RightEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
-position = Vector2(75.1813, 64.5428)
+position = Vector2(69.3707, 62.4809)
+rotation = 0.0100433
 rest = Transform2D(1, 0, 0, 1, 75.1813, 64.5428)
 auto_calculate_length_and_angle = false
 length = 71.297
 bone_angle = 0.0
 
 [node name="LeftEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
-position = Vector2(66.4091, -79.2454)
+position = Vector2(62.9249, -77.3707)
+rotation = -0.0578005
 rest = Transform2D(1, 0, 0, 1, 66.4091, -79.2454)
 auto_calculate_length_and_angle = false
 length = 71.517
@@ -147,61 +191,77 @@ bone_angle = 0.0
 position = Vector2(-22.4804, -44.279)
 rest = Transform2D(1, 0, 0, 1, -22.4804, -44.279)
 
-[node name="RightEye" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
-position = Vector2(-19.0371, 89.6805)
-rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
-
 [node name="LeftLeg" type="Bone2D" parent="Skeleton2D/Hip"]
-position = Vector2(-10.056, -31.684)
-rotation = -0.261799
+position = Vector2(-5.43703, -29.7134)
+rotation = -0.328192
 rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, -10.056, -31.684)
 auto_calculate_length_and_angle = false
 length = 43.649
 bone_angle = -168.649
 
 [node name="RightLeg" type="Bone2D" parent="Skeleton2D/Hip"]
-position = Vector2(-6.96779, 31.2482)
+position = Vector2(2.5288, 31.9626)
+rotation = -0.0854177
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(1, 0, 0, 1, -6.96779, 31.2482)
 auto_calculate_length_and_angle = false
 length = 43.649
 bone_angle = -181.622
 
 [node name="RightLeg2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(9.00002, 31.333)
 polygon = PackedVector2Array(40.2556, 10.7029, 40.5751, 47.9233, 36.4217, 60.7029, 28.9137, 67.2524, 15.655, 68.3706, 4.15335, 58.9457, 2.55591, 34.345, 0.159744, 18.0511, 4.47284, 4.95208, 15.8147, 0.638978, 32.4281, 0.479233)
 
 [node name="LeftLeg2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-53, 30.333)
 polygon = PackedVector2Array(43.131, 15.016, 38.4984, 38.0192, 36.262, 58.147, 29.393, 66.9329, 13.8978, 70.607, 2.55591, 59.1054, 0.319489, 34.345, 0.638978, 8.6262, 8.30671, 1.11821, 23.4824, 0.958466, 36.262, 6.54952)
 
 [node name="RightHand2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(13, -35.667)
 polygon = PackedVector2Array(25.8786, 1.59744, 65.1757, 32.4281, 72.0447, 42.1725, 67.7316, 52.7157, 62.3003, 56.0703, 32.5879, 51.278, 4.15335, 39.6166, 0.638978, 30.1917, 0.638978, 11.6613, 11.1821, 1.11821)
 
 [node name="Body2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-54, -73.667)
 polygon = PackedVector2Array(52.4355, 129.226, 93.4097, 123.782, 102.865, 110.029, 104.871, 92.8367, 91.404, 13.1805, 80.8023, 4.29799, 53.0086, 1.14613, 17.4785, 0.859599, 3.15186, 14.0401, 2.29226, 34.957, 0.859599, 58.1662, 0.859599, 81.9484, 0.573066, 115.473, 16.0458, 128.08, 41.2607, 129.799)
 
 [node name="RightEar2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(43, -278.667)
 polygon = PackedVector2Array(42.1569, 107.451, 34.1176, 17.0588, 24.7059, 2.15686, 17.0588, 0, 9.01961, 1.76471, 1.37255, 62.3529, 0.196078, 79.2157, 1.37255, 94.3137, 11.7647, 106.667, 25.4902, 113.333, 38.8235, 112.353)
 
 [node name="LeftEar2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-107, -279.667)
 polygon = PackedVector2Array(36.5815, 4.15335, 28.9137, 0.159744, 17.4121, 3.35463, 7.50799, 40.5751, 1.4377, 83.0671, 0.958466, 108.946, 14.377, 120.288, 34.6645, 116.294, 49.8403, 95.0479, 43.9297, 39.2971)
 
 [node name="Head2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-109, -196.667)
 polygon = PackedVector2Array(25.788, 161.032, 174.212, 159.026, 199.14, 139.255, 193.123, 20.6304, 165.903, 1.14613, 44.1261, 1.7192, 39.8281, 1.43266, 3.15186, 15.4728, 1.43266, 48.4241, 1.43266, 135.53)
 
 [node name="LeftHand2" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-94, -30.667)
 polygon = PackedVector2Array(10.0639, 55.9105, 57.508, 43.9297, 66.9329, 30.6709, 64.377, 7.50799, 51.1182, 0.479233, 39.7764, 0.159744, 1.91693, 36.901, 0.479233, 43.4505, 3.83387, 50.1597)
 
 [node name="LeftEye3" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-91, -159.667)
 polygon = PackedVector2Array(35.9768, 1.54739, 7.73694, 21.0832, 2.51451, 31.528, 0.967118, 48.9362, 2.32108, 68.0851, 7.93037, 83.7524, 22.0503, 96.7118, 39.0716, 104.449, 61.5087, 103.482, 80.2708, 96.325, 94.1973, 81.0445, 100.58, 64.9903, 98.8395, 41.3927, 90.5222, 21.0832, 77.3694, 8.51064, 58.4139, 2.12766)
 
 [node name="LeftEye4" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(-84, -157.667)
 polygon = PackedVector2Array(104.047, 71.9149, 122.344, 89.5745, 142.77, 96.5957, 175.323, 94.2553, 191.919, 81.2766, 200.004, 57.6596, 196.6, 26.8085, 190.217, 11.7021, 169.366, 1.06383, 147.238, 0.638298, 124.047, 5.31915, 112.557, 17.4468, 104.472, 35.1064, 101.281, 50)
+
+[node name="HoldingScript" type="Node" parent="."]
+script = ExtResource("11_w2ga1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nse76")
+}

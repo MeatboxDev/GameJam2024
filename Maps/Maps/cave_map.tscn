@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/SpawnProjectile.gd" id="4_rrj40"]
-[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/WeaponTemplate.tscn" id="5_4fpqa"]
+[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/RocketLauncher.tscn" id="5_llqjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -32,39 +32,39 @@ position = Vector2(961, 522)
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("1_mcrmx")
 
-[node name="Foreground" type="StaticBody2D" parent="."]
+[node name="Foreground" type="StaticBody2D" parent="." groups=["Terrain"]]
 position = Vector2(-2, 1)
 
 [node name="Foreground_Sprite" type="Sprite2D" parent="Foreground"]
 position = Vector2(962, 539)
 texture = ExtResource("1_vm7tn")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Foreground"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(962, 539)
 polygon = PackedVector2Array(-920.3, -191.7, -899, -189, -897, -184.7, -895, -174, -892, -164, -887.6, -149.2, -885, -132, -879, -55, -863, -40, -863, -38.6, -864, -24, -867, -6, -864, 23, -861, 54, -811, 158, -761, 268, -730, 287, -725, 299, -686, 378, -654, 408, -617, 431, -586, 443, -561, 455, -486, 475, -378, 486, -245, 488, -115, 492, 363.3, 494, 408.3, 483, 412.6, 483, 435.8, 487.5, 537.6, 442.8, 623, 361.5, 623, 360, 678, 287, 678, 286, 714.7, 178, 717.8, 178, 779, 84.2, 779, 83.2, 790.5, 43, 793.5, 43, 833.5, -27, 835.1, -27, 866.9, -66.1, 870, -81, 872, -89, 874, -98, 876.1, -107.4, 885, -134, 894, -147, 895.8, -151.1, 908.1, -167, 913.3, -167, 927.3, -165.5, 948.2, -200, 957, -197.6, 957, -192, 960, 248.4, 960, 540, -960, 540, -960, -220, -952.3, -220, -943.4, -209.9, -941, -210, -939, -210, -934, -210)
 
-[node name="Central Platform" type="CollisionShape2D" parent="Foreground"]
+[node name="Central Platform" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(969, 534)
 shape = SubResource("RectangleShape2D_ckgad")
 
-[node name="Central Platform Left" type="CollisionShape2D" parent="Foreground"]
+[node name="Central Platform Left" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(732, 534)
 shape = SubResource("CircleShape2D_r8g0w")
 
-[node name="Central Platform Right" type="CollisionShape2D" parent="Foreground"]
+[node name="Central Platform Right" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(1199, 534)
 shape = SubResource("CircleShape2D_r8g0w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(1559, 684)
 rotation = -0.031355
 shape = SubResource("RectangleShape2D_tjpge")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(281.5, 734)
 shape = SubResource("RectangleShape2D_ckcmr")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Foreground"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
 position = Vector2(553.25, 558)
 shape = SubResource("RectangleShape2D_h0aj5")
 
@@ -78,5 +78,5 @@ max_projectiles = 2
 frequency = 300
 horizontal_variation = 250.0
 
-[node name="WeaponTemplate" parent="." instance=ExtResource("5_4fpqa")]
-position = Vector2(906, 314)
+[node name="RocketLauncher" parent="." instance=ExtResource("5_llqjb")]
+position = Vector2(945, 396)

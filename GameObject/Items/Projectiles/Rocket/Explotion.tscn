@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://rssxxfr6ityj"]
+
+[ext_resource type="Texture2D" uid="uid://tinvwy1teu7f" path="res://Assets/Hazards/explotion.png" id="1_sixng"]
+[ext_resource type="Script" path="res://GameObject/Items/Projectiles/Rocket/Explosion.gd" id="2_31q82"]
+[ext_resource type="AudioStream" uid="uid://cq6dg71okt5po" path="res://Assets/Sounds/Effects/deltarune-explosion.mp3" id="2_b4lyn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u38c4"]
+radius = 30.0666
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(5, 5)
+
+[node name="Explosion" type="Sprite2D" parent="."]
+texture = ExtResource("1_sixng")
+hframes = 17
+script = ExtResource("2_31q82")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_b4lyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u38c4")

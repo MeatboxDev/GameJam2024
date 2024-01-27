@@ -1,11 +1,10 @@
 extends Node2D
 
+const player_scene = preload("res://GameObject/Player/Player.tscn")
+# const boykisser_scene = preload("res://GameObject/Player/Boykisser.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	const player_scene = preload("res://GameObject/Player/Player.tscn")
-	const boykisser_scene = preload("res://GameObject/Player/Boykisser.tscn")
-	
 	# Add all unique controllers we can detect
 	var connected_controllers = []
 	for i in Input.get_connected_joypads():
@@ -26,9 +25,5 @@ func _ready():
 		# Probably will remove later
 		var player = player_scene.instantiate()
 		player.player_index = i
+		player.position = Vector2(500, 0)
 		add_child(player)
-		
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
