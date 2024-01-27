@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpbxus5dsxp0y"]
 
-[ext_resource type="Script" path="res://GameObject/Items/ProjectileShooting.gd" id="1_jrwti"]
+[ext_resource type="Script" path="res://GameObject/Items/Projectiles/ProjectileShooting.gd" id="1_jrwti"]
 [ext_resource type="Texture2D" uid="uid://63i5s3ctme0c" path="res://Assets/boykisser.png" id="1_xv7c4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxhoo"]

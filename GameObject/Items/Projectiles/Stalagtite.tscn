@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://1alyur14x4ue"]
 
 [ext_resource type="Texture2D" uid="uid://cr77e7qx150k8" path="res://Assets/Hazards/stalagtite.png" id="1_esj6e"]
-[ext_resource type="Script" path="res://GameObject/Items/ProjectileShooting.gd" id="2_4kyyn"]
+[ext_resource type="Script" path="res://GameObject/Items/Projectiles/ProjectileShooting.gd" id="2_4kyyn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxhoo"]
 radius = 17.0
