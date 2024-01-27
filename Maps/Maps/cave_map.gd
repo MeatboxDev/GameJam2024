@@ -1,10 +1,20 @@
 extends Node2D
 
+var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
+
 const player_scene = preload("res://GameObject/Player/Player.tscn")
 # const boykisser_scene = preload("res://GameObject/Player/Boykisser.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Animations
+	add_child(MapAnimations)
+	MapAnimations.camera = $MapCamera
+	
+	await MapAnimations.FadeIn(0.5)
+	await MapAnimations.wait(2.0)
+	#await MapAnimations.PanoramicAnimation()
+	
 	# Add all unique controllers we can detect
 	var connected_controllers = []
 	for i in Input.get_connected_joypads():

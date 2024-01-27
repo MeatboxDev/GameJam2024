@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8fie0djguxkq"]
+
+[ext_resource type="Script" path="res://Scripts/map_selection.gd" id="1_mfqu3"]
+[ext_resource type="Texture2D" uid="uid://dhmco3i6fet6f" path="res://Assets/MapPreviews/Cavemap_Preview.png" id="2_v8dmk"]
+[ext_resource type="Texture2D" uid="uid://bqxa7qhludwjx" path="res://Assets/MapPreviews/Button_Select.png" id="3_gpa2b"]
+[ext_resource type="Texture2D" uid="uid://bq40e7s4thnrf" path="res://Assets/MapPreviews/Left_Arrow_Button.png" id="4_wjeu6"]
+[ext_resource type="Texture2D" uid="uid://dsdf071vs6854" path="res://Assets/MapPreviews/Right_Arrow_Button.png" id="5_ahim4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6pk8"]
+size = Vector2(220.5, 253.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyogj"]
+size = Vector2(150, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqatk"]
+size = Vector2(148, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a65ya"]
+size = Vector2(150, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v11cg"]
+size = Vector2(148, 111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svbbg"]
+size = Vector2(150, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slvwl"]
+size = Vector2(150, 115.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jjvh"]
+size = Vector2(1917, 20)
+
+[node name="MapSelection" type="Node2D"]
+script = ExtResource("1_mfqu3")
+
+[node name="Television" type="StaticBody2D" parent="."]
+position = Vector2(666, 180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Television"]
+position = Vector2(311.75, 205.25)
+shape = SubResource("RectangleShape2D_e6pk8")
+
+[node name="Television_Sprite" type="Sprite2D" parent="Television"]
+position = Vector2(312, 205)
+texture = ExtResource("2_v8dmk")
+
+[node name="Select_Button" type="StaticBody2D" parent="."]
+position = Vector2(22, 39)
+
+[node name="SelectButton_Area" type="Area2D" parent="Select_Button"]
+position = Vector2(662, 739)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Select_Button/SelectButton_Area"]
+position = Vector2(312, 205)
+shape = SubResource("RectangleShape2D_hyogj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Select_Button/SelectButton_Area"]
+position = Vector2(312, 205)
+texture = ExtResource("3_gpa2b")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Select_Button"]
+position = Vector2(974, 944)
+shape = SubResource("RectangleShape2D_bqatk")
+
+[node name="Left_Button" type="StaticBody2D" parent="."]
+position = Vector2(-171, 40)
+
+[node name="LeftButton_Area" type="Area2D" parent="Left_Button"]
+position = Vector2(662, 739)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Button/LeftButton_Area"]
+position = Vector2(312, 205.5)
+shape = SubResource("RectangleShape2D_a65ya")
+
+[node name="Sprite2D" type="Sprite2D" parent="Left_Button/LeftButton_Area"]
+position = Vector2(312, 205)
+texture = ExtResource("4_wjeu6")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Left_Button"]
+position = Vector2(974, 943.5)
+shape = SubResource("RectangleShape2D_v11cg")
+
+[node name="Right_Button" type="StaticBody2D" parent="."]
+position = Vector2(222, 38)
+
+[node name="RightButton_Area" type="Area2D" parent="Right_Button"]
+position = Vector2(662, 739)
+
+[node name="Sprite2D" type="Sprite2D" parent="Right_Button/RightButton_Area"]
+position = Vector2(312, 205)
+texture = ExtResource("5_ahim4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Button/RightButton_Area"]
+position = Vector2(312, 205)
+shape = SubResource("RectangleShape2D_svbbg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Right_Button"]
+position = Vector2(974, 944.75)
+shape = SubResource("RectangleShape2D_slvwl")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(403, 861)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(556.5, 207)
+shape = SubResource("RectangleShape2D_7jjvh")
+
+[connection signal="body_entered" from="Select_Button/SelectButton_Area" to="." method="_on_select_button_area_body_entered"]
+[connection signal="body_entered" from="Left_Button/LeftButton_Area" to="." method="_on_left_button_area_body_entered"]
+[connection signal="body_entered" from="Right_Button/RightButton_Area" to="." method="_on_right_button_area_body_entered"]
