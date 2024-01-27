@@ -4,13 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/SpawnProjectile.gd" id="4_rrj40"]
-[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/Bone/Bone.tscn" id="5_3ch5t"]
-[ext_resource type="PackedScene" uid="uid://c5b5sdp5f0o5g" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.tscn" id="6_jv44b"]
-[ext_resource type="PackedScene" uid="uid://cdn0ql4jyjnnu" path="res://GameObject/Items/Weapons/Bomb/Bomb.tscn" id="7_tin5t"]
-[ext_resource type="PackedScene" uid="uid://lc3vg5lpucfu" path="res://GameObject/Items/Weapons/Gun/GunLauncher.tscn" id="8_7je2y"]
-[ext_resource type="PackedScene" uid="uid://dyhoid36xebc0" path="res://GameObject/Items/Weapons/Banana/Banana.tscn" id="9_nndsd"]
-[ext_resource type="PackedScene" uid="uid://crh48slivrldt" path="res://GameObject/Items/Weapons/MissingGun/MissingGun.tscn" id="10_jj1ov"]
-[ext_resource type="PackedScene" uid="uid://d15ffi0o3pe7x" path="res://GameObject/Items/Weapons/Shovel/Shovel.tscn" id="11_4k3hh"]
+[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.tscn" id="5_3ch5t"]
+[ext_resource type="AudioStream" uid="uid://hrplqfivd30q" path="res://Assets/Sounds/Music/mine_demo.wav" id="6_daw2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -84,23 +79,9 @@ max_projectiles = 2
 frequency = 300
 horizontal_variation = 250.0
 
-[node name="RocketLauncher" parent="." instance=ExtResource("6_jv44b")]
-position = Vector2(703, 988)
+[node name="RocketLauncher" parent="." instance=ExtResource("5_3ch5t")]
+position = Vector2(269, 678)
 
-[node name="Bone" parent="." instance=ExtResource("5_3ch5t")]
-position = Vector2(276, 687)
-
-[node name="Bomb" parent="." instance=ExtResource("7_tin5t")]
-position = Vector2(469, 499)
-
-[node name="Gun" parent="." instance=ExtResource("8_7je2y")]
-position = Vector2(895, 916)
-
-[node name="Banana" parent="." instance=ExtResource("9_nndsd")]
-position = Vector2(1156, 925)
-
-[node name="MissingGun" parent="." instance=ExtResource("10_jj1ov")]
-position = Vector2(1319, 918)
-
-[node name="Shovel" parent="." instance=ExtResource("11_4k3hh")]
-position = Vector2(962, 402)
+[node name="CaveMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_daw2s")
+volume_db = -22.487
