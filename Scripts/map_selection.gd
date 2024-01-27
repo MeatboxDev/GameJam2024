@@ -1,5 +1,8 @@
 extends Node2D
 
+# Map animations
+var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
+
 # Bandaid fix
 var left_first = true
 var right_first = true
@@ -25,6 +28,9 @@ const maps = [cavemap_preview, beachmap_preview, factorymap_preview]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Map Animations
+	add_child(MapAnimations)
+	
 	# Add all unique controllers we can detect
 	var connected_controllers = []
 	for i in Input.get_connected_joypads():
@@ -65,7 +71,9 @@ func _on_select_button_area_body_entered(body):
 		select_count += 1
 		return
 		
-	match maps[preview_index]:
+	await MapAnimations.FadeOut(0.5)
+		
+	match maps[preview_index % maps.size()]:
 		cavemap_preview:
 			get_tree().change_scene_to_file(cavemap_scene)
 			
