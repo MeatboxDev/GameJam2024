@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://effaojulurqt"]
+[gd_scene load_steps=23 format=3 uid="uid://effaojulurqt"]
 
 [ext_resource type="Script" path="res://GameObject/Player/Player.gd" id="1_1jdeh"]
 [ext_resource type="Texture2D" uid="uid://denr8tb56cr70" path="res://Assets/PlayerRig/RightFoot.png" id="2_fkv6p"]
@@ -21,6 +21,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
 size = Vector2(655, 363.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8a2g"]
+size = Vector2(86.6667, 276.667)
 
 [sub_resource type="Animation" id="Animation_6l6re"]
 resource_name = "Fall"
@@ -430,8 +433,9 @@ auto_calculate_length_and_angle = false
 length = 43.649
 bone_angle = -181.622
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-13.3333, 46.6667, 16.6667, 46.6667, 20, 83.3333, 26.6667, 86.6667, 40, 86.6667, 43.3333, 83.3333, 46.6667, 70, 46.6667, 13.3333, 43.3333, -46.6667, 53.3333, -73.3333, 53.3333, -196.667, -43.3333, -196.667, -43.3333, -73.3333, -40, -46.6667, -46.6667, -3.33333, -50, 36.6667, -50, 66.6667, -46.6667, 80, -40, 86.6667, -26.6667, 86.6667, -20, 83.3333)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -55)
+shape = SubResource("RectangleShape2D_d8a2g")
 
 [node name="HoldingScript" type="Node" parent="."]
 script = ExtResource("11_w2ga1")
