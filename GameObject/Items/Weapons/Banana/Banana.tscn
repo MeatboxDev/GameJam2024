@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyhoid36xebc0"]
+
+[ext_resource type="Texture2D" uid="uid://cpv24r3jvf8qs" path="res://Assets/Items/Banana.png" id="1_b7q68"]
+[ext_resource type="Script" path="res://GameObject/Items/Weapons/Banana/BananaLauncher.gd" id="2_0r6yo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7xwrm"]
+radius = 29.7072
+height = 99.0115
+
+[node name="Banana" type="Node2D"]
+z_index = 1
+rotation = 0.00296778
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Holdable"]]
+position = Vector2(0, -20)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_b7q68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-24, 40)
+rotation = 2.36281
+shape = SubResource("CapsuleShape2D_7xwrm")
+
+[node name="Activate" type="Node" parent="."]
+script = ExtResource("2_0r6yo")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://crh48slivrldt"]
+
+[ext_resource type="Texture2D" uid="uid://mq4jmcbg82ta" path="res://Assets/Items/MissingNo.png" id="1_ai23u"]
+[ext_resource type="Script" path="res://GameObject/Items/Weapons/MissingGun/MissingGunLauncher.gd" id="1_uup22"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddese"]
+radius = 148.0
+
+[node name="MissingGun" type="Node2D"]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Holdable"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(15, 15)
+texture = ExtResource("1_ai23u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.05176e-05, -7.62939e-06)
+rotation = 1.56804
+shape = SubResource("CircleShape2D_ddese")
+
+[node name="Activate" type="Node" parent="."]
+script = ExtResource("1_uup22")
