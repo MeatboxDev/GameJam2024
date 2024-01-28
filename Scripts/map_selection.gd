@@ -8,10 +8,10 @@ var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 @export var player_models = Controls.player_models
 
 const spawn_points = [
-	Vector2(100, 700),
 	Vector2(300, 700),
+	Vector2(600, 700),
+	Vector2(1000, 700),
 	Vector2(1200, 700),
-	Vector2(1400, 700),
 ]
 
 # Bandaid fix
@@ -54,7 +54,7 @@ func _on_select_button_area_body_entered(body):
 	print("Select map")
 	
 	# Bandaid fix
-	if select_count < 2:
+	if select_count < 1:
 		select_count += 1
 		return
 		
