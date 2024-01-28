@@ -51,7 +51,47 @@ func PanoramicAnimation():
 	
 
 func PlayerSpawnAnimation(player: CharacterBody2D, coords: Vector2):
-	pass
+	# Remember normal values
+	var normal_zoom = camera.zoom
+	var normal_offset = camera.offset
+	
+	var zoom = 1.0
+	var offset = normal_offset
+	
+	# Zoom in on spawn area
+	zoom_to_position(coords.x - camera.position.x, coords.y, 2.0)
+	await wait(1)
+		
+	# Apply changes
+	#set_zoom(zoom)
+	#set_offset(offset.x, offset.y)
+	#await wait(0.01)
+
+	# Spawn our buddy
+	player.position = coords
+	add_child(player)
+	
+	await wait(1.0)
+		
+	# Restore normal values
+	camera.zoom = normal_zoom
+	camera.offset = normal_offset
+	
+	
+func SpawnPlayers(players, spawn_points):
+	var used_indexes = []
+	
+	var i = 0
+	while i < players.size():
+		var spawn_point = spawn_points[randi() % spawn_points.size()]
+		
+		if spawn_point not in used_indexes:
+			players[i].x = spawn_point.x
+			players[i].y = spawn_point.y
+			add_child(players[i])
+			used_indexes.append(spawn_point)
+			i += 1
+	
 	
 func RoundStartAnimation():
 	pass
@@ -99,6 +139,10 @@ func set_zoom(zoom: float):
 
 func set_offset(x: float, y: float):
 	camera.offset = Vector2(x, y)
+
+func zoom_to_position(target_x, target_y, zoom_level):
+	set_zoom(zoom_level)
+	camera.offset = Vector2(target_x, target_y) - (camera.get_viewport().size * 0.5 * camera.zoom)
 
 func wait(seconds: float):
 	await get_tree().create_timer(seconds).timeout
