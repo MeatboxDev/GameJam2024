@@ -111,7 +111,8 @@ func PlayerSpawningShenanigans(spawn_points):
 				avi.player_index = playerinfo["controller"].id
 				amiwitos.append(avi)
 	
-	MapAnimations.SpawnPlayers(amiwitos, spawn_points)
+	player_models = MapAnimations.SpawnPlayers(amiwitos, spawn_points)
+	return player_models
 
 
 func NukeEverything():
