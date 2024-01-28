@@ -1,31 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8fie0djguxkq"]
+[gd_scene load_steps=13 format=3 uid="uid://b8fie0djguxkq"]
 
 [ext_resource type="Script" path="res://Scripts/map_selection.gd" id="1_mfqu3"]
+[ext_resource type="Texture2D" uid="uid://qo1t1jb0qy8h" path="res://Assets/MapSelection/StageSelect.png" id="2_bfqkr"]
 [ext_resource type="Texture2D" uid="uid://dhmco3i6fet6f" path="res://Assets/MapPreviews/Cavemap_Preview.png" id="2_v8dmk"]
-[ext_resource type="Texture2D" uid="uid://bqxa7qhludwjx" path="res://Assets/MapPreviews/Button_Select.png" id="3_gpa2b"]
-[ext_resource type="Texture2D" uid="uid://bq40e7s4thnrf" path="res://Assets/MapPreviews/Left_Arrow_Button.png" id="4_wjeu6"]
-[ext_resource type="Texture2D" uid="uid://dsdf071vs6854" path="res://Assets/MapPreviews/Right_Arrow_Button.png" id="5_ahim4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6pk8"]
-size = Vector2(220.5, 253.5)
+[ext_resource type="Texture2D" uid="uid://b51uvoa8hi3tc" path="res://Assets/MapSelection/Curtains.png" id="7_xvpvg"]
+[ext_resource type="Texture2D" uid="uid://b184saviinvvu" path="res://Assets/MapSelection/Tv.png" id="8_0k75w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyogj"]
-size = Vector2(150, 150)
+size = Vector2(109, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqatk"]
-size = Vector2(148, 148)
+size = Vector2(222, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a65ya"]
-size = Vector2(150, 119)
+size = Vector2(206, 94.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v11cg"]
-size = Vector2(148, 111)
+size = Vector2(256.5, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svbbg"]
-size = Vector2(150, 118)
+size = Vector2(214, 95)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slvwl"]
-size = Vector2(150, 115.5)
+size = Vector2(253.5, 86)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jjvh"]
 size = Vector2(1917, 20)
@@ -33,77 +30,78 @@ size = Vector2(1917, 20)
 [node name="MapSelection" type="Node2D"]
 script = ExtResource("1_mfqu3")
 
+[node name="StageSelect" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(960, 540)
+texture = ExtResource("2_bfqkr")
+
 [node name="Television" type="StaticBody2D" parent="."]
+z_index = -2
 position = Vector2(666, 180)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Television"]
-position = Vector2(311.75, 205.25)
-shape = SubResource("RectangleShape2D_e6pk8")
-
 [node name="Television_Sprite" type="Sprite2D" parent="Television"]
-position = Vector2(312, 205)
+position = Vector2(263.5, 250)
+scale = Vector2(1.90541, 1.8498)
 texture = ExtResource("2_v8dmk")
 
 [node name="Select_Button" type="StaticBody2D" parent="."]
-position = Vector2(22, 39)
+position = Vector2(16, -182)
 
 [node name="SelectButton_Area" type="Area2D" parent="Select_Button"]
 position = Vector2(662, 739)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Select_Button/SelectButton_Area"]
-position = Vector2(312, 205)
+z_index = 1
+position = Vector2(329.5, 152)
 shape = SubResource("RectangleShape2D_hyogj")
 
-[node name="Sprite2D" type="Sprite2D" parent="Select_Button/SelectButton_Area"]
-position = Vector2(312, 205)
-texture = ExtResource("3_gpa2b")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Select_Button"]
-position = Vector2(974, 944)
+z_index = 1
+position = Vector2(983, 917.5)
 shape = SubResource("RectangleShape2D_bqatk")
 
 [node name="Left_Button" type="StaticBody2D" parent="."]
-position = Vector2(-171, 40)
+position = Vector2(-199, -118)
 
 [node name="LeftButton_Area" type="Area2D" parent="Left_Button"]
 position = Vector2(662, 739)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Button/LeftButton_Area"]
-position = Vector2(312, 205.5)
+position = Vector2(313, 202)
 shape = SubResource("RectangleShape2D_a65ya")
 
-[node name="Sprite2D" type="Sprite2D" parent="Left_Button/LeftButton_Area"]
-position = Vector2(312, 205)
-texture = ExtResource("4_wjeu6")
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Left_Button"]
-position = Vector2(974, 943.5)
+position = Vector2(976.75, 959.5)
 shape = SubResource("RectangleShape2D_v11cg")
 
 [node name="Right_Button" type="StaticBody2D" parent="."]
-position = Vector2(222, 38)
+position = Vector2(239, -118)
 
 [node name="RightButton_Area" type="Area2D" parent="Right_Button"]
 position = Vector2(662, 739)
 
-[node name="Sprite2D" type="Sprite2D" parent="Right_Button/RightButton_Area"]
-position = Vector2(312, 205)
-texture = ExtResource("5_ahim4")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Button/RightButton_Area"]
-position = Vector2(312, 205)
+position = Vector2(320, 208.5)
 shape = SubResource("RectangleShape2D_svbbg")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Right_Button"]
-position = Vector2(974, 944.75)
+position = Vector2(986.25, 959)
 shape = SubResource("RectangleShape2D_slvwl")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(403, 861)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(556.5, 207)
+position = Vector2(553, 34)
 shape = SubResource("RectangleShape2D_7jjvh")
+
+[node name="Curtains" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("7_xvpvg")
+
+[node name="Tv" type="Sprite2D" parent="."]
+position = Vector2(935, 531)
+texture = ExtResource("8_0k75w")
 
 [connection signal="body_entered" from="Select_Button/SelectButton_Area" to="." method="_on_select_button_area_body_entered"]
 [connection signal="body_entered" from="Left_Button/LeftButton_Area" to="." method="_on_left_button_area_body_entered"]

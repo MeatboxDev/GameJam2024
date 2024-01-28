@@ -35,12 +35,12 @@ func _input(event):
 
 func _physics_process(delta):	
 	if not direction and is_on_floor():
-		anim.play("RESET")
+		anim.play("RedRESET")
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 		if velocity.y > 0:
-			anim.play("Fall")
+			anim.play("RedFall")
 	else:
 		# Reset double jump
 		jumps = 0
@@ -48,7 +48,7 @@ func _physics_process(delta):
 	# Handle jumping and double jumping
 	#if Input.is_action_just_pressed("jump"):
 	if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A):
-		anim.play("Jump")
+		anim.play("RedJump")
 		if jumps < 2 and joy_button_pressed:
 			print("Player %d jumped" % player_index)
 			joy_button_pressed = false
@@ -59,7 +59,7 @@ func _physics_process(delta):
 	direction = round(Input.get_joy_axis(player_index, JOY_AXIS_LEFT_X))
 	if direction:
 		if is_on_floor():
-			anim.play("Run")
+			anim.play("RedRun")
 		velocity.x = direction * SPEED
 		
 		# Face the direction you're walking towards
