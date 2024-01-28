@@ -17,6 +17,8 @@ func _ready():
 	add_child(MapAnimations)
 	MapAnimations.camera = $MapCamera
 
+	for i in Controls.player_models:
+		i.queue_free()
 	Controls.PlayerSpawningShenanigans(spawnPoints)
 	print("CURRENT PLAYER MODELS: ")
 	print(Controls.player_models)
