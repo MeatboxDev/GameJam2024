@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://t3s0kh3f4nlc"]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_0gn7t"]
+[ext_resource type="Texture2D" uid="uid://bqxa7qhludwjx" path="res://Assets/MapPreviews/Button_Select.png" id="2_6w50m"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3nrx1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rdtnc"]
+
+[node name="PauseMenu" type="Node2D"]
+script = ExtResource("1_0gn7t")
+
+[node name="Menu" type="Node2D" parent="."]
+process_mode = 3
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+offset_left = 635.0
+offset_top = 172.0
+offset_right = 785.0
+offset_bottom = 322.0
+scale = Vector2(4.11474, 4.81026)
+texture = ExtResource("2_6w50m")
+
+[node name="Close" type="TextureButton" parent="Menu"]
+offset_left = 1126.0
+offset_top = 195.0
+offset_right = 1638.0
+offset_bottom = 707.0
+scale = Vector2(0.200425, 0.18693)
+texture_normal = SubResource("NoiseTexture2D_3nrx1")
+
+[node name="Button" type="Node2D" parent="."]
+
+[node name="PauseButton" type="TextureButton" parent="Button"]
+offset_left = 1787.0
+offset_top = 40.0
+offset_right = 2299.0
+offset_bottom = 552.0
+scale = Vector2(0.174083, 0.177121)
+texture_normal = SubResource("NoiseTexture2D_rdtnc")
+
+[connection signal="pressed" from="Menu/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Button/PauseButton" to="." method="_on_pause_button_pressed"]
