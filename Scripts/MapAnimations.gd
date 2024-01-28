@@ -87,7 +87,7 @@ func SpawnPlayers(players, spawn_points):
 			var spawn_point = spawn_points[randi() % spawn_points.size()]
 			if spawn_point not in used_indexes:
 				i.position.x = spawn_point.x
-				i.position.y = spawn_point.y - 100
+				i.position.y = spawn_point.y
 				gente.append(i)
 				add_child(i)
 				used_indexes.append(spawn_point)
