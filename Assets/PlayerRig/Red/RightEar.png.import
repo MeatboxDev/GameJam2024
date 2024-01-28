@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7mnoveamlkyr"
-path="res://.godot/imported/LeftEar.png-67200b8c36bdd18f0e039b496b68bc06.ctex"
+uid="uid://x0k0pcbhnquh"
+path="res://.godot/imported/RightEar.png-6c0b90341bef8e46c4520ef8606689a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlayerRig/LeftEar.png"
-dest_files=["res://.godot/imported/LeftEar.png-67200b8c36bdd18f0e039b496b68bc06.ctex"]
+source_file="res://Assets/PlayerRig/Red/RightEar.png"
+dest_files=["res://.godot/imported/RightEar.png-6c0b90341bef8e46c4520ef8606689a2.ctex"]
 
 [params]
 

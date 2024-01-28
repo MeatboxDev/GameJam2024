@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b226kev5iwmv5"
-path="res://.godot/imported/Bullet.png-01cfc6486bd6711d123faf51c40f38d2.ctex"
+uid="uid://c7mnoveamlkyr"
+path="res://.godot/imported/LeftEar.png-d8ca3de0867eebe7f6aebdc1af7384b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-01cfc6486bd6711d123faf51c40f38d2.ctex"]
+source_file="res://Assets/PlayerRig/Red/LeftEar.png"
+dest_files=["res://.godot/imported/LeftEar.png-d8ca3de0867eebe7f6aebdc1af7384b4.ctex"]
 
 [params]
 
