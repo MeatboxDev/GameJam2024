@@ -67,11 +67,24 @@ func on_joycon_connection_changed(device: int, connected: bool):
 	# A controller has just been connected
 	if connected:
 		# First we check if it's unique or if it already exists
+		for i in connected_controllers.keys():
+			if i["guid"] == Input.get_joy_guid(device):
+				# The device is a duplicate. Ignore it
+				return
+		
+		# The device is new. Let's assign it a slot
 		var slot = FindAvailablePlayerSlot()
+		
+		# Now let's add it
+		connected_controllers[device] = {
+			"name": Input.get_joy_name(device),
+			"guid": Input.get_joy_guid(device),
+			"slot": slot,
+		}
 		
 	# A controller has just been disconnected
 	else:
-		pass
+		connected_controllers.erase(device)
 
 
 func FindAvailablePlayerSlot():
