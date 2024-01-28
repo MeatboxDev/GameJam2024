@@ -29,11 +29,7 @@ _data = {
 "RedStaticUp": ExtResource("17_14jiw")
 }
 
-[node name="RedPlayer" type="TextureButton"]
-offset_left = 115.0
-offset_top = 530.5
-offset_right = 115.0
-offset_bottom = 530.5
+[node name="RedPlayer" type="TextureRect"]
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-320, -256.667)
@@ -158,7 +154,6 @@ bone_angle = 0.0
 [node name="Head" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
 position = Vector2(93.8401, -10.7359)
 rotation = -0.0871488
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 90.9168, -4.01657)
 
 [node name="RightEye" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
@@ -188,6 +183,7 @@ rest = Transform2D(1, 0, 0, 1, -22.4804, -44.279)
 [node name="LeftLeg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(-5.43703, -29.7134)
 rotation = -0.328192
+scale = Vector2(1, 1)
 rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, -10.056, -31.684)
 auto_calculate_length_and_angle = false
 length = 43.649

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqresfwpgnfs8"]
 
-[ext_resource type="Texture2D" uid="uid://d0wxsp8k48pgv" path="res://Assets/PlayerSelect/Player1.png" id="1_tlqi6"]
-[ext_resource type="Texture2D" uid="uid://dc30gs0c5x15s" path="res://Assets/PlayerSelect/RedArrowLeft.png" id="2_lq6g7"]
-[ext_resource type="Texture2D" uid="uid://ds81piupym18r" path="res://Assets/PlayerSelect/RedArrowRight.png" id="3_nlraw"]
-[ext_resource type="PackedScene" uid="uid://c0hcew8juvh8w" path="res://Scenes/PlayerSelect/AnimatedAmiguitos/red_player.tscn" id="4_sbor2"]
+[ext_resource type="Texture2D" uid="uid://d1co8oyvhju2k" path="res://Assets/PlayerSelect/Player4.png" id="1_np5j5"]
+[ext_resource type="Texture2D" uid="uid://bn2krlnvn77tr" path="res://Assets/PlayerSelect/GrayArrowLeft.png" id="2_py0ra"]
+[ext_resource type="Texture2D" uid="uid://udnm0t308xct" path="res://Assets/PlayerSelect/GrayArrowRight.png" id="3_xlojj"]
+[ext_resource type="PackedScene" uid="uid://bgfbuntwtl1bq" path="res://Scenes/PlayerSelect/AnimatedAmiguitos/gray_player.tscn" id="4_e8h80"]
 
 [node name="Player4_Entry" type="TextureRect"]
 
@@ -25,7 +25,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_tlqi6")
+texture = ExtResource("1_np5j5")
 stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -35,10 +35,13 @@ alignment = 1
 
 [node name="Left_Button" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("2_lq6g7")
+texture_normal = ExtResource("2_py0ra")
 
 [node name="Right_Button" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_nlraw")
+texture_normal = ExtResource("3_xlojj")
 
-[node name="RedPlayer" parent="VBoxContainer" instance=ExtResource("4_sbor2")]
+[node name="GrayPlayer" parent="." instance=ExtResource("4_e8h80")]
+layout_mode = 0
+offset_top = 450.0
+offset_bottom = 450.0

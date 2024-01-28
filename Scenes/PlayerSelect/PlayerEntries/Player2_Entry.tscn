@@ -41,4 +41,8 @@ texture_normal = ExtResource("2_kbu83")
 layout_mode = 2
 texture_normal = ExtResource("3_f1kpj")
 
-[node name="GreenPlayer" parent="VBoxContainer" instance=ExtResource("4_2wb44")]
+[node name="GreenPlayer" parent="." instance=ExtResource("4_2wb44")]
+layout_mode = 2
+offset_top = 450.0
+offset_right = 230.0
+offset_bottom = 450.0
