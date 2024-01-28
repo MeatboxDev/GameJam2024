@@ -1,15 +1,16 @@
 extends Node
 
+var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
+
+var stage
 var players = []
 var player_scores = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-func RegisterPlayer(player_object:CharacterBody2D):
-	players.append(player_object)
-	player_scores[player_object] = 0
+	stage = get_parent()
+	players = stage.player_array
+	for i in players: player_scores[i] = 0
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,6 +22,8 @@ func _process(delta):
 			
 			# This works ???
 			player_scores[players.filter(func(x): return x.alive)[0]] += 1
+			for i in players: i.alive = true
+			MapAnimations.SpawnPlayers(players, stage.spawnPoints)
 			pass
 		0:
 			# If somehow this happens, just restart round

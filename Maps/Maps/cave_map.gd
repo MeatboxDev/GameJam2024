@@ -2,6 +2,13 @@ extends Node2D
 
 var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 
+var player_array = []
+const spawnPoints = [
+	Vector2(285, 675),
+	Vector2(560, 960),
+	Vector2(1550, 625),
+	Vector2(965, 415)
+	]
 var RoundSystem:Node
 const player_scene = preload("res://GameObject/Player/Player.tscn")
 # const boykisser_scene = preload("res://GameObject/Player/Boykisser.tscn")
@@ -12,12 +19,6 @@ func _ready():
 	RoundSystem = find_child("RoundSystem")
 	add_child(MapAnimations)
 	MapAnimations.camera = $MapCamera
-	
-	# Amiguitos
-	var player1 = player_scene.instantiate()
-	
-	#await MapAnimations.PanoramicAnimation()
-	await MapAnimations.PlayerSpawnAnimation(player1, Vector2(300, 300))
 	
 	# Add all unique controllers we can detect
 	var connected_controllers = []
@@ -35,13 +36,11 @@ func _ready():
 	print("%d Controllers Connected" % connected_controllers.size())
 	for i in connected_controllers:
 		print("#%d: %s" % [i, Input.get_joy_name(i)])
-		
-		# Add a player per controller
-		# Probably will remove later
-		#var player = player_scene.instantiate()
-		#player.player_index = i
-		#player.position = Vector2(500, 0)
-		#add_child(player)
+		var player = player_scene.instantiate()
+		player.player_index = i
+		player_array.append(player)
+	
+	MapAnimations.SpawnPlayers(player_array, spawnPoints)
 
 func _process(delta):
 	if Input.is_action_just_pressed("debug_reload"):

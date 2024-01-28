@@ -80,17 +80,15 @@ func PlayerSpawnAnimation(player: CharacterBody2D, coords: Vector2):
 	
 func SpawnPlayers(players, spawn_points):
 	var used_indexes = []
-	
-	var i = 0
-	while i < players.size():
+
+	for i in players:
 		var spawn_point = spawn_points[randi() % spawn_points.size()]
 		
 		if spawn_point not in used_indexes:
-			players[i].x = spawn_point.x
-			players[i].y = spawn_point.y
-			add_child(players[i])
+			i.position.x = spawn_point.x
+			i.position.y = spawn_point.y
+			add_child(i)
 			used_indexes.append(spawn_point)
-			i += 1
 	
 	
 func RoundStartAnimation():
