@@ -101,3 +101,7 @@ func _on_right_button_area_body_entered(body):
 		
 	print("Next map")
 	change_map(preview_index + 1)
+
+func _process(delta):
+	if $MapSelectionMusic.playing==false:
+		$MapSelectionMusic.play()
