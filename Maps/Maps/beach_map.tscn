@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bgr5k5ju5mph3"]
+[gd_scene load_steps=20 format=3 uid="uid://bgr5k5ju5mph3"]
 
 [ext_resource type="Script" path="res://Maps/Maps/beach_map.gd" id="1_eaa4b"]
 [ext_resource type="Texture2D" uid="uid://dmr7bq0ui1s6s" path="res://Assets/beach_foreground.png" id="2_jpc28"]
@@ -32,6 +32,12 @@ height = 476.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g64pl"]
 size = Vector2(105.5, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gawcs"]
+size = Vector2(64, 457.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4vxx"]
+size = Vector2(1891, 58)
 
 [node name="BeachMap" type="Node2D"]
 script = ExtResource("1_eaa4b")
@@ -135,6 +141,7 @@ one_way_collision = true
 
 [node name="RoundSystem" type="Node" parent="."]
 script = ExtResource("6_ll5il")
+spawnPoints = [Vector2(845, 200), Vector2(490, 200), Vector2(700, 750), Vector2(1500, 750)]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="RoundSystem"]
 z_index = 100
@@ -159,3 +166,17 @@ scale = Vector2(1.2, 1.2)
 
 [node name="Ui" parent="." instance=ExtResource("10_2ny5i")]
 position = Vector2(-7, 8)
+
+[node name="DeathBox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DeathBox"]
+position = Vector2(1864, 1284)
+shape = SubResource("RectangleShape2D_gawcs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBox"]
+position = Vector2(949.5, 1521)
+shape = SubResource("RectangleShape2D_y4vxx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DeathBox"]
+position = Vector2(35, 1262)
+shape = SubResource("RectangleShape2D_gawcs")

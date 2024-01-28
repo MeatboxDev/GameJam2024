@@ -3,10 +3,6 @@ extends Node2D
 # Map animations
 var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 
-@export var connected_controllers = Controls.connected_controllers
-@export var player_slots = Controls.player_slots
-@export var player_models = Controls.player_models
-
 const spawn_points = [
 	Vector2(100, 0),
 	Vector2(300, 0),
@@ -61,11 +57,11 @@ func _on_select_button_area_body_entered(body):
 		
 	match maps[preview_index % maps.size()]:
 		cavemap_preview:
-			Controls.NukeEverything()
+			# Controls.NukeEverything()
 			get_tree().change_scene_to_file(cavemap_scene)
 			
 		beachmap_preview:
-			Controls.NukeEverything()
+			# Controls.NukeEverything()
 			get_tree().change_scene_to_file(beachmap_scene)
 			
 

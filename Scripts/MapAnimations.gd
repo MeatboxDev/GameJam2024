@@ -89,11 +89,14 @@ func SpawnPlayers(players, spawn_points):
 				i.position.x = spawn_point.x
 				i.position.y = spawn_point.y - 100
 				gente.append(i)
+				print("APPENDING TO GENTE")
+				print(gente)
 				add_child(i)
 				used_indexes.append(spawn_point)
 				break
 	
 	# Array with player's models
+	print(gente)
 	return gente
 	
 func RoundStartAnimation():

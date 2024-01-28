@@ -12,10 +12,11 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 @export var connected_controllers = {}
 @export var player_slots = [true, true, true, true]
 @export var player_models = [null, null, null, null]
-@export var player_information = {
+var player_information = {
 	"Player 1": {
 		"alive": true,
 		"playing": false,
+		"model": null,
 		"score": 0,
 		"color": "Red",
 		"controller": {
@@ -27,6 +28,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 	"Player 2": {
 		"alive": true,
 		"playing": false,
+		"model": null,
 		"score": 0,
 		"color": "Green",
 		"controller": {
@@ -38,6 +40,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 	"Player 3": {
 		"alive": true,
 		"playing": false,
+		"model": null,
 		"score": 0,
 		"color": "Blue",
 		"controller": {
@@ -49,6 +52,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 	"Player 4": {
 		"alive": true,
 		"playing": false,
+		"model": null,
 		"score": 0,
 		"color": "Gray",
 		"controller": {
@@ -93,28 +97,29 @@ func PlayerSpawningShenanigans(spawn_points):
 		match playerinfo.color:
 			"Red":
 				var avi = red_player.instantiate()
+				print("Red player instantiated")
 				avi.player_index = playerinfo["controller"].id
 				amiwitos.append(avi)
 				
 			"Green":
 				var avi = green_player.instantiate()
+				print("Green player instantiated")				
 				avi.player_index = playerinfo["controller"].id
 				amiwitos.append(avi)
 				
 			"Blue":
 				var avi = blue_player.instantiate()
+				print("Blue player instantiated")								
 				avi.player_index = playerinfo["controller"].id
 				amiwitos.append(avi)
 				
 			"Gray":
 				var avi = gray_player.instantiate()
+				print("Gray player instantiated")												
 				avi.player_index = playerinfo["controller"].id
 				amiwitos.append(avi)
 	
-	MapAnimations.SpawnPlayers(amiwitos, spawn_points)
-	
-	player_models = amiwitos
-	return amiwitos
+	player_models = MapAnimations.SpawnPlayers(amiwitos, spawn_points)
 
 
 func NukeEverything():
@@ -125,6 +130,7 @@ func NukeEverything():
 	"Player 1": {
 		"playing": false,
 		"color": "Red",
+		"model": null,
 		"controller": {
 			"id": 0,
 			"name": "",
@@ -134,6 +140,7 @@ func NukeEverything():
 	"Player 2": {
 		"playing": false,
 		"color": "Green",
+		"model": null,
 		"controller": {
 			"id": 0,
 			"name": "",
@@ -143,6 +150,7 @@ func NukeEverything():
 	"Player 3": {
 		"playing": false,
 		"color": "Blue",
+		"model": null,
 		"controller": {
 			"id": 0,
 			"name": "",
@@ -152,6 +160,7 @@ func NukeEverything():
 	"Player 4": {
 		"playing": false,
 		"color": "Gray",
+		"model": null,
 		"controller": {
 			"id": 0,
 			"name": "",

@@ -265,7 +265,7 @@ func _process(delta):
 func _on_start_pressed():
 	Controls.connected_controllers = connected_controllers
 	Controls.player_slots = player_slots
-	Controls.player_models = player_models
+	# Controls.player_models = player_models
 	
 	var counter = 0
 	
@@ -279,6 +279,7 @@ func _on_start_pressed():
 		
 		Controls.player_information[player_name] = {
 			"playing": true,
+			"model": player_models[i],
 			"color": players_funny_color[counter],
 			"controller": {
 				"id": controller_id,

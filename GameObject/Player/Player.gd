@@ -83,4 +83,5 @@ func _physics_process(delta):
 
 func Die():
 	alive = false
+	position.y = 1320
 	hide()
