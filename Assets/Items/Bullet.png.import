@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://denr8tb56cr70"
-path="res://.godot/imported/RightFoot.png-c18b70dcd783daf4b5f542827d1657a9.ctex"
+uid="uid://ddrdwrnurawi2"
+path="res://.godot/imported/Bullet.png-3274bbe9fdf1ba8a6ac1b902d491d45f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlayerRig/RightFoot.png"
-dest_files=["res://.godot/imported/RightFoot.png-c18b70dcd783daf4b5f542827d1657a9.ctex"]
+source_file="res://Assets/Items/Bullet.png"
+dest_files=["res://.godot/imported/Bullet.png-3274bbe9fdf1ba8a6ac1b902d491d45f.ctex"]
 
 [params]
 

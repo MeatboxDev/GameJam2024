@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj2f3g0ckppra"
-path="res://.godot/imported/Body.png-2917c04256967dcc1966524a4907dd72.ctex"
+uid="uid://8wdttk3ronej"
+path="res://.godot/imported/BlueHead.png-7be75465fcc22d081114a2892afafac1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlayerRig/Body.png"
-dest_files=["res://.godot/imported/Body.png-2917c04256967dcc1966524a4907dd72.ctex"]
+source_file="res://Assets/PlayerRig/Blue/BlueHead.png"
+dest_files=["res://.godot/imported/BlueHead.png-7be75465fcc22d081114a2892afafac1.ctex"]
 
 [params]
 

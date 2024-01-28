@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xp7yal0pn6f7"
-path="res://.godot/imported/Tie.png-05b142d735781f18a3ccd1ed5f454a65.ctex"
+uid="uid://by3nvgam53xfj"
+path="res://.godot/imported/BlueRightFoot.png-6837d9229baaa52c0aad9eb901531ea0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlayerRig/Tie.png"
-dest_files=["res://.godot/imported/Tie.png-05b142d735781f18a3ccd1ed5f454a65.ctex"]
+source_file="res://Assets/PlayerRig/Blue/BlueRightFoot.png"
+dest_files=["res://.godot/imported/BlueRightFoot.png-6837d9229baaa52c0aad9eb901531ea0.ctex"]
 
 [params]
 
