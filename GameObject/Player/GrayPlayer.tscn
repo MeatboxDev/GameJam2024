@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d2o4val40k0ci"]
+[gd_scene load_steps=20 format=3 uid="uid://d2o4val40k0ci"]
 
 [ext_resource type="Script" path="res://GameObject/Player/Player.gd" id="1_xxdi5"]
 [ext_resource type="Texture2D" uid="uid://d1kkvh1abttdb" path="res://Assets/PlayerRig/Gray/GrayRightFoot.png" id="2_m753i"]
@@ -9,12 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://yy0c1x3c66n" path="res://Assets/PlayerRig/Gray/GrayLeftHand.png" id="7_g0pp3"]
 [ext_resource type="Animation" uid="uid://8mwksneunew7" path="res://Assets/PlayerRig/Gray/GrayDance.res" id="10_gh61y"]
 [ext_resource type="Texture2D" uid="uid://t2x5u4nmwrpl" path="res://Assets/PlayerRig/Eyes.png" id="10_mo1o6"]
+[ext_resource type="Animation" uid="uid://cmjeerlpwmc8s" path="res://Assets/PlayerRig/Gray/GrayFall.res" id="11_rrr2h"]
 [ext_resource type="Animation" uid="uid://dk7rnm8rh3a3b" path="res://Assets/PlayerRig/Gray/GrayJump.res" id="11_sqnob"]
 [ext_resource type="Animation" uid="uid://f01rwhvjnan6" path="res://Assets/PlayerRig/Gray/GrayRESET.res" id="12_klgei"]
 [ext_resource type="Script" path="res://GameObject/Player/HoldScript.gd" id="12_koscn"]
 [ext_resource type="Animation" uid="uid://bm882k66f5jji" path="res://Assets/PlayerRig/Gray/GrayRun.res" id="13_uh4sj"]
 [ext_resource type="Animation" uid="uid://c4kf56vdfyrii" path="res://Assets/PlayerRig/Gray/GrayStaticDown.res" id="14_n5r24"]
-[ext_resource type="Animation" uid="uid://bs8p224r6cml6" path="res://Assets/PlayerRig/Red/GrayStaticUp.res" id="15_b8nkc"]
+[ext_resource type="Animation" path="res://Assets/PlayerRig/Gray/GrayStaticUp.res" id="16_l2ief"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
 size = Vector2(655, 363.333)
@@ -25,11 +26,12 @@ size = Vector2(86.6667, 276.667)
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nse76"]
 _data = {
 "GrayDance": ExtResource("10_gh61y"),
+"GrayFall": ExtResource("11_rrr2h"),
 "GrayJump": ExtResource("11_sqnob"),
 "GrayRESET": ExtResource("12_klgei"),
 "GrayRun": ExtResource("13_uh4sj"),
 "GrayStaticDown": ExtResource("14_n5r24"),
-"GrayStaticUp": ExtResource("15_b8nkc")
+"GrayStaticUp": ExtResource("16_l2ief")
 }
 
 [node name="Node2D" type="CharacterBody2D"]
@@ -110,37 +112,38 @@ uv = PackedVector2Array(104.047, 71.9149, 122.344, 89.5745, 142.77, 96.5957, 175
 bones = ["Hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/LeftArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/RightArm", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/RightEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/LeftEar", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/LeftEye", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/Rib/Head/RightEye", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "Hip/LeftLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/LeftLeg/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/RightLeg", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Hip/RightLeg/Bone2D", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+visible = false
 position = Vector2(-320, -250)
 
 [node name="Hip" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(318, 288)
-rotation = -1.29731
+rotation = -1.37473
 rest = Transform2D(0.114747, -0.993395, 0.993395, 0.114747, 318, 288)
 
 [node name="Rib" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(57.6743, 1.29312)
-rotation = 0.208354
+rotation = 0.115471
 rest = Transform2D(0.99967, -0.025702, 0.025702, 0.99967, 57.8464, -4.66852)
 
 [node name="LeftArm" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
-position = Vector2(-10.6597, -36.8409)
-rotation = -2.97437
+position = Vector2(-9.19802, -37.6802)
+rotation = -2.70203
 rest = Transform2D(-0.748334, -0.663323, 0.663323, -0.748334, -6.2926, -32.9033)
 auto_calculate_length_and_angle = false
 length = 43.709
 bone_angle = -6.486
 
 [node name="RightArm" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
-position = Vector2(0.139354, 33.5913)
-rotation = 2.15784
+position = Vector2(-1.17909, 29.2265)
+rotation = 2.29961
 rest = Transform2D(-0.722308, 0.691572, -0.691572, -0.722308, -1.67431, 31.2635)
 auto_calculate_length_and_angle = false
 length = 34.432
 bone_angle = 0.0
 
 [node name="Head" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
-position = Vector2(89.1404, -14.2013)
-rotation = -0.0792978
+position = Vector2(91.4361, -12.5085)
+rotation = -0.0831329
 scale = Vector2(1, 1)
 rest = Transform2D(0.996205, -0.0870386, 0.0870386, 0.996205, 93.8401, -10.7359)
 
@@ -149,16 +152,18 @@ position = Vector2(-19.0371, 89.6805)
 rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
 
 [node name="RightEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
-position = Vector2(68.68, 58.6198)
-rotation = -0.413338
+position = Vector2(69.0174, 60.5059)
+rotation = -0.206524
+scale = Vector2(1, 1)
 rest = Transform2D(0.99995, 0.0100431, -0.0100431, 0.99995, 69.3707, 62.4809)
 auto_calculate_length_and_angle = false
 length = 71.297
 bone_angle = 0.0
 
 [node name="LeftEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
-position = Vector2(59.194, -73.7312)
-rotation = -0.527939
+position = Vector2(61.0165, -75.509)
+rotation = -0.298285
+scale = Vector2(1, 1)
 rest = Transform2D(0.99833, -0.0577684, 0.0577684, 0.99833, 62.9249, -77.3707)
 auto_calculate_length_and_angle = false
 length = 71.517
@@ -170,15 +175,15 @@ rest = Transform2D(1, 0, 0, 1, -22.4804, -44.279)
 
 [node name="LeftLeg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(-5.43703, -29.7134)
-rotation = -0.490393
+rotation = -0.411161
 rest = Transform2D(0.946627, -0.322332, 0.322332, 0.946627, -5.43703, -29.7134)
 auto_calculate_length_and_angle = false
 length = 43.649
 bone_angle = -168.649
 
 [node name="RightLeg" type="Bone2D" parent="Skeleton2D/Hip"]
-position = Vector2(11.1999, 27.2202)
-rotation = -0.218576
+position = Vector2(6.96422, 29.5368)
+rotation = -0.153531
 scale = Vector2(1, 1)
 rest = Transform2D(0.996354, -0.0853139, 0.0853139, 0.996354, 2.5288, 31.9626)
 auto_calculate_length_and_angle = false
