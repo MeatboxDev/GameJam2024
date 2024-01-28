@@ -16,6 +16,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 	"Player 1": {
 		"alive": true,
 		"playing": false,
+		"score": 0,
 		"color": "Red",
 		"controller": {
 			"id": 0,
@@ -26,6 +27,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 	"Player 2": {
 		"alive": true,
 		"playing": false,
+		"score": 0,
 		"color": "Green",
 		"controller": {
 			"id": 0,
@@ -36,6 +38,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 	"Player 3": {
 		"alive": true,
 		"playing": false,
+		"score": 0,
 		"color": "Blue",
 		"controller": {
 			"id": 0,
@@ -46,6 +49,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 	"Player 4": {
 		"alive": true,
 		"playing": false,
+		"score": 0,
 		"color": "Gray",
 		"controller": {
 			"id": 0,
@@ -59,6 +63,14 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 # !!!
 # I sincerily apologize for what yu'oure eyes are about to witness
 # !!!
+
+
+func GetScore(player: int):
+	return player_information["Player " + str(player + 1)]["score"]
+	
+	
+func SetScore(player: int, score: int):
+	player_information["Player " + str(player + 1)]["score"] = score
 
 
 func IsAlive(player: int):
