@@ -1,17 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://x8nor6ap8ehe"]
+[gd_scene load_steps=4 format=3 uid="uid://x8nor6ap8ehe"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_kbx2d"]
 [ext_resource type="Texture2D" uid="uid://b2yktodrb0v7k" path="res://Assets/UI/QuitButtonMenu.png" id="2_omyv3"]
+[ext_resource type="PackedScene" uid="uid://bpes336tjcvly" path="res://Scenes/PauseMenu.tscn" id="3_qpwt1"]
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_kbx2d")
 
 [node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 1839.0
-offset_top = 13.0
-offset_right = 1982.0
-offset_bottom = 154.0
-scale = Vector2(0.436282, 0.436282)
+offset_left = 1800.0
+offset_top = 24.0
+offset_right = 1943.0
+offset_bottom = 165.0
+scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("2_omyv3")
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_qpwt1")]
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

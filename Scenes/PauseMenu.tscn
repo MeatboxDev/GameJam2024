@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpes336tjcvly"]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="1_0gn7t"]
+[ext_resource type="Texture2D" uid="uid://diheu1rcdqv2w" path="res://Assets/UI/PauseMenu.png" id="2_j6bkx"]
+[ext_resource type="Texture2D" uid="uid://bhvo3pk5m4tko" path="res://Assets/UI/CloseButtonMenu.png" id="3_22b1e"]
+[ext_resource type="Texture2D" uid="uid://dm44cutkr1yhu" path="res://Assets/UI/PauseButtonMenu.png" id="3_gmamp"]
+
+[node name="PauseMenu" type="Node2D"]
+z_index = 5
+script = ExtResource("1_0gn7t")
+
+[node name="Menu" type="Node2D" parent="."]
+process_mode = 3
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Menu"]
+offset_left = 712.0
+offset_top = 168.0
+offset_right = 1219.0
+offset_bottom = 784.0
+scale = Vector2(0.990314, 1.15771)
+texture = ExtResource("2_j6bkx")
+
+[node name="Close" type="TextureButton" parent="Menu"]
+offset_left = 1136.0
+offset_top = 200.0
+offset_right = 1648.0
+offset_bottom = 712.0
+scale = Vector2(0.0937336, 0.0882902)
+texture_normal = ExtResource("3_22b1e")
+stretch_mode = 0
+
+[node name="Button" type="Node2D" parent="."]
+
+[node name="PauseButton" type="TextureButton" parent="Button"]
+offset_left = 1696.0
+offset_top = 24.0
+offset_right = 1839.0
+offset_bottom = 165.0
+scale = Vector2(0.59, 0.6)
+texture_normal = ExtResource("3_gmamp")
+
+[connection signal="pressed" from="Menu/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Button/PauseButton" to="." method="_on_pause_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://o4ll4xlqg5ws"]
+[gd_scene load_steps=8 format=3 uid="uid://o4ll4xlqg5ws"]
 
 [ext_resource type="Script" path="res://Scripts/Main Menu.gd" id="1_3vm81"]
 [ext_resource type="Texture2D" uid="uid://sumq8hfw8t48" path="res://Assets/MainMenu/mainmenu2.png" id="2_nkv5f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://maywrq5ptnxe" path="res://Assets/MainMenu/MenuButtonOptions.png" id="4_2of0j"]
 [ext_resource type="Texture2D" uid="uid://dnnbd41ylmvix" path="res://Assets/MainMenu/Title.png" id="4_ac15q"]
 [ext_resource type="Texture2D" uid="uid://b15xji724hoh2" path="res://Assets/MainMenu/MenuButtonQuit.png" id="5_dfht8"]
+[ext_resource type="Texture2D" uid="uid://duvda8e24uygp" path="res://Assets/MainMenu/Credits.png" id="7_w6mcr"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -52,5 +53,25 @@ texture_normal = ExtResource("5_dfht8")
 position = Vector2(606, 264)
 texture = ExtResource("4_ac15q")
 
+[node name="Credits" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.439063
+anchor_top = 0.414773
+anchor_right = 0.439063
+anchor_bottom = 0.414773
+offset_left = 547.0
+offset_top = 77.0
+offset_right = 1054.0
+offset_bottom = 693.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.99, 0.99)
+texture_normal = ExtResource("7_w6mcr")
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="OptionsButton2" to="." method="_on_options_button_2_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

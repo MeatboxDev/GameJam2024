@@ -37,7 +37,7 @@ _data = {
 "GrayStaticUp": ExtResource("16_l2ief")
 }
 
-[node name="Node2D" type="CharacterBody2D"]
+[node name="Node2D2" type="CharacterBody2D"]
 z_index = 1
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_xxdi5")
