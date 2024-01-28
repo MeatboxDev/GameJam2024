@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8fie0djguxkq"]
+[gd_scene load_steps=16 format=3 uid="uid://b8fie0djguxkq"]
 
 [ext_resource type="Script" path="res://Scripts/map_selection.gd" id="1_mfqu3"]
 [ext_resource type="Texture2D" uid="uid://qo1t1jb0qy8h" path="res://Assets/MapSelection/StageSelect.png" id="2_bfqkr"]
@@ -29,7 +29,10 @@ size = Vector2(214, 37)
 size = Vector2(253.5, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7jjvh"]
-size = Vector2(1917, 143)
+size = Vector2(1930, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbnso"]
+size = Vector2(62, 1104)
 
 [node name="MapSelection" type="Node2D"]
 script = ExtResource("1_mfqu3")
@@ -96,10 +99,19 @@ shape = SubResource("RectangleShape2D_slvwl")
 position = Vector2(403, 861)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(553, 173.5)
+position = Vector2(550, 173.5)
 shape = SubResource("RectangleShape2D_7jjvh")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-429, -314)
+shape = SubResource("RectangleShape2D_lbnso")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1543, -308)
+shape = SubResource("RectangleShape2D_lbnso")
+
 [node name="Curtains" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(960, 540)
 texture = ExtResource("7_xvpvg")
 
@@ -110,7 +122,7 @@ texture = ExtResource("8_0k75w")
 
 [node name="MapSelectionMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_dyjyu")
-volume_db = -25.358
+volume_db = -8.602
 
 [node name="Ui" parent="." instance=ExtResource("6_w8m5a")]
 position = Vector2(0, 2)
