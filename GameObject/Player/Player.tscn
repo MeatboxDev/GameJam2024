@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://effaojulurqt"]
+[gd_scene load_steps=24 format=3 uid="uid://effaojulurqt"]
 
 [ext_resource type="Script" path="res://GameObject/Player/Player.gd" id="1_1jdeh"]
 [ext_resource type="Texture2D" uid="uid://denr8tb56cr70" path="res://Assets/PlayerRig/Red/RightFoot.png" id="2_15c7t"]
@@ -23,6 +23,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
 size = Vector2(655, 363.333)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6trd"]
+size = Vector2(86.6667, 200)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8a2g"]
 size = Vector2(86.6667, 276.667)
 
@@ -46,6 +49,12 @@ script = ExtResource("1_1jdeh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hold"]
 position = Vector2(0, -88.3333)
 shape = SubResource("RectangleShape2D_cb0tq")
+
+[node name="Collision Box" type="Area2D" parent="." groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision Box"]
+position = Vector2(1.58946e-06, -56.6667)
+shape = SubResource("RectangleShape2D_t6trd")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-320, -256.667)
@@ -170,7 +179,6 @@ bone_angle = 0.0
 [node name="Head" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
 position = Vector2(93.8401, -10.7359)
 rotation = -0.0871488
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 90.9168, -4.01657)
 
 [node name="RightEye" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
@@ -180,7 +188,6 @@ rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
 [node name="RightEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
 position = Vector2(69.3707, 62.4809)
 rotation = -0.411237
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 75.1813, 64.5428)
 auto_calculate_length_and_angle = false
 length = 71.297
@@ -189,6 +196,7 @@ bone_angle = 0.0
 [node name="LeftEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
 position = Vector2(62.9249, -77.3707)
 rotation = 0.366323
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 66.4091, -79.2454)
 auto_calculate_length_and_angle = false
 length = 71.517
@@ -201,6 +209,7 @@ rest = Transform2D(1, 0, 0, 1, -22.4804, -44.279)
 [node name="LeftLeg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(-5.43703, -29.7134)
 rotation = 0.307526
+scale = Vector2(1, 1)
 rest = Transform2D(0.965926, -0.258819, 0.258819, 0.965926, -10.056, -31.684)
 auto_calculate_length_and_angle = false
 length = 43.649
@@ -209,18 +218,17 @@ bone_angle = -168.649
 [node name="RightLeg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(2.5288, 31.9626)
 rotation = -0.691895
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -6.96779, 31.2482)
 auto_calculate_length_and_angle = false
 length = 43.649
 bone_angle = -181.622
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -55)
-shape = SubResource("RectangleShape2D_d8a2g")
-
 [node name="HoldingScript" type="Node" parent="."]
 script = ExtResource("11_w2ga1")
+
+[node name="Collision box" type="CollisionShape2D" parent="."]
+position = Vector2(0, -55)
+shape = SubResource("RectangleShape2D_d8a2g")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
