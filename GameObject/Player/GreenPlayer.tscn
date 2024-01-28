@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://der0mixxjoh1u" path="res://Assets/PlayerRig/Green/GreenLeftHand.png" id="10_kbdrl"]
 [ext_resource type="Texture2D" uid="uid://t2x5u4nmwrpl" path="res://Assets/PlayerRig/Eyes.png" id="11_j07w2"]
 [ext_resource type="Script" path="res://GameObject/Player/HoldScript.gd" id="12_tfaso"]
-[ext_resource type="Animation" uid="uid://tmfcmh080a63" path="res://Assets/PlayerRig/Blue/BlueDance.res" id="13_j4kh0"]
+[ext_resource type="Animation" uid="uid://tmfcmh080a63" path="res://Assets/PlayerRig/Green/OldGreenDance.res" id="13_j4kh0"]
 [ext_resource type="Animation" uid="uid://2yjmwv8it6jl" path="res://Assets/PlayerRig/Green/GreenRESET.res" id="14_ie7fc"]
 [ext_resource type="Animation" uid="uid://dx6tefr3etm1t" path="res://Assets/PlayerRig/Green/GreenStaticUp.res" id="15_mtrih"]
 [ext_resource type="Animation" uid="uid://bjc4hq7twrukg" path="res://Assets/PlayerRig/Green/GreenRun.res" id="17_u6nsi"]
@@ -306,7 +306,6 @@ rest = Transform2D(0.999834, 0.018205, -0.018205, 0.999834, 57.6743, 1.29312)
 [node name="LeftArm" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
 position = Vector2(-4.41561, -39.0332)
 rotation = -2.41634
-scale = Vector2(1, 1)
 rest = Transform2D(-0.748334, -0.663323, 0.663323, -0.748334, -7.66737, -38.5591)
 auto_calculate_length_and_angle = false
 length = 43.709
@@ -333,7 +332,6 @@ rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
 [node name="RightEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
 position = Vector2(101.979, 99.2533)
 rotation = 0.0100433
-scale = Vector2(1, 1)
 rest = Transform2D(0.99995, 0.0100431, -0.0100431, 0.99995, 72.3291, 55.6597)
 auto_calculate_length_and_angle = false
 length = 28.223
@@ -342,7 +340,6 @@ bone_angle = 0.0
 [node name="LeftEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
 position = Vector2(48.9517, -96.3059)
 rotation = -0.0578005
-scale = Vector2(1, 1)
 rest = Transform2D(0.99833, -0.0577684, 0.0577684, 0.99833, 51.9755, -96.9007)
 auto_calculate_length_and_angle = false
 length = 39.212
