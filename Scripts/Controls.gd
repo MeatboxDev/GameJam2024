@@ -14,6 +14,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 @export var player_models = [null, null, null, null]
 @export var player_information = {
 	"Player 1": {
+		"alive": true,
 		"playing": false,
 		"color": "Red",
 		"controller": {
@@ -23,6 +24,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 		}
 	},
 	"Player 2": {
+		"alive": true,
 		"playing": false,
 		"color": "Green",
 		"controller": {
@@ -32,6 +34,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 		}
 	},
 	"Player 3": {
+		"alive": true,
 		"playing": false,
 		"color": "Blue",
 		"controller": {
@@ -41,6 +44,7 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 		}
 	},
 	"Player 4": {
+		"alive": true,
 		"playing": false,
 		"color": "Gray",
 		"controller": {
@@ -55,6 +59,10 @@ const gray_player = preload("res://GameObject/Player/GrayPlayer.tscn")
 # !!!
 # I sincerily apologize for what yu'oure eyes are about to witness
 # !!!
+
+
+func IsAlive(player: int):
+	return player_information["Player " + str(player + 1)]["alive"]
 
 
 func PlayerSpawningShenanigans(spawn_points):
