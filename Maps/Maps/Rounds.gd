@@ -14,7 +14,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var live_players = players.keys().filter(func(x): return x.alive).size()
+	#var live_players = players.keys().filter(func(x): return x.alive).size()
+	var live_players = Controls.GetLivePlayers()
 	var final_score_text = ""
 	for i in players.keys():
 		final_score_text = str("Player ", i.player_index, ": ", players[i], " | ") + final_score_text

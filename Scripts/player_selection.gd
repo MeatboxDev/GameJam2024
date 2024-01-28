@@ -278,7 +278,9 @@ func _on_start_pressed():
 		var controller_guid = controller["guid"]
 		
 		Controls.player_information[player_name] = {
+			"alive": true,
 			"playing": true,
+			"score": 0,
 			"color": players_funny_color[counter],
 			"controller": {
 				"id": controller_id,
@@ -286,7 +288,7 @@ func _on_start_pressed():
 				"guid": controller_guid,
 			}
 		}
-		
+
 		counter += 1
 		
 	
