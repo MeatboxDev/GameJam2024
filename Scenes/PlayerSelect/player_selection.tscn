@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dct6qdw6k3mkc"]
+
+[ext_resource type="Script" path="res://Scripts/player_selection.gd" id="1_k33d3"]
+
+[node name="PlayerSelection" type="Node2D"]
+script = ExtResource("1_k33d3")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 400
+
+[node name="Players_Container" type="HBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 500
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 50)
+offset_left = 853.0
+offset_top = 959.0
+offset_right = 1053.0
+offset_bottom = 1036.0
+theme_override_font_sizes/font_size = 50
+text = "Start!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

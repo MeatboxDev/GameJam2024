@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/SpawnProjectile.gd" id="4_rrj40"]
-[ext_resource type="AudioStream" uid="uid://hrplqfivd30q" path="res://Assets/Sounds/Music/mine_demo.wav" id="6_daw2s"]
+[ext_resource type="AudioStream" uid="uid://b1drrgkpo0g85" path="res://Assets/Sounds/Music/mine.mp3" id="5_gfk1x"]
+[ext_resource type="PackedScene" uid="uid://darf5da1um3kw" path="res://Scenes/UI.tscn" id="7_fia6g"]
 [ext_resource type="Script" path="res://Maps/Maps/Rounds.gd" id="7_ti50g"]
 [ext_resource type="Script" path="res://Maps/Maps/CrateSpawning.gd" id="7_vht5b"]
 
@@ -84,7 +85,7 @@ frequency = 300
 horizontal_variation = 250.0
 
 [node name="MUSIC" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_daw2s")
+stream = ExtResource("5_gfk1x")
 volume_db = -22.487
 
 [node name="RoundSystem" type="Node" parent="."]
@@ -99,6 +100,8 @@ offset_bottom = 1078.0
 theme_override_font_sizes/normal_font_size = 30
 text = "ASDLKASDJASKLD"
 
+[node name="Ui" parent="." instance=ExtResource("7_fia6g")]
+position = Vector2(1, 1)
 [node name="CrateSpawning" type="Node" parent="."]
 script = ExtResource("7_vht5b")
 positions = [Vector2(1300, 1000), Vector2(900, 1000), Vector2(560, 1000), Vector2(280, 690), Vector2(1560, 640), Vector2(960, 440)]
