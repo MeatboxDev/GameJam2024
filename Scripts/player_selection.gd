@@ -12,7 +12,7 @@ const green_model = preload("res://Scenes/PlayerSelect/AnimatedAmiguitos/green_p
 const blue_model = preload("res://Scenes/PlayerSelect/AnimatedAmiguitos/blue_player.tscn")
 const gray_model = preload("res://Scenes/PlayerSelect/AnimatedAmiguitos/gray_player.tscn")
 
-const players = ["Red", "Green", "Blue", "Gray"]
+const player_colors = ["Red", "Green", "Blue", "Gray"]
 const player_models = [red_model, green_model, blue_model, gray_model]
 
 var p1_index = 0
@@ -25,7 +25,7 @@ var player1 = player1_entry.instantiate()
 var player2 = player2_entry.instantiate()
 var player3 = player3_entry.instantiate()
 var player4 = player4_entry.instantiate()
-
+var players = [player1, player2, player3, player4]
 
 # Controller stuff
 var player_slots = [true, true, true, true]
@@ -53,13 +53,18 @@ func _ready():
 	player4.find_child("Left_Button").pressed.connect(on_player4_character_backwards)
 	player4.find_child("Right_Button").pressed.connect(on_player4_character_forward)
 	
-	find_child("Players_Container").add_child(player1)
-	find_child("Players_Container").add_child(player2)
-	find_child("Players_Container").add_child(player3)
-	find_child("Players_Container").add_child(player4)
+	#find_child("Players_Container").add_child(player1)
+	#find_child("Players_Container").add_child(player2)
+	#find_child("Players_Container").add_child(player3)
+	#find_child("Players_Container").add_child(player4)
 
 
 func on_joycon_connection_changed(device: int, connected: bool):
+	var device_name = Input.get_joy_name(device)
+	var device_guid = Input.get_joy_guid(device)
+	
+	print("Device %d: %s (%s). %s" % [device, device_name, device_guid, "Connected" if connected else "Disconnected"])
+	
 	# Let's make sure there are available player slots
 	if true not in player_slots:
 		return
@@ -68,7 +73,7 @@ func on_joycon_connection_changed(device: int, connected: bool):
 	if connected:
 		# First we check if it's unique or if it already exists
 		for i in connected_controllers.keys():
-			if i["guid"] == Input.get_joy_guid(device):
+			if connected_controllers[i]["guid"] == device_guid:
 				# The device is a duplicate. Ignore it
 				return
 		
@@ -82,9 +87,20 @@ func on_joycon_connection_changed(device: int, connected: bool):
 			"slot": slot,
 		}
 		
+		# Finally, let's add an entry for it
+		find_child("Players_Container").add_child(players[slot])
+		
 	# A controller has just been disconnected
 	else:
-		connected_controllers.erase(device)
+		print(connected_controllers)
+		# Let's avoid trying to remove duplicate controllers we're ignoring
+		if device in connected_controllers.keys():
+			# Remove the player entry
+			find_child("Players_Container").remove_child(players[connected_controllers[device]["slot"]])
+			
+			# Free the slot
+			FreePlayerSlot(connected_controllers[device]["slot"])
+			connected_controllers.erase(device)
 
 
 func FindAvailablePlayerSlot():
@@ -100,6 +116,9 @@ func FreePlayerSlot(id: int):
 	player_slots[id] = true
 
 
+# If one slot were to be freed, rotate the lobby
+
+
 func ReplaceAvatar(target, previous, newone):
 	# Remove previous sprite
 	target.get_node(previous).queue_free()
@@ -109,11 +128,11 @@ func ReplaceAvatar(target, previous, newone):
 
 
 func ForwardAvatar(target, index):
-	var indx = index % players.size()
-	var new_indx = (index+1) % players.size()
+	var indx = index % player_colors.size()
+	var new_indx = (index+1) % player_colors.size()
 	
-	var prev_color = players[indx]
-	var new_color = players[new_indx]
+	var prev_color = player_colors[indx]
+	var new_color = player_colors[new_indx]
 	var prev_avi_name = prev_color + "Player"
 	var new_avi_name = new_color + "Player"
 	
@@ -129,11 +148,11 @@ func ForwardAvatar(target, index):
 	
 	
 func BackwardsAvatar(target, index):
-	var indx = index % players.size()
-	var new_indx = (index-1) % players.size()
+	var indx = index % player_colors.size()
+	var new_indx = (index-1) % player_colors.size()
 	
-	var prev_color = players[indx]
-	var new_color = players[new_indx]
+	var prev_color = player_colors[indx]
+	var new_color = player_colors[new_indx]
 	var prev_avi_name = prev_color + "Player"
 	var new_avi_name = new_color + "Player"
 	
