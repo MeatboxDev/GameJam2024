@@ -2,7 +2,7 @@ extends Node
 
 var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 
-var stage
+var stage:Node2D
 var players = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +14,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var live_players = players.keys().filter(func(x): return x.alive).size()
+	var final_score_text = ""
+	for i in players.keys():
+		final_score_text = str("Player ", i.player_index, ": ", players[i], " | ") + final_score_text
+	find_child("RichTextLabel").text = final_score_text
 	match (live_players):
 		1:
 			# Win Round Sequence
@@ -23,12 +27,20 @@ func _process(delta):
 			for i in players: 
 				i.alive = true
 				i.visible = true
+				if i.find_child("HoldingScript").weapon != null: 
+					i.find_child("HoldingScript").weapon.queue_free()
+					i.find_child("HoldingScript").weapon = null
 			MapAnimations.SpawnPlayers(players, stage.spawnPoints)
-			pass
+			for i in stage.get_children().filter(func(x): return x.is_in_group("Projectile") or x.is_in_group("Explosion")):
+				i.queue_free()
 		0:
-			# If somehow this happens, just restart round
-			pass
+			for i in players: 
+				i.alive = true
+				i.visible = true
+				if i.find_child("HoldingScript").weapon != null: 
+					i.find_child("HoldingScript").weapon.queue_free()
+					i.find_child("HoldingScript").weapon = null
+			MapAnimations.SpawnPlayers(players, stage.spawnPoints)
 		_:
-			# Do nothing
-			pass		
+			pass
 	pass

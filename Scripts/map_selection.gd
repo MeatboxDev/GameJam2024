@@ -14,7 +14,7 @@ const player_scene = preload("res://GameObject/Player/Player.tscn")
 
 # Scenes
 const cavemap_scene = "res://Maps/Maps/cave_map.tscn"
-const beachmap_scene = "res://Maps/Maps/cave_map.tscn"
+const beachmap_scene = "res://Maps/Maps/beach_map.tscn"
 const factorymap_scene = "res://Maps/Maps/cave_map.tscn"
 
 # Previews
@@ -24,7 +24,6 @@ const factorymap_preview = preload("res://Assets/MapPreviews/Factorymap_Preview.
 
 var preview_index = 0
 const maps = [cavemap_preview, beachmap_preview, factorymap_preview]
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
