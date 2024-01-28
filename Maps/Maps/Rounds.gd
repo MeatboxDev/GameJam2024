@@ -7,7 +7,9 @@ var players = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#players = Controls.GetPlayerArray()
+	print (Controls.player_models)
+	for i in Controls.player_models:
+		if i != null: players[i] = 0
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

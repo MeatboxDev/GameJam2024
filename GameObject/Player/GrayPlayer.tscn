@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d2o4val40k0ci"]
+[gd_scene load_steps=21 format=3 uid="uid://d2o4val40k0ci"]
 
 [ext_resource type="Script" path="res://GameObject/Player/Player.gd" id="1_xxdi5"]
 [ext_resource type="Texture2D" uid="uid://d1kkvh1abttdb" path="res://Assets/PlayerRig/Gray/GrayRightFoot.png" id="2_m753i"]
@@ -19,6 +19,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
 size = Vector2(655, 363.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xw03"]
+size = Vector2(90, 216.667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8a2g"]
 size = Vector2(86.6667, 276.667)
@@ -45,6 +48,12 @@ color = "Gray"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hold"]
 position = Vector2(0, -88.3333)
 shape = SubResource("RectangleShape2D_cb0tq")
+
+[node name="Collision Box" type="Area2D" parent="." groups=["Player"]]
+
+[node name="HitBox" type="CollisionShape2D" parent="Collision Box"]
+position = Vector2(-1.66667, -65)
+shape = SubResource("RectangleShape2D_0xw03")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-320, -256.667)
