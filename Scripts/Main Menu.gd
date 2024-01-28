@@ -10,3 +10,10 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 
+
+func _on_options_button_2_pressed():
+	$Credits.show()
+
+
+func _on_credits_pressed():
+	$Credits.hide()
