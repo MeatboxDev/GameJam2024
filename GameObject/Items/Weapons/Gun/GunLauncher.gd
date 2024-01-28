@@ -26,6 +26,7 @@ func _physics_process(delta):
 func Activate(direction):
 	# When player uses rocket launcher instantiate rocket
 	var projectile = rocket.instantiate()
+
 	
 	# Add rocket as child of root
 	get_tree().current_scene.add_child(projectile)
