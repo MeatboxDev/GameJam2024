@@ -4,8 +4,8 @@ var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 
 var player_array = {}
 const spawnPoints = [
-	Vector2(845,350),
-	Vector2(1475, 880),
+	Vector2(845, 350),
+	Vector2(1500, 900)
 	]
 var RoundSystem:Node
 const player_scene = preload("res://GameObject/Player/Player.tscn")

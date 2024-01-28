@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://lc3vg5lpucfu"]
+[gd_scene load_steps=4 format=3 uid="uid://cxnvvkbwmrkjc"]
 
 [ext_resource type="Texture2D" uid="uid://cbjlowdfef37e" path="res://Assets/Items/Gun.png" id="1_fkdcf"]
 [ext_resource type="Script" path="res://GameObject/Items/Weapons/Gun/GunLauncher.gd" id="2_a2ipi"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds0wq1g1fjqpl"]
+[gd_scene load_steps=17 format=3 uid="uid://ds0wq1g1fjqpl"]
 
 [ext_resource type="Script" path="res://Maps/Maps/beach_map.gd" id="1_eaa4b"]
 [ext_resource type="Texture2D" uid="uid://dmr7bq0ui1s6s" path="res://Assets/beach_foreground.png" id="2_jpc28"]
@@ -7,9 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dgjk0fgexy7fk" path="res://Assets/Hazards/palm_trees.png" id="4_kddbb"]
 [ext_resource type="Script" path="res://Maps/Maps/Rounds.gd" id="6_ll5il"]
 [ext_resource type="AudioStream" uid="uid://qphpamru6v1t" path="res://Assets/Sounds/Music/beach_demo.wav" id="7_11n4x"]
+[ext_resource type="Script" path="res://Maps/Maps/CrateSpawning.gd" id="8_3fvkd"]
+[ext_resource type="PackedScene" uid="uid://stv0lanvx68x" path="res://GameObject/Items/Hazards/Water/Water.tscn" id="9_2ufm3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aheyl"]
-size = Vector2(1279.5, 42)
+size = Vector2(1279.5, 73)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ccb4r"]
 size = Vector2(239, 19)
@@ -17,20 +19,15 @@ size = Vector2(239, 19)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1i4b"]
 size = Vector2(623.5, 42.5)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xsba5"]
-radius = 192.301
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2feyx"]
+size = Vector2(137.974, 46.3815)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_yfeii"]
-a = Vector2(1158, 532)
-b = Vector2(1258, 435)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhe33"]
+size = Vector2(127.986, 49.4975)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_h4b0d"]
-a = Vector2(615, 426)
-b = Vector2(679, 529)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_lpn6b"]
-a = Vector2(637, 397)
-b = Vector2(616, 410)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c8sfr"]
+radius = 99.0
+height = 476.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g64pl"]
 size = Vector2(105.5, 30)
@@ -47,20 +44,20 @@ position = Vector2(960, 540)
 position = Vector2(960, 540)
 texture = ExtResource("2_k46fq")
 
-[node name="House" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(960, 540)
-texture = ExtResource("3_l4hm8")
-
 [node name="Palms" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(960, 540)
 texture = ExtResource("4_kddbb")
+
+[node name="House" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(960, 540)
+texture = ExtResource("3_l4hm8")
 
 [node name="Foreground" type="Sprite2D" parent="StaticBody2D"]
 position = Vector2(960, 540)
 texture = ExtResource("2_jpc28")
 
 [node name="Dock" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(966.25, 954)
+position = Vector2(966.25, 969.5)
 shape = SubResource("RectangleShape2D_aheyl")
 one_way_collision = true
 
@@ -73,59 +70,60 @@ one_way_collision = true
 position = Vector2(947.25, 416.75)
 shape = SubResource("RectangleShape2D_c1i4b")
 
-[node name="Island2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(919, 503)
-scale = Vector2(1.304, -0.53438)
-shape = SubResource("CircleShape2D_xsba5")
-
 [node name="Island3" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("SegmentShape2D_yfeii")
+position = Vector2(1191.51, 468.924)
+rotation = -0.752419
+shape = SubResource("RectangleShape2D_2feyx")
 
 [node name="Island4" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("SegmentShape2D_h4b0d")
+position = Vector2(663.25, 458.25)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_nhe33")
 
-[node name="Slope" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("SegmentShape2D_lpn6b")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(928, 501)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c8sfr")
 
-[node name="Node2D" type="Node2D" parent="StaticBody2D"]
-position = Vector2(498, 718)
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["Platform"]]
 
-[node name="Ladder" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Ladder" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(498, 718)
 shape = SubResource("RectangleShape2D_g64pl")
 one_way_collision = true
 
-[node name="Ladder 2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Ladder 2" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(499, 765)
 shape = SubResource("RectangleShape2D_g64pl")
 one_way_collision = true
 
-[node name="Ladder 4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Ladder 4" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(495, 816)
 shape = SubResource("RectangleShape2D_g64pl")
 one_way_collision = true
 
-[node name="Ladder 5" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Ladder 5" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(497, 615)
 shape = SubResource("RectangleShape2D_g64pl")
 one_way_collision = true
 
-[node name="Ladder 6" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Ladder 6" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(498, 564)
 shape = SubResource("RectangleShape2D_g64pl")
 one_way_collision = true
 
-[node name="Ladder 3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Ladder 3" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(499, 666)
 shape = SubResource("RectangleShape2D_g64pl")
 one_way_collision = true
 
-[node name="Ladder 8" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Ladder 8" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(497, 463)
 shape = SubResource("RectangleShape2D_g64pl")
 one_way_collision = true
 
-[node name="Ladder 7" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Ladder 7" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(497, 514)
 shape = SubResource("RectangleShape2D_g64pl")
 one_way_collision = true
@@ -142,5 +140,13 @@ offset_bottom = 1078.0
 theme_override_font_sizes/normal_font_size = 30
 text = "ASDLKASDJASKLD"
 
+[node name="CrateSystem" type="Node" parent="."]
+script = ExtResource("8_3fvkd")
+positions = [Vector2(1300, 900), Vector2(960, 900), Vector2(620, 900), Vector2(960, 360)]
+
 [node name="MUSIC" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_11n4x")
+
+[node name="Area2D" parent="." instance=ExtResource("9_2ufm3")]
+position = Vector2(965, 459)
+scale = Vector2(1.2, 1.2)

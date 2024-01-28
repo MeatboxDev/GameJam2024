@@ -436,7 +436,7 @@ bone_angle = -168.649
 [node name="RightLeg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(2.5288, 31.9626)
 rotation = -0.0854177
-scale = Vector2(0.999996, 0.999996)
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -6.96779, 31.2482)
 auto_calculate_length_and_angle = false
 length = 43.649

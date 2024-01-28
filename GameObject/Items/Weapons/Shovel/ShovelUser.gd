@@ -41,7 +41,7 @@ func Activate(_direction):
 	pass
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("Terrain") and not used:
+	if (body.is_in_group("Terrain") or body.is_in_group("Platform")) and not used:
 		player_owner.velocity.y = player_owner.JUMP_VELOCITY * player_owner.SPEED
 		player_owner.jumps = 0
 
