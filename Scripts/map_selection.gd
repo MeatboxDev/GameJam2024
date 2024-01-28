@@ -8,10 +8,10 @@ var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 @export var player_models = Controls.player_models
 
 const spawn_points = [
-	Vector2(300, 700),
-	Vector2(600, 700),
-	Vector2(1000, 700),
-	Vector2(1200, 700),
+	Vector2(100, 0),
+	Vector2(300, 0),
+	Vector2(1300, 0),
+	Vector2(1500, 0),
 ]
 
 # Bandaid fix
