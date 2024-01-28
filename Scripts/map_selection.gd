@@ -22,15 +22,14 @@ var select_count = 0
 # Scenes
 const cavemap_scene = "res://Maps/Maps/cave_map.tscn"
 const beachmap_scene = "res://Maps/Maps/beach_map.tscn"
-const factorymap_scene = "res://Maps/Maps/cave_map.tscn"
 
 # Previews
 const cavemap_preview = preload("res://Assets/MapPreviews/Cavemap_Preview.png")
 const beachmap_preview = preload("res://Assets/MapPreviews/Beachmap_Preview.png")
-const factorymap_preview = preload("res://Assets/MapPreviews/Factorymap_Preview.png")
+
 
 var preview_index = 0
-const maps = [cavemap_preview, beachmap_preview, factorymap_preview]
+const maps = [cavemap_preview, beachmap_preview]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,8 +66,6 @@ func _on_select_button_area_body_entered(body):
 		beachmap_preview:
 			get_tree().change_scene_to_file(beachmap_scene)
 			
-		factorymap_preview:
-			get_tree().change_scene_to_file(factorymap_scene)
 
 
 func _on_left_button_area_body_entered(body):
