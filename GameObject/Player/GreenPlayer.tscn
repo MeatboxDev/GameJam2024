@@ -12,13 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://der0mixxjoh1u" path="res://Assets/PlayerRig/Green/GreenLeftHand.png" id="10_kbdrl"]
 [ext_resource type="Texture2D" uid="uid://t2x5u4nmwrpl" path="res://Assets/PlayerRig/Eyes.png" id="11_j07w2"]
 [ext_resource type="Script" path="res://GameObject/Player/HoldScript.gd" id="12_tfaso"]
-[ext_resource type="Animation" uid="uid://tmfcmh080a63" path="res://Assets/PlayerRig/Green/GreenDance.res" id="13_j4kh0"]
-[ext_resource type="Animation" uid="uid://bjed5nrfu3y0i" path="res://Assets/PlayerRig/Green/GreenRESET.res" id="14_ie7fc"]
-[ext_resource type="Animation" uid="uid://bdpwcrpc6tvrc" path="res://Assets/PlayerRig/Green/GreenStaticUp.res" id="15_mtrih"]
-[ext_resource type="Animation" uid="uid://8yywrlrntlxw" path="res://Assets/PlayerRig/Green/GreenRun.res" id="17_u6nsi"]
-[ext_resource type="Animation" uid="uid://byi7ej6gttlqy" path="res://Assets/PlayerRig/Green/GreenStaticDown.res" id="18_2urju"]
-[ext_resource type="Animation" uid="uid://cnmb6bmoq5ngl" path="res://Assets/PlayerRig/Green/GreenFall.res" id="18_qy381"]
-[ext_resource type="Animation" uid="uid://c285peyobkio3" path="res://Assets/PlayerRig/Green/GreenJump.res" id="19_n3w40"]
+[ext_resource type="Animation" uid="uid://2yjmwv8it6jl" path="res://Assets/PlayerRig/Green/GreenRESET.res" id="14_ie7fc"]
+[ext_resource type="Animation" uid="uid://dx6tefr3etm1t" path="res://Assets/PlayerRig/Green/GreenStaticUp.res" id="15_mtrih"]
+[ext_resource type="Animation" uid="uid://bjc4hq7twrukg" path="res://Assets/PlayerRig/Green/GreenRun.res" id="17_u6nsi"]
+[ext_resource type="Animation" uid="uid://cquxv00ptqx2v" path="res://Assets/PlayerRig/Green/GreenStaticDown.res" id="18_2urju"]
+[ext_resource type="Animation" uid="uid://de2axlnh3uh0u" path="res://Assets/PlayerRig/Green/GreenFall.res" id="18_qy381"]
+[ext_resource type="Animation" uid="uid://dofysqrs81557" path="res://Assets/PlayerRig/Green/GreenDance.res" id="19_8nxsr"]
+[ext_resource type="Animation" uid="uid://cxbe6hsy8ri81" path="res://Assets/PlayerRig/Green/GreenJump.res" id="19_n3w40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
 size = Vector2(655, 363.333)
@@ -175,7 +175,7 @@ tracks/11/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nse76"]
 _data = {
-"GreenDance": ExtResource("13_j4kh0"),
+"GreenDance": ExtResource("19_8nxsr"),
 "GreenFall": ExtResource("18_qy381"),
 "GreenJump": ExtResource("19_n3w40"),
 "GreenRESET": ExtResource("14_ie7fc"),
@@ -310,7 +310,7 @@ auto_calculate_length_and_angle = false
 length = 43.709
 bone_angle = -6.486
 
-[node name="RightArm" type="Bone2D" parent="BlueSkeleton2D/Hip/Rib"]
+[node name="RightArm" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
 position = Vector2(-1.67431, 31.2635)
 rotation = 2.37793
 rest = Transform2D(-0.722308, 0.691572, -0.691572, -0.722308, -1.67431, 31.2635)
@@ -318,7 +318,7 @@ auto_calculate_length_and_angle = false
 length = 34.432
 bone_angle = 0.0
 
-[node name="Head" type="Bone2D" parent="BlueSkeleton2D/Hip/Rib"]
+[node name="Head" type="Bone2D" parent="Skeleton2D/Hip/Rib"]
 position = Vector2(93.8401, -10.7359)
 rotation = -0.0871488
 scale = Vector2(0.999999, 0.999999)
@@ -351,7 +351,6 @@ rest = Transform2D(1, 0, 0, 1, -22.4804, -44.279)
 [node name="LeftLeg" type="Bone2D" parent="BlueSkeleton2D/Hip"]
 position = Vector2(-3.59448, -36.3238)
 rotation = -0.328192
-scale = Vector2(1, 1)
 rest = Transform2D(0.946627, -0.322332, 0.322332, 0.946627, -5.43703, -29.7134)
 auto_calculate_length_and_angle = false
 length = 43.649
@@ -359,7 +358,7 @@ bone_angle = -168.649
 
 [node name="RightLeg" type="Bone2D" parent="BlueSkeleton2D/Hip"]
 position = Vector2(-4.88165, 45.2576)
-rotation = -0.0854178
+rotation = -0.0854177
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(0.996352, -0.0853137, 0.0853137, 0.996352, 2.5288, 31.9626)
 auto_calculate_length_and_angle = false

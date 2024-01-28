@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8fie0djguxkq"]
+[gd_scene load_steps=16 format=3 uid="uid://b8fie0djguxkq"]
 
 [ext_resource type="Script" path="res://Scripts/map_selection.gd" id="1_mfqu3"]
 [ext_resource type="Texture2D" uid="uid://qo1t1jb0qy8h" path="res://Assets/MapSelection/StageSelect.png" id="2_bfqkr"]
 [ext_resource type="AudioStream" uid="uid://d1qog63fe1ost" path="res://Assets/Sounds/Music/MainMenu.wav" id="6_dyjyu"]
 [ext_resource type="PackedScene" uid="uid://x8nor6ap8ehe" path="res://Scenes/UI2.tscn" id="6_w8m5a"]
-[ext_resource type="PackedScene" uid="uid://t3s0kh3f4nlc" path="res://Scenes/PauseMenu.tscn" id="7_kwubm"]
+[ext_resource type="PackedScene" uid="uid://bpes336tjcvly" path="res://Scenes/PauseMenu.tscn" id="7_kwubm"]
 [ext_resource type="Texture2D" uid="uid://b51uvoa8hi3tc" path="res://Assets/MapSelection/Curtains.png" id="7_xvpvg"]
 [ext_resource type="Texture2D" uid="uid://b184saviinvvu" path="res://Assets/MapSelection/Tv.png" id="8_0k75w"]
 
