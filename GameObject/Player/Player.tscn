@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=24 format=3 uid="uid://effaojulurqt"]
-=======
 [gd_scene load_steps=22 format=3 uid="uid://effaojulurqt"]
->>>>>>> origin/crisRanch
 
 [ext_resource type="Script" path="res://GameObject/Player/Player.gd" id="1_1jdeh"]
 [ext_resource type="Texture2D" uid="uid://denr8tb56cr70" path="res://Assets/PlayerRig/Red/RightFoot.png" id="2_15c7t"]
@@ -24,10 +20,7 @@
 [ext_resource type="Animation" uid="uid://p17q57va3w24" path="res://Assets/PlayerRig/Red/Dance.res" id="18_eed1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
-size = Vector2(654.167, 363.333)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0awp"]
-size = Vector2(83.3333, 200)
+size = Vector2(655, 363.333)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8a2g"]
 size = Vector2(86.6667, 276.667)
@@ -51,12 +44,6 @@ script = ExtResource("1_1jdeh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hold"]
 position = Vector2(0, -88.3333)
 shape = SubResource("RectangleShape2D_cb0tq")
-
-[node name="Collision Box" type="Area2D" parent="." groups=["Player"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision Box"]
-position = Vector2(-1.66667, -56.6667)
-shape = SubResource("RectangleShape2D_j0awp")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-320, -256.667)
