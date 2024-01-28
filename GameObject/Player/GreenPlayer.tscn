@@ -186,6 +186,7 @@ _data = {
 }
 
 [node name="Node2D" type="CharacterBody2D"]
+z_index = 1
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_gb3xx")
 color = "Green"

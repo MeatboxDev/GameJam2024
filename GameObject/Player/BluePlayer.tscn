@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://bcar8wfn8xh8q" path="res://Assets/PlayerRig/Blue/BlueLeftHand.png" id="10_6qm7b"]
 [ext_resource type="Texture2D" uid="uid://t2x5u4nmwrpl" path="res://Assets/PlayerRig/Eyes.png" id="11_opvra"]
 [ext_resource type="Script" path="res://GameObject/Player/HoldScript.gd" id="12_d4r76"]
-[ext_resource type="Animation" uid="uid://c5dwwwcnl8kok" path="res://Assets/PlayerRig/Blue/BlueJump.res" id="14_dvoje"]
-[ext_resource type="Animation" uid="uid://j2m2yqscea1y" path="res://Assets/PlayerRig/Blue/BlueFall.res" id="15_pkstc"]
-[ext_resource type="Animation" uid="uid://c4kdrymhxgf54" path="res://Assets/PlayerRig/Blue/BlueRESET.res" id="15_wpka3"]
-[ext_resource type="Animation" uid="uid://cs7iyg7loby8n" path="res://Assets/PlayerRig/Blue/BlueRun.res" id="16_0ss2v"]
-[ext_resource type="Animation" uid="uid://byi7ej6gttlqy" path="res://Assets/PlayerRig/Blue/BlueStaticDown.res" id="17_fwnny"]
-[ext_resource type="Animation" uid="uid://d2j2f3bv2anuj" path="res://Assets/PlayerRig/Blue/BlueStaticUp.res" id="18_1t4h7"]
+[ext_resource type="Animation" uid="uid://c5dwwwcnl8kok" path="res://Assets/PlayerRig/Green/OldGreenJump.res" id="14_dvoje"]
+[ext_resource type="Animation" uid="uid://j2m2yqscea1y" path="res://Assets/PlayerRig/Green/OldGreenFall.res" id="15_pkstc"]
+[ext_resource type="Animation" uid="uid://c4kdrymhxgf54" path="res://Assets/PlayerRig/Green/OldGreenRESET.res" id="15_wpka3"]
+[ext_resource type="Animation" uid="uid://cs7iyg7loby8n" path="res://Assets/PlayerRig/Green/OldGreenRun.res" id="16_0ss2v"]
+[ext_resource type="Animation" uid="uid://byi7ej6gttlqy" path="res://Assets/PlayerRig/Green/OldGreenStaticDown.res" id="17_fwnny"]
+[ext_resource type="Animation" uid="uid://d2j2f3bv2anuj" path="res://Assets/PlayerRig/Green/OldGreenStaticUp.res" id="18_1t4h7"]
 [ext_resource type="Animation" uid="uid://chxchya41mgyo" path="res://Assets/PlayerRig/Blue/NewBlueDance.res" id="19_kttuh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
@@ -66,6 +66,7 @@ _data = {
 }
 
 [node name="Node2D" type="CharacterBody2D"]
+z_index = 1
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_3dmml")
 color = "Blue"
@@ -213,7 +214,6 @@ rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
 [node name="RightEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
 position = Vector2(78.8359, 52.0241)
 rotation = -0.387995
-scale = Vector2(1, 1)
 rest = Transform2D(0.99995, 0.0100431, -0.0100431, 0.99995, 78.4393, 42.0417)
 auto_calculate_length_and_angle = false
 length = 28.223
@@ -222,7 +222,6 @@ bone_angle = 0.0
 [node name="LeftEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
 position = Vector2(59.5528, -77.2275)
 rotation = -0.499798
-scale = Vector2(1, 1)
 rest = Transform2D(0.99833, -0.0577684, 0.0577684, 0.99833, 56.2654, -77.0638)
 auto_calculate_length_and_angle = false
 length = 39.212

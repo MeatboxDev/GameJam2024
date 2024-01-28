@@ -31,11 +31,13 @@ script = ExtResource("1_aa84g")
 position = Vector2(960, 540)
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(961, 522)
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("1_mcrmx")
 
 [node name="Foreground" type="StaticBody2D" parent="." groups=["Terrain"]]
+z_index = -1
 position = Vector2(-2, 1)
 
 [node name="Foreground_Sprite" type="Sprite2D" parent="Foreground"]
