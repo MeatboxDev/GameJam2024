@@ -1,18 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bc8a8rmtpbdfv"]
+[gd_scene load_steps=12 format=3 uid="uid://bc8a8rmtpbdfv"]
 
 [ext_resource type="Script" path="res://Maps/Maps/cave_map.gd" id="1_aa84g"]
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
 [ext_resource type="Texture2D" uid="uid://ccnl7hjpjq0if" path="res://Assets/cave_foreground.png" id="1_vm7tn"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/SpawnProjectile.gd" id="4_rrj40"]
-[ext_resource type="PackedScene" uid="uid://b5ntcm8ce5301" path="res://GameObject/Items/Weapons/Bone/Bone.tscn" id="5_3ch5t"]
 [ext_resource type="AudioStream" uid="uid://hrplqfivd30q" path="res://Assets/Sounds/Music/mine_demo.wav" id="6_daw2s"]
 [ext_resource type="Script" path="res://Maps/Maps/Rounds.gd" id="7_ti50g"]
-[ext_resource type="PackedScene" uid="uid://dyhoid36xebc0" path="res://GameObject/Items/Weapons/Banana/Banana.tscn" id="8_uk7ks"]
-[ext_resource type="PackedScene" uid="uid://cdn0ql4jyjnnu" path="res://GameObject/Items/Weapons/Bomb/Bomb.tscn" id="9_vsjbb"]
-[ext_resource type="PackedScene" uid="uid://lc3vg5lpucfu" path="res://GameObject/Items/Weapons/Gun/Gun.tscn" id="10_bxri2"]
-[ext_resource type="PackedScene" uid="uid://crh48slivrldt" path="res://GameObject/Items/Weapons/MissingGun/MissingGun.tscn" id="11_26sf4"]
-[ext_resource type="PackedScene" uid="uid://c5b5sdp5f0o5g" path="res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.tscn" id="12_kgwbn"]
-[ext_resource type="PackedScene" uid="uid://d15ffi0o3pe7x" path="res://GameObject/Items/Weapons/Shovel/Shovel.tscn" id="13_aywh5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -63,18 +56,18 @@ shape = SubResource("CircleShape2D_r8g0w")
 position = Vector2(1199, 534)
 shape = SubResource("CircleShape2D_r8g0w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foreground" groups=["Platform"]]
 position = Vector2(1559, 684)
 rotation = -0.031355
 shape = SubResource("RectangleShape2D_tjpge")
 one_way_collision = true
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Foreground" groups=["Platform"]]
 position = Vector2(281.5, 734)
 shape = SubResource("RectangleShape2D_ckcmr")
 one_way_collision = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Foreground" groups=["Terrain"]]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Foreground" groups=["Platform"]]
 position = Vector2(553.25, 558)
 shape = SubResource("RectangleShape2D_h0aj5")
 one_way_collision = true
@@ -89,30 +82,18 @@ max_projectiles = 2
 frequency = 300
 horizontal_variation = 250.0
 
-[node name="RocketLauncher" parent="." instance=ExtResource("5_3ch5t")]
-position = Vector2(285, 674)
-
-[node name="CaveMusic" type="AudioStreamPlayer" parent="."]
+[node name="MUSIC" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_daw2s")
 volume_db = -22.487
 
 [node name="RoundSystem" type="Node" parent="."]
 script = ExtResource("7_ti50g")
 
-[node name="Banana" parent="." instance=ExtResource("8_uk7ks")]
-position = Vector2(561, 967)
-
-[node name="Bomb" parent="." instance=ExtResource("9_vsjbb")]
-position = Vector2(523, 491)
-
-[node name="Gun" parent="." instance=ExtResource("10_bxri2")]
-position = Vector2(966, 416)
-
-[node name="MissingGun" parent="." instance=ExtResource("11_26sf4")]
-position = Vector2(1186, 380)
-
-[node name="RocketLauncher2" parent="." instance=ExtResource("12_kgwbn")]
-position = Vector2(1552, 624)
-
-[node name="Shovel" parent="." instance=ExtResource("13_aywh5")]
-position = Vector2(1212, 940)
+[node name="RichTextLabel" type="RichTextLabel" parent="RoundSystem"]
+z_index = 100
+offset_left = 7.0
+offset_top = 1037.0
+offset_right = 1919.0
+offset_bottom = 1078.0
+theme_override_font_sizes/normal_font_size = 30
+text = "ASDLKASDJASKLD"

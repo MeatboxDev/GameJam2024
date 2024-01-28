@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://stv0lanvx68x"]
+
+[ext_resource type="Texture2D" uid="uid://coj18hoieaxfi" path="res://Assets/Hazards/water_beach.png" id="1_1xf2b"]
+[ext_resource type="Script" path="res://GameObject/Items/Hazards/Water/Water.gd" id="2_57utl"]
+[ext_resource type="AudioStream" uid="uid://cq6dg71okt5po" path="res://Assets/Sounds/Effects/deltarune-explosion.mp3" id="3_1ufct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xit21"]
+size = Vector2(1943, 127)
+
+[node name="Area2D" type="Area2D" groups=["Hazard"]]
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1xf2b")
+hframes = 4
+script = ExtResource("2_57utl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.900006, 486.5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xit21")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1ufct")
+volume_db = -10.0
+
+[connection signal="area_entered" from="." to="Sprite2D" method="_on_area_2d_area_entered"]

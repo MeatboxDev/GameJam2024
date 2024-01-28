@@ -1,5 +1,15 @@
 extends Node
 
+const weapons = [
+	preload("res://GameObject/Items/Weapons/Banana/Banana.tscn"),
+	preload("res://GameObject/Items/Weapons/Bomb/Bomb.tscn"),
+	preload("res://GameObject/Items/Weapons/Bone/Bone.tscn"),
+	preload("res://GameObject/Items/Weapons/Gun/Gun.tscn"),
+	preload("res://GameObject/Items/Weapons/MissingGun/MissingGun.tscn"),
+	preload("res://GameObject/Items/Weapons/Rocket Launcher/RocketLauncher.tscn"),
+	preload("res://GameObject/Items/Weapons/Shovel/Shovel.tscn")
+]
+
 var weapon:Node2D = null
 var player:CharacterBody2D = null
 var hold_area:Area2D = null
@@ -13,6 +23,14 @@ func _ready():
 func hold() -> Node2D:
 	if (weapon != null): return weapon
 	for i in hold_area.get_overlapping_areas():
+		if i.is_in_group("Crate"):
+			var weapon_instance = weapons[randi_range(0, weapons.size() - 1)].instantiate()
+			get_tree().current_scene.add_child(weapon_instance) 
+			i.get_parent().used_positions.erase(i.position)
+			i.get_parent().crates.erase(i)
+			i.queue_free()
+			return weapon_instance
+			pass
 		if i.is_in_group("Holdable"):
 			if i.get_parent().find_child("Activate").used == false:
 				return i.get_parent()
