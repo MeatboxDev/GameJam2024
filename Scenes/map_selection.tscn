@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8fie0djguxkq"]
+[gd_scene load_steps=14 format=3 uid="uid://b8fie0djguxkq"]
 
 [ext_resource type="Script" path="res://Scripts/map_selection.gd" id="1_mfqu3"]
 [ext_resource type="Texture2D" uid="uid://qo1t1jb0qy8h" path="res://Assets/MapSelection/StageSelect.png" id="2_bfqkr"]
 [ext_resource type="Texture2D" uid="uid://dhmco3i6fet6f" path="res://Assets/MapPreviews/Cavemap_Preview.png" id="2_v8dmk"]
+[ext_resource type="AudioStream" uid="uid://d1qog63fe1ost" path="res://Assets/Sounds/Music/MainMenu.wav" id="6_dyjyu"]
 [ext_resource type="Texture2D" uid="uid://b51uvoa8hi3tc" path="res://Assets/MapSelection/Curtains.png" id="7_xvpvg"]
 [ext_resource type="Texture2D" uid="uid://b184saviinvvu" path="res://Assets/MapSelection/Tv.png" id="8_0k75w"]
 
@@ -102,6 +103,10 @@ texture = ExtResource("7_xvpvg")
 [node name="Tv" type="Sprite2D" parent="."]
 position = Vector2(935, 531)
 texture = ExtResource("8_0k75w")
+
+[node name="MapSelectionMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dyjyu")
+volume_db = -25.358
 
 [connection signal="body_entered" from="Select_Button/SelectButton_Area" to="." method="_on_select_button_area_body_entered"]
 [connection signal="body_entered" from="Left_Button/LeftButton_Area" to="." method="_on_left_button_area_body_entered"]

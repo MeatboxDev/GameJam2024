@@ -87,4 +87,4 @@ position = Vector2(269, 678)
 
 [node name="CaveMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_daw2s")
-volume_db = -22.487
+volume_db = -37.477
