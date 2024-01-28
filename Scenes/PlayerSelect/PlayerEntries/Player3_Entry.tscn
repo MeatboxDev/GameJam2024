@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://byqoym4neu4i7"]
+[gd_scene load_steps=5 format=3 uid="uid://drnws8f73cvc3"]
 
 [ext_resource type="Texture2D" uid="uid://db3vmp26q4tfx" path="res://Assets/PlayerSelect/Player3.png" id="1_aev7k"]
 [ext_resource type="Texture2D" uid="uid://2ftxbm11lqe5" path="res://Assets/PlayerSelect/BlueArrowLeft.png" id="2_efe3q"]
 [ext_resource type="Texture2D" uid="uid://616l8d0t2khv" path="res://Assets/PlayerSelect/BlueArrowRight.png" id="3_wymxw"]
-[ext_resource type="PackedScene" uid="uid://bog4bt5yfy3fl" path="res://Scenes/PlayerSelect/AnimatedAmiguitos/blue_player.tscn" id="4_y4adx"]
+[ext_resource type="PackedScene" uid="uid://dxm1wcaopekuf" path="res://Scenes/PlayerSelect/AnimatedAmiguitos/blue_player.tscn" id="4_y4adx"]
 
 [node name="Player3_Entry" type="TextureRect"]
 
@@ -42,7 +42,8 @@ layout_mode = 2
 texture_normal = ExtResource("3_wymxw")
 
 [node name="BluePlayer" parent="." instance=ExtResource("4_y4adx")]
-layout_mode = 2
-offset_top = 450.0
-offset_right = 230.0
-offset_bottom = 450.0
+layout_mode = 0
+offset_left = -1.0
+offset_top = 449.0
+offset_right = -1.0
+offset_bottom = 449.0

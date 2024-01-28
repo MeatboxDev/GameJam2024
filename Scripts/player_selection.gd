@@ -262,7 +262,7 @@ func _process(delta):
 	pass
 
 
-func _on_button_pressed():
+func _on_start_pressed():
 	Controls.connected_controllers = connected_controllers
 	Controls.player_slots = player_slots
 	Controls.player_models = player_models

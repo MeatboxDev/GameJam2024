@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d0wxsp8k48pgv" path="res://Assets/PlayerSelect/Player1.png" id="1_s5tq7"]
 [ext_resource type="Texture2D" uid="uid://dc30gs0c5x15s" path="res://Assets/PlayerSelect/RedArrowLeft.png" id="2_aalb0"]
 [ext_resource type="Texture2D" uid="uid://ds81piupym18r" path="res://Assets/PlayerSelect/RedArrowRight.png" id="3_p5njw"]
-[ext_resource type="PackedScene" uid="uid://c0hcew8juvh8w" path="res://Scenes/PlayerSelect/AnimatedAmiguitos/red_player.tscn" id="4_tg6tc"]
+[ext_resource type="PackedScene" uid="uid://ccj7hy5mqqoty" path="res://Scenes/PlayerSelect/AnimatedAmiguitos/red_player.tscn" id="4_tg6tc"]
 
 [node name="Player1_Entry" type="TextureRect"]
 

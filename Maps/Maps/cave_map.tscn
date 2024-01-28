@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc8a8rmtpbdfv"]
+[gd_scene load_steps=14 format=3 uid="uid://bc8a8rmtpbdfv"]
 
 [ext_resource type="Script" path="res://Maps/Maps/cave_map.gd" id="1_aa84g"]
 [ext_resource type="Texture2D" uid="uid://dingxer6cjyly" path="res://Assets/cave_background.png" id="1_mcrmx"]
@@ -102,6 +102,7 @@ text = "ASDLKASDJASKLD"
 
 [node name="Ui" parent="." instance=ExtResource("7_fia6g")]
 position = Vector2(1, 1)
+
 [node name="CrateSpawning" type="Node" parent="."]
 script = ExtResource("7_vht5b")
 positions = [Vector2(1300, 1000), Vector2(900, 1000), Vector2(560, 1000), Vector2(280, 690), Vector2(1560, 640), Vector2(960, 440)]
