@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b1drrgkpo0g85" path="res://Assets/Sounds/Music/mine.mp3" id="5_gfk1x"]
 [ext_resource type="PackedScene" uid="uid://darf5da1um3kw" path="res://Scenes/UI.tscn" id="7_fia6g"]
 [ext_resource type="Script" path="res://Maps/Maps/Rounds.gd" id="7_ti50g"]
+[ext_resource type="Script" path="res://Maps/Maps/CrateSpawning.gd" id="7_vht5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ckgad"]
 size = Vector2(470, 138)
@@ -101,3 +102,6 @@ text = "ASDLKASDJASKLD"
 
 [node name="Ui" parent="." instance=ExtResource("7_fia6g")]
 position = Vector2(1, 1)
+[node name="CrateSpawning" type="Node" parent="."]
+script = ExtResource("7_vht5b")
+positions = [Vector2(1300, 1000), Vector2(900, 1000), Vector2(560, 1000), Vector2(280, 690), Vector2(1560, 640), Vector2(960, 440)]

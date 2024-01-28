@@ -4,6 +4,8 @@ var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 
 const spawnPoints = [
 	Vector2(845, 200),
+	Vector2(490, 200),
+	Vector2(700, 750),
 	Vector2(1500, 750)
 	]
 var RoundSystem:Node
