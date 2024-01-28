@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var alive: bool = true
 var jumps = 0
 var joy_button_pressed = false
 
@@ -10,6 +11,12 @@ var joy_button_pressed = false
 @export var DEACCEL_FACTOR = 0.9
 @export var GRAVITY = 3 * 1000
 
+@export var color:String = "Red"
+var RESET_ANIM = color + "RESET"
+var FALL_ANIM = color + "Fall"
+var JUMP_ANIM = color + "Jump"
+var RUN_ANIM = color + "Run"
+
 var direction
 
 # Joycon keys
@@ -18,7 +25,7 @@ const JOYCON_RIGHT = 15
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var anim = get_node("AnimationPlayer")
+@onready var anim = find_child("AnimationPlayer")
 
 func _input(event):
 	if event is InputEventJoypadButton and event.is_pressed():
@@ -33,14 +40,15 @@ func _input(event):
 			joy_button_pressed = false
 			
 
-func _physics_process(delta):	
+func _physics_process(delta):
+	if not alive: return
 	if not direction and is_on_floor():
-		anim.play("RedRESET")
+		anim.play(RESET_ANIM)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 		if velocity.y > 0:
-			anim.play("RedFall")
+			anim.play(FALL_ANIM)
 	else:
 		# Reset double jump
 		jumps = 0
@@ -48,9 +56,8 @@ func _physics_process(delta):
 	# Handle jumping and double jumping
 	#if Input.is_action_just_pressed("jump"):
 	if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A):
-		anim.play("RedJump")
+		anim.play(JUMP_ANIM)
 		if jumps < 2 and joy_button_pressed:
-			print("Player %d jumped" % player_index)
 			joy_button_pressed = false
 			velocity.y = JUMP_VELOCITY * SPEED
 	# Get the input direction and handle the movement/deceleration.
@@ -67,9 +74,8 @@ func _physics_process(delta):
 
 	else:
 		velocity.x *= DEACCEL_FACTOR
-
-
-
-
 	move_and_slide()
-	
+
+func Die():
+	alive = false
+	hide()

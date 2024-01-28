@@ -1,24 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://rssxxfr6ityj"]
+[gd_scene load_steps=5 format=3 uid="uid://bsy1x2gg2atey"]
 
 [ext_resource type="Texture2D" uid="uid://b5ct2sq03m75y" path="res://Assets/Explosion.png" id="1_knes2"]
-[ext_resource type="Script" path="res://GameObject/Items/Projectiles/Rocket/Explosion.gd" id="2_31q82"]
-[ext_resource type="AudioStream" uid="uid://cq6dg71okt5po" path="res://Assets/Sounds/Effects/deltarune-explosion.mp3" id="2_b4lyn"]
+[ext_resource type="Script" path="res://GameObject/Items/Hazards/Explotion/Explosion.gd" id="2_3jrjg"]
+[ext_resource type="AudioStream" uid="uid://cq6dg71okt5po" path="res://Assets/Sounds/Effects/deltarune-explosion.mp3" id="3_fvr2l"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u38c4"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfiot"]
 radius = 30.0666
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["Explosion"]]
 scale = Vector2(5, 5)
 
-[node name="Explosion" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_knes2")
 hframes = 17
-script = ExtResource("2_31q82")
-
-[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_b4lyn")
-volume_db = -15.928
+frame = 7
+script = ExtResource("2_3jrjg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_u38c4")
+shape = SubResource("CircleShape2D_nfiot")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fvr2l")
+volume_db = -10.0
+
+[connection signal="area_entered" from="." to="Sprite2D" method="_on_area_2d_area_entered"]

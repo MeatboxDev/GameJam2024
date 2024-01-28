@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_83b66"]
 radius = 36.0
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["Projectile"]]
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,4 +22,5 @@ shape = SubResource("CircleShape2D_83b66")
 [node name="Script" type="Node" parent="."]
 script = ExtResource("2_mvrrj")
 
+[connection signal="area_entered" from="." to="Script" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="." to="Script" method="_on_area_2d_body_entered"]

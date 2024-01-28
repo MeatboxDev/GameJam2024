@@ -44,3 +44,12 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Terrain") and not used:
 		player_owner.velocity.y = player_owner.JUMP_VELOCITY * player_owner.SPEED
 		player_owner.jumps = 0
+
+func _on_area_2d_area_entered(area):
+	if player_owner == null or player_owner == area.get_parent(): return
+	if area.is_in_group("Player"):
+		print("Player Collision")
+		area.get_parent().Die()
+		player_owner.velocity.y = player_owner.JUMP_VELOCITY * player_owner.SPEED
+		player_owner.jumps = 0
+		return

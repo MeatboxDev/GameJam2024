@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://blbir3lsbyo38"]
 
-[ext_resource type="Texture2D" uid="uid://cpv24r3jvf8qs" path="res://Assets/Items/Banana.png" id="1_cwexu"]
+[ext_resource type="Texture2D" uid="uid://cvmq7npydm36o" path="res://Assets/Items/Banana.png" id="1_cwexu"]
 [ext_resource type="Script" path="res://GameObject/Items/Projectiles/Banana Projectile/Banana Shooting.gd" id="2_v8efo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jshru"]
 radius = 29.7072
 height = 99.0115
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["Projectile"]]
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,4 +22,5 @@ shape = SubResource("CapsuleShape2D_jshru")
 [node name="Script" type="Node" parent="."]
 script = ExtResource("2_v8efo")
 
+[connection signal="area_entered" from="." to="Script" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="." to="Script" method="_on_area_2d_body_entered"]
