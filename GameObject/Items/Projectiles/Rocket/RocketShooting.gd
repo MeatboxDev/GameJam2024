@@ -2,6 +2,7 @@ extends Node
 
 const explosion = preload("res://GameObject/Items/Hazards/Explotion/Explotion.tscn")
 
+var responsible:Area2D
 var parent:Area2D
 var gravity:float = 1
 var life_time:int = 0
@@ -25,6 +26,16 @@ func _on_area_2d_body_entered(body):
 		var explosion_instance = explosion.instantiate()
 		get_tree().current_scene.add_child(explosion_instance)
 		explosion_instance.position = parent.position
-		print(explosion_instance.get_parent())
 		explosion_instance.find_child("ExplosionSound").play()
 		parent.queue_free()
+
+func _on_area_2d_area_entered(area):
+	if area == responsible: return
+	if area.is_in_group("Player"):
+		var explosion_instance = explosion.instantiate()
+		get_tree().current_scene.add_child(explosion_instance)
+		explosion_instance.position = parent.position
+		explosion_instance.find_child("ExplosionSound").play()
+		area.get_parent().Die()
+		parent.queue_free()
+		return

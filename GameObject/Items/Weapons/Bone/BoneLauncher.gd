@@ -25,6 +25,7 @@ func Activate(direction):
 	projectile.position = get_parent().position
 	projectile.find_child("Script").speed = Vector2(direction * 15, 0)
 	projectile.find_child("Script").life_time = 900
+	projectile.find_child("Script").responsible = player_owner.find_child("Collision Box")
 	
 	# Specify this weapon as used and remove weapon from owner
 	used = true

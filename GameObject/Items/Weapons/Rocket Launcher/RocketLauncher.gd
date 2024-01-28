@@ -23,16 +23,17 @@ func _physics_process(delta):
 
 func Activate(direction):
 	# When player uses rocket launcher instantiate rocket
-	var rocket_instance = rocket.instantiate()
+	var projectile = rocket.instantiate()
 	
 	# Add rocket as child of root
-	get_tree().current_scene.add_child(rocket_instance)
+	get_tree().current_scene.add_child(projectile)
 	
 	# Specify rocket properties
-	rocket_instance.position = get_parent().position
-	rocket_instance.find_child("Script").speed = Vector2(direction * 10, 0)
-	rocket_instance.find_child("Script").gravity = 0
-	rocket_instance.find_child("Script").life_time = 900
+	projectile.position = get_parent().position
+	projectile.find_child("Script").speed = Vector2(direction * 10, 0)
+	projectile.find_child("Script").gravity = 0
+	projectile.find_child("Script").life_time = 900
+	projectile.find_child("Script").responsible = player_owner.find_child("Collision Box")
 	
 	# Specify this weapon as used and remove weapon from owner
 	used = true

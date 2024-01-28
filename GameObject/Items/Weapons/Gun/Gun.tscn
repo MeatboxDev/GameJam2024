@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://lc3vg5lpucfu"]
 
-[ext_resource type="Texture2D" uid="uid://cbjlowdfef37e" path="res://Assets/Items/Gun.png" id="1_xfosm"]
-[ext_resource type="Script" path="res://GameObject/Items/Weapons/Gun/Gun.gd" id="2_qjn8b"]
+[ext_resource type="Texture2D" uid="uid://cbjlowdfef37e" path="res://Assets/Items/Gun.png" id="1_fkdcf"]
+[ext_resource type="Script" path="res://GameObject/Items/Weapons/Gun/GunLauncher.gd" id="2_a2ipi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dh155"]
 radius = 92.0107
@@ -16,11 +16,11 @@ position = Vector2(0, -20)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 position = Vector2(1, 8)
-texture = ExtResource("1_xfosm")
+texture = ExtResource("1_fkdcf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.56804
 shape = SubResource("CapsuleShape2D_dh155")
 
 [node name="Activate" type="Node" parent="."]
-script = ExtResource("2_qjn8b")
+script = ExtResource("2_a2ipi")

@@ -20,3 +20,8 @@ func _process(_delta):
 	if get_parent().find_child("ExplosionSound").playing == false:
 		get_parent().queue_free()
 	pass
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Player"):
+		area.get_parent().Die()

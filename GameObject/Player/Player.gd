@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var alive: bool = true
 var jumps = 0
 var joy_button_pressed = false
 
@@ -33,7 +34,8 @@ func _input(event):
 			joy_button_pressed = false
 			
 
-func _physics_process(delta):	
+func _physics_process(delta):
+	if not alive: return
 	if not direction and is_on_floor():
 		anim.play("RESET")
 	# Add the gravity.
@@ -50,7 +52,6 @@ func _physics_process(delta):
 	if Input.is_joy_button_pressed(player_index, JOY_BUTTON_A):
 		anim.play("Jump")
 		if jumps < 2 and joy_button_pressed:
-			print("Player %d jumped" % player_index)
 			joy_button_pressed = false
 			velocity.y = JUMP_VELOCITY * SPEED
 	# Get the input direction and handle the movement/deceleration.
@@ -67,9 +68,8 @@ func _physics_process(delta):
 
 	else:
 		velocity.x *= DEACCEL_FACTOR
-
-
-
-
 	move_and_slide()
-	
+
+func Die():
+	alive = false
+	hide()

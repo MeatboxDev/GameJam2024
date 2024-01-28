@@ -25,16 +25,17 @@ func _physics_process(delta):
 
 func Activate(direction):
 	# When player uses rocket launcher instantiate rocket
-	var projectile_instance = rocket.instantiate()
+	var projectile = rocket.instantiate()
 	
 	# Add rocket as child of root
-	get_tree().current_scene.add_child(projectile_instance)
+	get_tree().current_scene.add_child(projectile)
 	
 	# Specify rocket properties
-	projectile_instance.position = get_parent().position
-	projectile_instance.find_child("Script").speed = Vector2(direction * 25, 0)
-	projectile_instance.find_child("Script").gravity = 0
-	projectile_instance.find_child("Script").life_time = 900
+	projectile.position = get_parent().position
+	projectile.find_child("Script").speed = Vector2(direction * 25, 0)
+	projectile.find_child("Script").gravity = 0
+	projectile.find_child("Script").life_time = 900
+	projectile.find_child("Script").responsible = player_owner.find_child("Collision Box")
 	
 	uses -= 1
 	
