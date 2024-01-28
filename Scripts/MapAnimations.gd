@@ -87,6 +87,7 @@ func SpawnPlayers(players, spawn_points):
 			if spawn_point not in used_indexes:
 				i.position.x = spawn_point.x
 				i.position.y = spawn_point.y + 100
+				print("Spawned this fuck: %s" % i)
 				add_child(i)
 				used_indexes.append(spawn_point)
 				break

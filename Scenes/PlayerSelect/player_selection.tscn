@@ -16,3 +16,14 @@ theme_override_constants/margin_bottom = 400
 [node name="Players_Container" type="HBoxContainer" parent="CenterContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 500
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 50)
+offset_left = 853.0
+offset_top = 959.0
+offset_right = 1053.0
+offset_bottom = 1036.0
+theme_override_font_sizes/font_size = 50
+text = "Start!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

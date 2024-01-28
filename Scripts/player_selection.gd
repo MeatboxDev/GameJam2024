@@ -27,6 +27,8 @@ var player3 = player3_entry.instantiate()
 var player4 = player4_entry.instantiate()
 var players = [player1, player2, player3, player4]
 
+var players_funny_color = ["Red", "Green", "Blue", "Gray"]
+
 # Controller stuff
 var player_slots = [true, true, true, true]
 var connected_controllers = {}
@@ -36,6 +38,11 @@ var connected_controllers = {}
 func _ready():
 	# Bind to controller stuff
 	Input.joy_connection_changed.connect(on_joycon_connection_changed)
+	
+	# Initial check for controllers
+	for i in Input.get_connected_joypads():
+		ControllerMagic(i, true)
+	
 	
 	# Start everybody's dancing animation
 	player1.find_child("AnimationPlayer").play("RedDance")
@@ -60,6 +67,10 @@ func _ready():
 
 
 func on_joycon_connection_changed(device: int, connected: bool):
+	ControllerMagic(device, connected)
+
+
+func ControllerMagic(device: int, connected: bool):
 	var device_name = Input.get_joy_name(device)
 	var device_guid = Input.get_joy_guid(device)
 	
@@ -89,6 +100,8 @@ func on_joycon_connection_changed(device: int, connected: bool):
 		
 		# Finally, let's add an entry for it
 		find_child("Players_Container").add_child(players[slot])
+		SortLobby()
+		
 		
 	# A controller has just been disconnected
 	else:
@@ -117,7 +130,40 @@ func FreePlayerSlot(id: int):
 
 
 # If one slot were to be freed, rotate the lobby
+func RotateLobby():
+	for a in range(2):
+		var i = 0
+		while i < player_slots.size() - 1:
+			if player_slots[i] == true and player_slots[i+1] == false:
+				player_slots[i] = false
+				player_slots[i+1] = false
+	
 
+# Order the entries from Player 1 to Player 2
+func SortLobby():
+	var children = find_child("Players_Container").get_children()
+	
+	while not LobbySorted():
+		var i = 0
+		while i < children.size() - 1:
+			if children[i].name > children[i+1].name:
+				var temp = children[i].name
+				children[i].name = children[i+1].name
+				children[i+1].name = temp
+			i += 1
+	
+	
+func LobbySorted():
+	var children = find_child("Players_Container").get_children()
+	var i = 0
+	
+	while i < children.size() - 1:
+		if children[i].name > children[i+1].name:
+			return false
+		i += 1
+	
+	print("Sorted")
+	return true
 
 func ReplaceAvatar(target, previous, newone):
 	# Remove previous sprite
@@ -127,7 +173,7 @@ func ReplaceAvatar(target, previous, newone):
 	target.add_child(newone)
 
 
-func ForwardAvatar(target, index):
+func ForwardAvatar(target, index, playernum):
 	var indx = index % player_colors.size()
 	var new_indx = (index+1) % player_colors.size()
 	
@@ -135,6 +181,8 @@ func ForwardAvatar(target, index):
 	var new_color = player_colors[new_indx]
 	var prev_avi_name = prev_color + "Player"
 	var new_avi_name = new_color + "Player"
+	
+	players_funny_color[playernum] = new_color
 	
 	# Switch the avatar
 	var new_avi = player_models[new_indx].instantiate()
@@ -147,7 +195,7 @@ func ForwardAvatar(target, index):
 	ReplaceAvatar(target, prev_avi_name, new_avi)
 	
 	
-func BackwardsAvatar(target, index):
+func BackwardsAvatar(target, index, playernum):
 	var indx = index % player_colors.size()
 	var new_indx = (index-1) % player_colors.size()
 	
@@ -155,6 +203,8 @@ func BackwardsAvatar(target, index):
 	var new_color = player_colors[new_indx]
 	var prev_avi_name = prev_color + "Player"
 	var new_avi_name = new_color + "Player"
+	
+	players_funny_color[playernum] = new_color
 	
 	# Switch the avatar
 	var new_avi = player_models[new_indx].instantiate()
@@ -168,45 +218,76 @@ func BackwardsAvatar(target, index):
 
 
 func on_player1_character_forward():
-	ForwardAvatar(player1, p1_index)
+	ForwardAvatar(player1, p1_index, 0)
 	p1_index += 1
 
 
 func on_player1_character_backwards():
-	BackwardsAvatar(player1, p1_index)
+	BackwardsAvatar(player1, p1_index, 0)
 	p1_index -= 1
 
 
 func on_player2_character_forward():
-	ForwardAvatar(player2, p2_index)
+	ForwardAvatar(player2, p2_index, 1)
 	p2_index += 1
 
 
 func on_player2_character_backwards():
-	BackwardsAvatar(player2, p2_index)
+	BackwardsAvatar(player2, p2_index, 1)
 	p2_index -= 1
 
 
 func on_player3_character_forward():
-	ForwardAvatar(player3, p3_index)
+	ForwardAvatar(player3, p3_index, 2)
 	p3_index += 1
 	
 	
 func on_player3_character_backwards():
-	BackwardsAvatar(player3, p3_index)
+	BackwardsAvatar(player3, p3_index, 2)
 	p3_index -= 1
 
 
 func on_player4_character_forward():
-	ForwardAvatar(player4, p4_index)
+	ForwardAvatar(player4, p4_index, 3)
 	p4_index += 1
 
 
 func on_player4_character_backwards():
-	BackwardsAvatar(player4, p4_index)
+	BackwardsAvatar(player4, p4_index, 4)
 	p4_index -= 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_button_pressed():
+	Controls.connected_controllers = connected_controllers
+	Controls.player_slots = player_slots
+	Controls.player_models = player_models
+	
+	var counter = 0
+	
+	# Player information for inputs
+	for i in connected_controllers.keys():
+		var controller = connected_controllers[i]
+		var player_name = "Player " + str(controller["slot"] + 1)
+		var controller_id = controller["slot"]
+		var controller_name = controller["name"]
+		var controller_guid = controller["guid"]
+		
+		Controls.player_information[player_name] = {
+			"playing": true,
+			"color": players_funny_color[counter],
+			"controller": {
+				"id": controller_id,
+				"name": controller_name,
+				"guid": controller_guid,
+			}
+		}
+		
+		counter += 1
+		
+	
+	get_tree().change_scene_to_file("res://Scenes/map_selection.tscn")

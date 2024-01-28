@@ -7,8 +7,7 @@ var players = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	stage = get_parent()
-	players = stage.player_array
+	#players = Controls.GetPlayerArray()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,7 +29,7 @@ func _process(delta):
 				if i.find_child("HoldingScript").weapon != null: 
 					i.find_child("HoldingScript").weapon.queue_free()
 					i.find_child("HoldingScript").weapon = null
-			MapAnimations.SpawnPlayers(players, stage.spawnPoints)
+			#MapAnimations.SpawnPlayers(players, stage.spawnPoints)
 			for i in stage.get_children().filter(func(x): return x.is_in_group("Projectile") or x.is_in_group("Explosion")):
 				i.queue_free()
 		0:
@@ -40,7 +39,7 @@ func _process(delta):
 				if i.find_child("HoldingScript").weapon != null: 
 					i.find_child("HoldingScript").weapon.queue_free()
 					i.find_child("HoldingScript").weapon = null
-			MapAnimations.SpawnPlayers(players, stage.spawnPoints)
+			#MapAnimations.SpawnPlayers(players, stage.spawnPoints)
 		_:
 			pass
 	pass

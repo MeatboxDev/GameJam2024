@@ -3,14 +3,21 @@ extends Node2D
 # Map animations
 var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 
+@export var connected_controllers = Controls.connected_controllers
+@export var player_slots = Controls.player_slots
+@export var player_models = Controls.player_models
+
+const spawn_points = [
+	Vector2(100, 700),
+	Vector2(300, 700),
+	Vector2(1200, 700),
+	Vector2(1400, 700),
+]
+
 # Bandaid fix
 var left_first = true
 var right_first = true
 var select_count = 0
-
-# Player sprites
-const player_scene = preload("res://GameObject/Player/Player.tscn")
-# const boykisser_scene = preload("res://GameObject/Player/Boykisser.tscn")
 
 # Scenes
 const cavemap_scene = "res://Maps/Maps/cave_map.tscn"
@@ -27,32 +34,13 @@ const maps = [cavemap_preview, beachmap_preview, factorymap_preview]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Map Animations
+	# Animations
+	#RoundSystem = find_child("RoundSystem")
 	add_child(MapAnimations)
+	MapAnimations.camera = $MapCamera
 	
-	# Add all unique controllers we can detect
-	var connected_controllers = []
-	for i in Input.get_connected_joypads():
-		var new_controller = true
-		print(Input.get_joy_guid(i))
-		for j in connected_controllers:
-			if Input.get_joy_guid(i) == Input.get_joy_guid(j):
-				new_controller = false
-				break
-		if new_controller:
-			connected_controllers.append(i)
-	
-	print("%d connected controllers" % connected_controllers.size())
-	for i in connected_controllers:
-		print("#%d: %s" % [i, Input.get_joy_name(i)])
-		
-		# Add a player per controller
-		# Probably will remove later
-		var player = player_scene.instantiate()
-		player.player_index = i
-		player.position = Vector2(500, 0)
-		add_child(player)
-
+	# Spawn my boyfriends
+	Controls.PlayerSpawningShenanigans(spawn_points)
 
 func change_map(new_index: int):
 	# Update the index value
@@ -66,7 +54,7 @@ func _on_select_button_area_body_entered(body):
 	print("Select map")
 	
 	# Bandaid fix
-	if select_count <= 2:
+	if select_count < 2:
 		select_count += 1
 		return
 		
