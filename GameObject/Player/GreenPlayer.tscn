@@ -323,6 +323,7 @@ bone_angle = -6.486
 [node name="RightArm" type="Bone2D" parent="BlueSkeleton2D/Hip/Rib"]
 position = Vector2(-0.937981, 23.8924)
 rotation = 2.81505
+scale = Vector2(1, 1)
 rest = Transform2D(-0.722308, 0.691572, -0.691572, -0.722308, -1.67431, 31.2635)
 auto_calculate_length_and_angle = false
 length = 34.432
@@ -341,7 +342,6 @@ rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
 [node name="RightEar" type="Bone2D" parent="BlueSkeleton2D/Hip/Rib/Head"]
 position = Vector2(101.979, 99.2533)
 rotation = 0.0100433
-scale = Vector2(1, 1)
 rest = Transform2D(0.99995, 0.0100431, -0.0100431, 0.99995, 72.3291, 55.6597)
 auto_calculate_length_and_angle = false
 length = 28.223
@@ -362,7 +362,6 @@ rest = Transform2D(1, 0, 0, 1, -22.4804, -44.279)
 [node name="LeftLeg" type="Bone2D" parent="BlueSkeleton2D/Hip"]
 position = Vector2(-3.59448, -36.3238)
 rotation = -0.164451
-scale = Vector2(1, 1)
 rest = Transform2D(0.946627, -0.322332, 0.322332, 0.946627, -5.43703, -29.7134)
 auto_calculate_length_and_angle = false
 length = 43.649
@@ -380,7 +379,6 @@ bone_angle = -181.622
 [node name="Bone2D" type="Bone2D" parent="BlueSkeleton2D/Hip"]
 position = Vector2(26.0773, -17.8197)
 rotation = -2.42721
-scale = Vector2(1, 1)
 rest = Transform2D(-0.869495, -0.493942, 0.493942, -0.869495, 25.7496, -21.094)
 auto_calculate_length_and_angle = false
 length = 37.537
