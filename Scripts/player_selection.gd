@@ -27,8 +27,16 @@ var player3 = player3_entry.instantiate()
 var player4 = player4_entry.instantiate()
 
 
+# Controller stuff
+var player_slots = [true, true, true, true]
+var connected_controllers = {}
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Bind to controller stuff
+	Input.joy_connection_changed.connect(on_joycon_connection_changed)
+	
 	# Start everybody's dancing animation
 	player1.find_child("AnimationPlayer").play("RedDance")
 	player2.find_child("AnimationPlayer").play("GreenDance")
@@ -38,6 +46,12 @@ func _ready():
 	# Bind to everyone's buttons
 	player1.find_child("Left_Button").pressed.connect(on_player1_character_backwards)
 	player1.find_child("Right_Button").pressed.connect(on_player1_character_forward)
+	player2.find_child("Left_Button").pressed.connect(on_player2_character_backwards)
+	player2.find_child("Right_Button").pressed.connect(on_player2_character_forward)
+	player3.find_child("Left_Button").pressed.connect(on_player3_character_backwards)
+	player3.find_child("Right_Button").pressed.connect(on_player3_character_forward)
+	player4.find_child("Left_Button").pressed.connect(on_player4_character_backwards)
+	player4.find_child("Right_Button").pressed.connect(on_player4_character_forward)
 	
 	find_child("Players_Container").add_child(player1)
 	find_child("Players_Container").add_child(player2)
@@ -45,34 +59,121 @@ func _ready():
 	find_child("Players_Container").add_child(player4)
 
 
-func on_player1_character_forward():
-	var curr_player = p1_index % players.size()
+func on_joycon_connection_changed(device: int, connected: bool):
+	# Let's make sure there are available player slots
+	if true not in player_slots:
+		return
 	
-	print("[Player 1] Next character (%d -> %d)" % [p1_index, p1_index + 1])
-	
-	# Remove previous sprite
-	print("Previous color: %s" % players[curr_player])
-	print(player1.find_child(players[curr_player] + "Player"))#.queue_free()
-	
-	p1_index += 1
-	curr_player = p1_index % players.size()
-	var pcolor = players[curr_player]
-	
-	print("New color: %s" % pcolor)
-	
-	# Switch the avatar
-	var new_avi = player_models[curr_player].instantiate()
-	new_avi.position.y = 450
-	
-	# Add it back
-	player1.add_child(new_avi)
-	
-	# Restart its animation
-	#player1.find_child(pcolor + "Player").find_child("AnimationPlayer").play(pcolor + "Dance")
+	# A controller has just been connected
+	if connected:
+		# First we check if it's unique or if it already exists
+		var slot = FindAvailablePlayerSlot()
+		
+	# A controller has just been disconnected
+	else:
+		pass
+
+
+func FindAvailablePlayerSlot():
+	var i = 0
+	while i < player_slots.size():
+		if player_slots[i] == true:
+			player_slots[i] = false
+			return i
+		i += 1
 	
 
+func FreePlayerSlot(id: int):
+	player_slots[id] = true
+
+
+func ReplaceAvatar(target, previous, newone):
+	# Remove previous sprite
+	target.get_node(previous).queue_free()
+	
+	# Add the new one
+	target.add_child(newone)
+
+
+func ForwardAvatar(target, index):
+	var indx = index % players.size()
+	var new_indx = (index+1) % players.size()
+	
+	var prev_color = players[indx]
+	var new_color = players[new_indx]
+	var prev_avi_name = prev_color + "Player"
+	var new_avi_name = new_color + "Player"
+	
+	# Switch the avatar
+	var new_avi = player_models[new_indx].instantiate()
+	new_avi.position.y = 450
+	
+	# Restart its animation
+	new_avi.get_node("AnimationPlayer").play(new_color + "Dance")
+
+	# Perform the replacement
+	ReplaceAvatar(target, prev_avi_name, new_avi)
+	
+	
+func BackwardsAvatar(target, index):
+	var indx = index % players.size()
+	var new_indx = (index-1) % players.size()
+	
+	var prev_color = players[indx]
+	var new_color = players[new_indx]
+	var prev_avi_name = prev_color + "Player"
+	var new_avi_name = new_color + "Player"
+	
+	# Switch the avatar
+	var new_avi = player_models[new_indx].instantiate()
+	new_avi.position.y = 450
+	
+	# Restart its animation
+	new_avi.get_node("AnimationPlayer").play(new_color + "Dance")
+
+	# Perform the replacement
+	ReplaceAvatar(target, prev_avi_name, new_avi)
+
+
+func on_player1_character_forward():
+	ForwardAvatar(player1, p1_index)
+	p1_index += 1
+
+
 func on_player1_character_backwards():
-	print("[Player 1] Previous character")
+	BackwardsAvatar(player1, p1_index)
+	p1_index -= 1
+
+
+func on_player2_character_forward():
+	ForwardAvatar(player2, p2_index)
+	p2_index += 1
+
+
+func on_player2_character_backwards():
+	BackwardsAvatar(player2, p2_index)
+	p2_index -= 1
+
+
+func on_player3_character_forward():
+	ForwardAvatar(player3, p3_index)
+	p3_index += 1
+	
+	
+func on_player3_character_backwards():
+	BackwardsAvatar(player3, p3_index)
+	p3_index -= 1
+
+
+func on_player4_character_forward():
+	ForwardAvatar(player4, p4_index)
+	p4_index += 1
+
+
+func on_player4_character_backwards():
+	BackwardsAvatar(player4, p4_index)
+	p4_index -= 1
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
