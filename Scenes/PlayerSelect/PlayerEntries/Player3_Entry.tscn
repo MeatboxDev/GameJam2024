@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://drnws8f73cvc3"]
+
+[ext_resource type="Texture2D" uid="uid://db3vmp26q4tfx" path="res://Assets/PlayerSelect/Player3.png" id="1_aev7k"]
+[ext_resource type="Texture2D" uid="uid://2ftxbm11lqe5" path="res://Assets/PlayerSelect/BlueArrowLeft.png" id="2_efe3q"]
+[ext_resource type="Texture2D" uid="uid://616l8d0t2khv" path="res://Assets/PlayerSelect/BlueArrowRight.png" id="3_wymxw"]
+[ext_resource type="PackedScene" uid="uid://dxm1wcaopekuf" path="res://Scenes/PlayerSelect/AnimatedAmiguitos/blue_player.tscn" id="4_y4adx"]
+
+[node name="Player3_Entry" type="TextureRect"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -118.0
+offset_right = 115.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_aev7k")
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Left_Button" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_efe3q")
+
+[node name="Right_Button" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_wymxw")
+
+[node name="BluePlayer" parent="." instance=ExtResource("4_y4adx")]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 449.0
+offset_right = -1.0
+offset_bottom = 449.0

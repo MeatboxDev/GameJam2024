@@ -7,13 +7,15 @@ var players = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	stage = get_parent()
-	players = stage.player_array
+	print (Controls.player_models)
+	for i in Controls.player_models:
+		if i != null: players[i] = 0
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var live_players = players.keys().filter(func(x): return x.alive).size()
+	#var live_players = players.keys().filter(func(x): return x.alive).size()
+	var live_players = Controls.GetLivePlayers()
 	var final_score_text = ""
 	for i in players.keys():
 		final_score_text = str("Player ", i.player_index, ": ", players[i], " | ") + final_score_text
@@ -30,7 +32,7 @@ func _process(delta):
 				if i.find_child("HoldingScript").weapon != null: 
 					i.find_child("HoldingScript").weapon.queue_free()
 					i.find_child("HoldingScript").weapon = null
-			MapAnimations.SpawnPlayers(players, stage.spawnPoints)
+			#MapAnimations.SpawnPlayers(players, stage.spawnPoints)
 			for i in stage.get_children().filter(func(x): return x.is_in_group("Projectile") or x.is_in_group("Explosion")):
 				i.queue_free()
 		0:
@@ -40,7 +42,7 @@ func _process(delta):
 				if i.find_child("HoldingScript").weapon != null: 
 					i.find_child("HoldingScript").weapon.queue_free()
 					i.find_child("HoldingScript").weapon = null
-			MapAnimations.SpawnPlayers(players, stage.spawnPoints)
+			#MapAnimations.SpawnPlayers(players, stage.spawnPoints)
 		_:
 			pass
 	pass

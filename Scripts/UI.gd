@@ -16,4 +16,5 @@ func _on_texture_button_pressed():
 
 
 func _on_map_selection_pressed():
+	Controls.NukeEverything()
 	get_tree().change_scene_to_file("res://Scenes/map_selection.tscn")
