@@ -13,9 +13,11 @@ func _ready():
 	add_child(MapAnimations)
 	MapAnimations.camera = $MapCamera
 	
-	await MapAnimations.FadeIn(0.5)
-	await MapAnimations.wait(2.0)
+	# Amiguitos
+	var player1 = player_scene.instantiate()
+	
 	#await MapAnimations.PanoramicAnimation()
+	await MapAnimations.PlayerSpawnAnimation(player1, Vector2(300, 300))
 	
 	# Add all unique controllers we can detect
 	var connected_controllers = []
@@ -36,11 +38,10 @@ func _ready():
 		
 		# Add a player per controller
 		# Probably will remove later
-		var player = player_scene.instantiate()
-		player.player_index = i
-		player.position = Vector2(500, 0)
-		RoundSystem.RegisterPlayer(player)
-		add_child(player)
+		#var player = player_scene.instantiate()
+		#player.player_index = i
+		#player.position = Vector2(500, 0)
+		#add_child(player)
 
 func _process(delta):
 	if Input.is_action_just_pressed("debug_reload"):
