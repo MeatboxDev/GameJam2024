@@ -92,3 +92,47 @@ func PlayerSpawningShenanigans(spawn_points):
 				amiwitos.append(avi)
 	
 	MapAnimations.SpawnPlayers(amiwitos, spawn_points)
+
+
+func NukeEverything():
+	connected_controllers = {}
+	player_slots = [true, true, true, true]
+	player_models = [null, null, null, null]
+	player_information = {
+	"Player 1": {
+		"playing": false,
+		"color": "Red",
+		"controller": {
+			"id": 0,
+			"name": "",
+			"guid": "",
+		}
+	},
+	"Player 2": {
+		"playing": false,
+		"color": "Green",
+		"controller": {
+			"id": 0,
+			"name": "",
+			"guid": "",
+		}
+	},
+	"Player 3": {
+		"playing": false,
+		"color": "Blue",
+		"controller": {
+			"id": 0,
+			"name": "",
+			"guid": "",
+		}
+	},
+	"Player 4": {
+		"playing": false,
+		"color": "Gray",
+		"controller": {
+			"id": 0,
+			"name": "",
+			"guid": "",
+		}
+	},
+}

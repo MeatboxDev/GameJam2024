@@ -61,9 +61,11 @@ func _on_select_button_area_body_entered(body):
 		
 	match maps[preview_index % maps.size()]:
 		cavemap_preview:
+			Controls.NukeEverything()
 			get_tree().change_scene_to_file(cavemap_scene)
 			
 		beachmap_preview:
+			Controls.NukeEverything()
 			get_tree().change_scene_to_file(beachmap_scene)
 			
 
