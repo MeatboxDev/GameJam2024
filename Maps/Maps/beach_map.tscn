@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ds0wq1g1fjqpl"]
+[gd_scene load_steps=18 format=3 uid="uid://bgr5k5ju5mph3"]
 
 [ext_resource type="Script" path="res://Maps/Maps/beach_map.gd" id="1_eaa4b"]
 [ext_resource type="Texture2D" uid="uid://dmr7bq0ui1s6s" path="res://Assets/beach_foreground.png" id="2_jpc28"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://yod5gnx3itdr" path="res://Assets/Hazards/beach_house.png" id="3_l4hm8"]
 [ext_resource type="Texture2D" uid="uid://dgjk0fgexy7fk" path="res://Assets/Hazards/palm_trees.png" id="4_kddbb"]
 [ext_resource type="Script" path="res://Maps/Maps/Rounds.gd" id="6_ll5il"]
-[ext_resource type="AudioStream" uid="uid://qphpamru6v1t" path="res://Assets/Sounds/Music/beach_demo.wav" id="7_11n4x"]
 [ext_resource type="Script" path="res://Maps/Maps/CrateSpawning.gd" id="8_3fvkd"]
+[ext_resource type="AudioStream" uid="uid://dmdcr7uiqxxuh" path="res://Assets/Sounds/Music/beach.mp3" id="8_h2sbm"]
 [ext_resource type="PackedScene" uid="uid://stv0lanvx68x" path="res://GameObject/Items/Hazards/Water/Water.tscn" id="9_2ufm3"]
+[ext_resource type="PackedScene" uid="uid://darf5da1um3kw" path="res://Scenes/UI.tscn" id="10_2ny5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aheyl"]
 size = Vector2(1279.5, 73)
@@ -144,8 +145,11 @@ script = ExtResource("8_3fvkd")
 positions = [Vector2(1300, 900), Vector2(960, 900), Vector2(620, 900), Vector2(960, 360)]
 
 [node name="MUSIC" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_11n4x")
+stream = ExtResource("8_h2sbm")
 
 [node name="Area2D" parent="." instance=ExtResource("9_2ufm3")]
 position = Vector2(965, 459)
 scale = Vector2(1.2, 1.2)
+
+[node name="Ui" parent="." instance=ExtResource("10_2ny5i")]
+position = Vector2(-7, 8)

@@ -12,13 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://t2x5u4nmwrpl" path="res://Assets/PlayerRig/Eyes.png" id="10_5qhlf"]
 [ext_resource type="Texture2D" uid="uid://bcar8wfn8xh8q" path="res://Assets/PlayerRig/Blue/BlueLeftHand.png" id="10_vwakh"]
 [ext_resource type="Script" path="res://GameObject/Player/HoldScript.gd" id="12_mgr4w"]
-[ext_resource type="Animation" uid="uid://tmfcmh080a63" path="res://Assets/PlayerRig/Green/GreenDance.res" id="13_2hkkq"]
-[ext_resource type="Animation" uid="uid://j2m2yqscea1y" path="res://Assets/PlayerRig/Blue/GreenFall.res" id="14_dcx7l"]
-[ext_resource type="Animation" uid="uid://c5dwwwcnl8kok" path="res://Assets/PlayerRig/Blue/GreenJump.res" id="15_gxapw"]
-[ext_resource type="Animation" uid="uid://c4kdrymhxgf54" path="res://Assets/PlayerRig/Blue/GreenRESET.res" id="16_dpai3"]
-[ext_resource type="Animation" uid="uid://cs7iyg7loby8n" path="res://Assets/PlayerRig/Blue/GreenRun.res" id="17_efher"]
-[ext_resource type="Animation" uid="uid://byi7ej6gttlqy" path="res://Assets/PlayerRig/Green/GreenStaticDown.res" id="18_8sas7"]
-[ext_resource type="Animation" uid="uid://d2j2f3bv2anuj" path="res://Assets/PlayerRig/Blue/GreenStaticUp.res" id="19_kvx56"]
+[ext_resource type="Animation" uid="uid://tmfcmh080a63" path="res://Assets/PlayerRig/Blue/BlueDance.res" id="13_fynph"]
+[ext_resource type="Animation" uid="uid://j2m2yqscea1y" path="res://Assets/PlayerRig/Blue/BlueFall.res" id="14_p8us6"]
+[ext_resource type="Animation" uid="uid://c5dwwwcnl8kok" path="res://Assets/PlayerRig/Blue/BlueJump.res" id="15_d56bu"]
+[ext_resource type="Animation" uid="uid://c4kdrymhxgf54" path="res://Assets/PlayerRig/Blue/BlueRESET.res" id="16_wuomp"]
+[ext_resource type="Animation" uid="uid://cs7iyg7loby8n" path="res://Assets/PlayerRig/Blue/BlueRun.res" id="17_3qt8n"]
+[ext_resource type="Animation" uid="uid://byi7ej6gttlqy" path="res://Assets/PlayerRig/Blue/BlueStaticDown.res" id="18_402t5"]
+[ext_resource type="Animation" uid="uid://d2j2f3bv2anuj" path="res://Assets/PlayerRig/Blue/BlueStaticUp.res" id="19_14edy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cb0tq"]
 size = Vector2(655, 363.333)
@@ -55,20 +55,19 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nse76"]
 _data = {
-"BlueDance": ExtResource("13_2hkkq"),
-"BlueFall": ExtResource("14_dcx7l"),
-"BlueJump": ExtResource("15_gxapw"),
-"BlueRESET": ExtResource("16_dpai3"),
-"BlueRun": ExtResource("17_efher"),
-"BlueStaticDown": ExtResource("18_8sas7"),
-"BlueStaticUp": ExtResource("19_kvx56"),
+"BlueDance": ExtResource("13_fynph"),
+"BlueFall": ExtResource("14_p8us6"),
+"BlueJump": ExtResource("15_d56bu"),
+"BlueRESET": ExtResource("16_wuomp"),
+"BlueRun": ExtResource("17_3qt8n"),
+"BlueStaticDown": ExtResource("18_402t5"),
+"BlueStaticUp": ExtResource("19_14edy"),
 "RESET": SubResource("Animation_jaqq5")
 }
 
 [node name="Node2D" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_o48fq")
-color = "Blue"
 
 [node name="Hold" type="Area2D" parent="."]
 
@@ -211,6 +210,7 @@ rest = Transform2D(1, 0, 0, 1, -19.0371, 89.6805)
 [node name="RightEar" type="Bone2D" parent="Skeleton2D/Hip/Rib/Head"]
 position = Vector2(78.8359, 52.0241)
 rotation = 0.0100433
+scale = Vector2(1, 1)
 rest = Transform2D(0.99995, 0.0100431, -0.0100431, 0.99995, 78.4393, 42.0417)
 auto_calculate_length_and_angle = false
 length = 28.223
@@ -231,7 +231,6 @@ rest = Transform2D(1, 0, 0, 1, -22.4804, -44.279)
 [node name="LeftLeg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(-5.43703, -29.7134)
 rotation = -0.328192
-scale = Vector2(1, 1)
 rest = Transform2D(0.946627, -0.322332, 0.322332, 0.946627, -5.43703, -29.7134)
 auto_calculate_length_and_angle = false
 length = 43.649
@@ -240,7 +239,7 @@ bone_angle = -168.649
 [node name="RightLeg" type="Bone2D" parent="Skeleton2D/Hip"]
 position = Vector2(2.5288, 31.9626)
 rotation = -0.0854177
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(0.996352, -0.0853137, 0.0853137, 0.996352, 2.5288, 31.9626)
 auto_calculate_length_and_angle = false
 length = 43.649
