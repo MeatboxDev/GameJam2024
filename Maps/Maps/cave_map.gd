@@ -2,7 +2,7 @@ extends Node2D
 
 var MapAnimations = preload("res://Scripts/MapAnimations.gd").new()
 
-var player_array = []
+var player_array = {}
 const spawnPoints = [
 	Vector2(285, 675),
 	Vector2(560, 960),
@@ -38,7 +38,7 @@ func _ready():
 		print("#%d: %s" % [i, Input.get_joy_name(i)])
 		var player = player_scene.instantiate()
 		player.player_index = i
-		player_array.append(player)
+		player_array[player] = 0
 	
 	MapAnimations.SpawnPlayers(player_array, spawnPoints)
 

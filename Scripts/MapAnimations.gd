@@ -82,13 +82,14 @@ func SpawnPlayers(players, spawn_points):
 	var used_indexes = []
 
 	for i in players:
-		var spawn_point = spawn_points[randi() % spawn_points.size()]
-		
-		if spawn_point not in used_indexes:
-			i.position.x = spawn_point.x
-			i.position.y = spawn_point.y
-			add_child(i)
-			used_indexes.append(spawn_point)
+		while (1):
+			var spawn_point = spawn_points[randi() % spawn_points.size()]
+			if spawn_point not in used_indexes:
+				i.position.x = spawn_point.x
+				i.position.y = spawn_point.y
+				add_child(i)
+				used_indexes.append(spawn_point)
+				break
 	
 	
 func RoundStartAnimation():
