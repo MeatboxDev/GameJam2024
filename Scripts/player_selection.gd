@@ -21,10 +21,10 @@ func _ready():
 	player3.find_child("AnimationPlayer").play("GreenDance")
 	player4.find_child("AnimationPlayer").play("GrayDance")
 	
-	find_child("PlayersContainer").add_child(player1)
-	find_child("PlayersContainer").add_child(player2)
-	find_child("PlayersContainer").add_child(player3)
-	find_child("PlayersContainer").add_child(player4)
+	find_child("Players_Container").add_child(player1)
+	find_child("Players_Container").add_child(player2)
+	find_child("Players_Container").add_child(player3)
+	find_child("Players_Container").add_child(player4)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

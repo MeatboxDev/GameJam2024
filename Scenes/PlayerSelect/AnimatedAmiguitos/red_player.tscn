@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0hcew8juvh8w"]
+[gd_scene load_steps=19 format=3 uid="uid://c0hcew8juvh8w"]
 
 [ext_resource type="Texture2D" uid="uid://denr8tb56cr70" path="res://Assets/PlayerRig/Red/RightFoot.png" id="1_h3w1o"]
 [ext_resource type="Texture2D" uid="uid://b7yyi18nqe4dl" path="res://Assets/PlayerRig/Red/leftFoot.png" id="2_cjaij"]
@@ -18,20 +18,6 @@
 [ext_resource type="Animation" uid="uid://cc20sqmrte7ar" path="res://Assets/PlayerRig/Red/RedStaticDown.res" id="16_hatit"]
 [ext_resource type="Animation" uid="uid://cdi1amotp27rv" path="res://Assets/PlayerRig/Red/RedStaticUp.res" id="17_14jiw"]
 
-[sub_resource type="GDScript" id="GDScript_5hq43"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nse76"]
 _data = {
 "RedDance": ExtResource("11_ool5k"),
@@ -48,7 +34,6 @@ offset_left = 115.0
 offset_top = 530.5
 offset_right = 115.0
 offset_bottom = 530.5
-script = SubResource("GDScript_5hq43")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-320, -256.667)
